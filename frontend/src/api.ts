@@ -1,0 +1,54 @@
+import { API_URL } from "./config";
+
+export async function login(email: string, password: string): Promise<string> {
+  // OAuth2 password form: campo "username" = email
+  const body = new URLSearchParams({ username: email, password });
+  const res = await fetch(`${API_URL}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  if (!res.ok) throw new Error("Login falhou (credenciais invalidas?)");
+  const data = await res.json();
+  return data.access_token as string;
+}
+
+export async function register(email: string, password: string, role: string): Promise<void> {
+  const res = await fetch(`${API_URL}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password, role }),
+  });
+  if (!res.ok && res.status !== 409) throw new Error("Registro falhou");
+}
+
+export async function createDocument(token: string, title: string): Promise<{ id: number }> {
+  const res = await fetch(`${API_URL}/api/documents`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ title }),
+  });
+  if (!res.ok) throw new Error("Criar documento falhou");
+  return res.json();
+}
+
+export interface ChatSource {
+  documentId: string;
+  chunkIndex: number | null;
+  score: number;
+  text: string;
+}
+export interface ChatReply {
+  answer: string;
+  sources: ChatSource[];
+}
+
+export async function ragChat(token: string, query: string): Promise<ChatReply> {
+  const res = await fetch(`${API_URL}/api/rag/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ query, k: 5 }),
+  });
+  if (!res.ok) throw new Error("Chat falhou");
+  return res.json();
+}

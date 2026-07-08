@@ -1,0 +1,12 @@
+---
+apiVersion: api.cerbos.dev/v1
+# Papel derivado "owner": ABAC. Vale se o principal ja tem algum papel de engenharia
+# E e o dono do recurso (ownerId == principal.id).
+derivedRoles:
+  name: common_roles
+  definitions:
+    - name: owner
+      parentRoles: ["engineer_l1", "engineer_lead", "admin"]
+      condition:
+        match:
+          expr: request.resource.attr.ownerId == request.principal.id

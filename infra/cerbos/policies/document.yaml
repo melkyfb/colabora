@@ -1,0 +1,28 @@
+---
+apiVersion: api.cerbos.dev/v1
+# Policy do recurso "document" (roadmap Fase 2):
+#   engineer_l1   -> so le (view)
+#   engineer_lead -> le e escreve (view, edit)
+#   admin         -> tudo (view, edit, delete)
+#   owner (ABAC)  -> tudo no proprio doc, ver derived_roles.yaml
+resourcePolicy:
+  version: "default"
+  importDerivedRoles:
+    - common_roles
+  resource: "document"
+  rules:
+    - actions: ["view"]
+      effect: EFFECT_ALLOW
+      roles: ["engineer_l1", "engineer_lead", "admin"]
+
+    - actions: ["edit"]
+      effect: EFFECT_ALLOW
+      roles: ["engineer_lead", "admin"]
+
+    - actions: ["delete"]
+      effect: EFFECT_ALLOW
+      roles: ["admin"]
+
+    - actions: ["view", "edit", "delete"]
+      effect: EFFECT_ALLOW
+      derivedRoles: ["owner"]

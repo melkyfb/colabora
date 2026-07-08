@@ -1,0 +1,172 @@
+{
+  "backend-api/alembic/env.py": {
+    "mtime": 1783539991.4349864,
+    "ast_hash": "a644a0072f002446467f617f3b11cff6",
+    "semantic_hash": "a644a0072f002446467f617f3b11cff6"
+  },
+  "backend-api/alembic/versions/0001_initial.py": {
+    "mtime": 1783540004.9248319,
+    "ast_hash": "09bc8afdcb8b9ab11bca54adde3e6129",
+    "semantic_hash": "09bc8afdcb8b9ab11bca54adde3e6129"
+  },
+  "backend-api/app/__init__.py": {
+    "mtime": 1783539901.0584273,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend-api/app/auth/__init__.py": {
+    "mtime": 1783539933.586594,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend-api/app/auth/deps.py": {
+    "mtime": 1783539941.877849,
+    "ast_hash": "3077ae6f27035a08f13ae8b5cc82ddde",
+    "semantic_hash": "3077ae6f27035a08f13ae8b5cc82ddde"
+  },
+  "backend-api/app/auth/security.py": {
+    "mtime": 1783539938.002543,
+    "ast_hash": "a51aed58ece0dfb8d49a745f4b4a43da",
+    "semantic_hash": "a51aed58ece0dfb8d49a745f4b4a43da"
+  },
+  "backend-api/app/cerbos/__init__.py": {
+    "mtime": 1783539942.4202688,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend-api/app/cerbos/client.py": {
+    "mtime": 1783539949.3800757,
+    "ast_hash": "2a728b5695cd545085fe6d6babded51a",
+    "semantic_hash": "2a728b5695cd545085fe6d6babded51a"
+  },
+  "backend-api/app/config.py": {
+    "mtime": 1783540134.3335023,
+    "ast_hash": "24e94ecc593a6c248fb7291955cf5edb",
+    "semantic_hash": "24e94ecc593a6c248fb7291955cf5edb"
+  },
+  "backend-api/app/db.py": {
+    "mtime": 1783539907.8194268,
+    "ast_hash": "a4b408c21cd562a94cfe0b9013e50db7",
+    "semantic_hash": "a4b408c21cd562a94cfe0b9013e50db7"
+  },
+  "backend-api/app/main.py": {
+    "mtime": 1783539909.6405897,
+    "ast_hash": "3500a5f7433f3b90049574fee3cbedfe",
+    "semantic_hash": "3500a5f7433f3b90049574fee3cbedfe"
+  },
+  "backend-api/app/models/__init__.py": {
+    "mtime": 1783539911.121471,
+    "ast_hash": "45b68962f9d10fa11033c2b3fcc7a8cd",
+    "semantic_hash": "45b68962f9d10fa11033c2b3fcc7a8cd"
+  },
+  "backend-api/app/models/base.py": {
+    "mtime": 1783539913.1255763,
+    "ast_hash": "fca43ce8f4be52ee33541861609322dd",
+    "semantic_hash": "fca43ce8f4be52ee33541861609322dd"
+  },
+  "backend-api/app/models/document.py": {
+    "mtime": 1783539919.623446,
+    "ast_hash": "2d1a68cf05600c237e12dd3ae4a138f9",
+    "semantic_hash": "2d1a68cf05600c237e12dd3ae4a138f9"
+  },
+  "backend-api/app/models/permission.py": {
+    "mtime": 1783539923.3421896,
+    "ast_hash": "46fa2f8f04004c4e66fa09735c600fb5",
+    "semantic_hash": "46fa2f8f04004c4e66fa09735c600fb5"
+  },
+  "backend-api/app/models/user.py": {
+    "mtime": 1783539916.6317995,
+    "ast_hash": "752cb1d3f506ab65d45c478fd8b6ad33",
+    "semantic_hash": "752cb1d3f506ab65d45c478fd8b6ad33"
+  },
+  "backend-api/app/routers/__init__.py": {
+    "mtime": 1783539949.8906343,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend-api/app/routers/auth.py": {
+    "mtime": 1783539956.4276366,
+    "ast_hash": "ad45484f4c35bc540860407f54cf0636",
+    "semantic_hash": "ad45484f4c35bc540860407f54cf0636"
+  },
+  "backend-api/app/routers/documents.py": {
+    "mtime": 1783539967.3775792,
+    "ast_hash": "f581bddf1fd6207d3bed2a36b4c69944",
+    "semantic_hash": "f581bddf1fd6207d3bed2a36b4c69944"
+  },
+  "backend-api/app/routers/webhooks.py": {
+    "mtime": 1783539975.875703,
+    "ast_hash": "21e5c4cc7969bf19beffff3939431f41",
+    "semantic_hash": "21e5c4cc7969bf19beffff3939431f41"
+  },
+  "backend-api/app/schemas/__init__.py": {
+    "mtime": 1783539927.3942888,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend-api/app/schemas/auth.py": {
+    "mtime": 1783539930.8751373,
+    "ast_hash": "43cb5fca42a6954b995ce8810c562696",
+    "semantic_hash": "43cb5fca42a6954b995ce8810c562696"
+  },
+  "backend-api/app/schemas/document.py": {
+    "mtime": 1783539932.8853228,
+    "ast_hash": "425f5df66e51c2999338335b8dfab0db",
+    "semantic_hash": "425f5df66e51c2999338335b8dfab0db"
+  },
+  "backend-api/pyproject.toml": {
+    "mtime": 1783539897.0061731,
+    "ast_hash": "96235af6c7f299dddb5d6604cafa2a47",
+    "semantic_hash": "96235af6c7f299dddb5d6604cafa2a47"
+  },
+  "backend-api/tests/__init__.py": {
+    "mtime": 1783539976.451347,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "backend-api/tests/test_security.py": {
+    "mtime": 1783539979.2924619,
+    "ast_hash": "2a72b06b2ffe23284bdafb8a0c05710b",
+    "semantic_hash": "2a72b06b2ffe23284bdafb8a0c05710b"
+  },
+  "README.md": {
+    "mtime": 1783539251.5363533,
+    "ast_hash": "d9a9b223607b8961c197b44642f22880",
+    "semantic_hash": "d9a9b223607b8961c197b44642f22880"
+  },
+  "backend-api/README.md": {
+    "mtime": 1783540026.6391475,
+    "ast_hash": "c813e4c297ec7abee06ee5f0123ec9b2",
+    "semantic_hash": "c813e4c297ec7abee06ee5f0123ec9b2"
+  },
+  "docker-compose.yml": {
+    "mtime": 1783540054.7344704,
+    "ast_hash": "6f6a32a9d935031756c3386b6d3c553c",
+    "semantic_hash": "6f6a32a9d935031756c3386b6d3c553c"
+  },
+  "frontend/README.md": {
+    "mtime": 1783539241.6071177,
+    "ast_hash": "573f02db347f60c38f51e8d94b38b572",
+    "semantic_hash": "573f02db347f60c38f51e8d94b38b572"
+  },
+  "infra/cerbos/config/config.yaml": {
+    "mtime": 1783539227.76047,
+    "ast_hash": "1bb6b59e1d097ada92e7f0864152a025",
+    "semantic_hash": "1bb6b59e1d097ada92e7f0864152a025"
+  },
+  "infra/cerbos/policies/derived_roles.yaml": {
+    "mtime": 1783540007.4323647,
+    "ast_hash": "5d9dcd50f519659ff002412ef2ebfdf5",
+    "semantic_hash": "5d9dcd50f519659ff002412ef2ebfdf5"
+  },
+  "infra/cerbos/policies/document.yaml": {
+    "mtime": 1783540012.0018885,
+    "ast_hash": "3e296973d2adb8af543febe88fd31247",
+    "semantic_hash": "3e296973d2adb8af543febe88fd31247"
+  },
+  "realtime-server/README.md": {
+    "mtime": 1783539239.3779554,
+    "ast_hash": "3cc98e3831a9dcc2e6df1fb0f66b3250",
+    "semantic_hash": "3cc98e3831a9dcc2e6df1fb0f66b3250"
+  }
+}
