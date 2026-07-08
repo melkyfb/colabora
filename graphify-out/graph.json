@@ -4,35 +4,6 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "dual_stack_data_flow",
-        "label": "Dual-Stack End-to-End Flow: Frontend to Realtime to Backend",
-        "nodes": [
-          "frontend_readme_react_frontend",
-          "realtime_server_readme_hocuspocus",
-          "backend_api_readme_fastapi_gatekeeper",
-          "backend_api_readme_webhook_hocuspocus",
-          "docker_compose_mysql"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 0.85,
-        "source_file": "README.md"
-      },
-      {
-        "id": "cerbos_document_authz",
-        "label": "Cerbos Document ABAC Authorization",
-        "nodes": [
-          "backend_api_readme_cerbos_client",
-          "infra_cerbos_policies_document_policy",
-          "infra_cerbos_policies_derived_roles_owner_role",
-          "docker_compose_cerbos"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 0.85,
-        "source_file": "backend-api/README.md"
-      },
-      {
         "id": "document_role_hierarchy",
         "label": "Document Role Hierarchy (l1/lead/admin/owner)",
         "nodes": [
@@ -236,7 +207,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client",
-      "community": 3,
+      "community": 23,
       "norm_label": "client.py"
     },
     {
@@ -246,7 +217,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient",
-      "community": 3,
+      "community": 23,
       "norm_label": "cerbosclient"
     },
     {
@@ -256,7 +227,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient_init",
-      "community": 3,
+      "community": 23,
       "norm_label": ".__init__()"
     },
     {
@@ -266,8 +237,18 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient_is_allowed",
-      "community": 3,
+      "community": 23,
       "norm_label": ".is_allowed()"
+    },
+    {
+      "label": ".allowed_resource_ids()",
+      "file_type": "code",
+      "source_file": "backend-api/app/cerbos/client.py",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "backend_api_app_cerbos_client_cerbosclient_allowed_resource_ids",
+      "community": 23,
+      "norm_label": ".allowed_resource_ids()"
     },
     {
       "label": "Cliente fino sobre a API REST do Cerbos (POST /api/check/resources).      ponyta",
@@ -276,8 +257,18 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_rationale_7",
-      "community": 3,
+      "community": 23,
       "norm_label": "cliente fino sobre a api rest do cerbos (post /api/check/resources).      ponyta"
+    },
+    {
+      "label": "1 CheckResources p/ N recursos. resources: [{'id':..., 'attr':{...}}, ...].",
+      "file_type": "rationale",
+      "source_file": "backend-api/app/cerbos/client.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "backend_api_app_cerbos_client_rationale_65",
+      "community": 23,
+      "norm_label": "1 checkresources p/ n recursos. resources: [{'id':..., 'attr':{...}}, ...]."
     },
     {
       "label": "config.py",
@@ -346,17 +337,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_api_app_main",
-      "community": 9,
+      "community": 3,
       "norm_label": "main.py"
     },
     {
       "label": "health()",
       "file_type": "code",
       "source_file": "backend-api/app/main.py",
-      "source_location": "L15",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "backend_api_app_main_health",
-      "community": 9,
+      "community": 3,
       "norm_label": "health()"
     },
     {
@@ -456,7 +447,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_api_app_models_user",
-      "community": 2,
+      "community": 9,
       "norm_label": "user.py"
     },
     {
@@ -466,8 +457,168 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_api_app_models_user_user",
-      "community": 2,
+      "community": 9,
       "norm_label": "user"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_init",
+      "community": 28,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "embeddings.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/embeddings.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_embeddings",
+      "community": 3,
+      "norm_label": "embeddings.py"
+    },
+    {
+      "label": "get_embeddings()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/embeddings.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_embeddings_get_embeddings",
+      "community": 3,
+      "norm_label": "get_embeddings()"
+    },
+    {
+      "label": "Embeddings selecionadas por env. Carrega uma vez (modelo local e pesado).",
+      "file_type": "rationale",
+      "source_file": "backend-api/app/rag/embeddings.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_embeddings_rationale_8",
+      "community": 3,
+      "norm_label": "embeddings selecionadas por env. carrega uma vez (modelo local e pesado)."
+    },
+    {
+      "label": "ingest.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/ingest.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_ingest",
+      "community": 9,
+      "norm_label": "ingest.py"
+    },
+    {
+      "label": "pdf_to_text()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/ingest.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_ingest_pdf_to_text",
+      "community": 9,
+      "norm_label": "pdf_to_text()"
+    },
+    {
+      "label": "split_text()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/ingest.py",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_ingest_split_text",
+      "community": 9,
+      "norm_label": "split_text()"
+    },
+    {
+      "label": "llm.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/llm.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_llm",
+      "community": 3,
+      "norm_label": "llm.py"
+    },
+    {
+      "label": "get_llm()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/llm.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_llm_get_llm",
+      "community": 3,
+      "norm_label": "get_llm()"
+    },
+    {
+      "label": "Chat LLM selecionado por env. Carrega uma vez.      Providers: claude (default)",
+      "file_type": "rationale",
+      "source_file": "backend-api/app/rag/llm.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_llm_rationale_8",
+      "community": 3,
+      "norm_label": "chat llm selecionado por env. carrega uma vez.      providers: claude (default)"
+    },
+    {
+      "label": "vectorstore.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_vectorstore",
+      "community": 3,
+      "norm_label": "vectorstore.py"
+    },
+    {
+      "label": "get_vectorstore()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_vectorstore_get_vectorstore",
+      "community": 3,
+      "norm_label": "get_vectorstore()"
+    },
+    {
+      "label": "OpenSearchVectorSearch",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "opensearchvectorsearch",
+      "community": 3,
+      "norm_label": "opensearchvectorsearch"
+    },
+    {
+      "label": "add_chunks()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_vectorstore_add_chunks",
+      "community": 3,
+      "norm_label": "add_chunks()"
+    },
+    {
+      "label": "search()",
+      "file_type": "code",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_vectorstore_search",
+      "community": 3,
+      "norm_label": "search()"
+    },
+    {
+      "label": "Retorna [(Document, score)] por similaridade K-NN.",
+      "file_type": "rationale",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "backend_api_app_rag_vectorstore_rationale_28",
+      "community": 3,
+      "norm_label": "retorna [(document, score)] por similaridade k-nn."
     },
     {
       "label": "__init__.py",
@@ -630,6 +781,216 @@
       "norm_label": "delete_document()"
     },
     {
+      "label": "internal.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal",
+      "community": 6,
+      "norm_label": "internal.py"
+    },
+    {
+      "label": "AuthorizeRequest",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_authorizerequest",
+      "community": 6,
+      "norm_label": "authorizerequest"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_py_basemodel",
+      "community": 6,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "AuthorizeResponse",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_authorizeresponse",
+      "community": 6,
+      "norm_label": "authorizeresponse"
+    },
+    {
+      "label": "_require_internal_key()",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_require_internal_key",
+      "community": 6,
+      "norm_label": "_require_internal_key()"
+    },
+    {
+      "label": "authorize()",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_authorize",
+      "community": 6,
+      "norm_label": "authorize()"
+    },
+    {
+      "label": "AsyncSession",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_py_asyncsession",
+      "community": 6,
+      "norm_label": "asyncsession"
+    },
+    {
+      "label": "Usado pelo onAuthenticate do Hocuspocus: valida JWT + Cerbos antes do WS.",
+      "file_type": "rationale",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_internal_rationale_46",
+      "community": 6,
+      "norm_label": "usado pelo onauthenticate do hocuspocus: valida jwt + cerbos antes do ws."
+    },
+    {
+      "label": "rag.py",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag",
+      "community": 9,
+      "norm_label": "rag.py"
+    },
+    {
+      "label": "IngestResponse",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_ingestresponse",
+      "community": 9,
+      "norm_label": "ingestresponse"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_py_basemodel",
+      "community": 9,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "ingest()",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_ingest",
+      "community": 9,
+      "norm_label": "ingest()"
+    },
+    {
+      "label": "UploadFile",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "uploadfile",
+      "community": 9,
+      "norm_label": "uploadfile"
+    },
+    {
+      "label": "AsyncSession",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_py_asyncsession",
+      "community": 9,
+      "norm_label": "asyncsession"
+    },
+    {
+      "label": "SearchHit",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_searchhit",
+      "community": 9,
+      "norm_label": "searchhit"
+    },
+    {
+      "label": "_retrieve_allowed()",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_retrieve_allowed",
+      "community": 9,
+      "norm_label": "_retrieve_allowed()"
+    },
+    {
+      "label": "SearchRequest",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_searchrequest",
+      "community": 9,
+      "norm_label": "searchrequest"
+    },
+    {
+      "label": "rag_search()",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_rag_search",
+      "community": 9,
+      "norm_label": "rag_search()"
+    },
+    {
+      "label": "ChatRequest",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_chatrequest",
+      "community": 9,
+      "norm_label": "chatrequest"
+    },
+    {
+      "label": "ChatResponse",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_chatresponse",
+      "community": 9,
+      "norm_label": "chatresponse"
+    },
+    {
+      "label": "rag_chat()",
+      "file_type": "code",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "backend_api_app_routers_rag_rag_chat",
+      "community": 9,
+      "norm_label": "rag_chat()"
+    },
+    {
       "label": "webhooks.py",
       "file_type": "code",
       "source_file": "backend-api/app/routers/webhooks.py",
@@ -746,7 +1107,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_api_app_schemas_document",
-      "community": 7,
+      "community": 2,
       "norm_label": "document.py"
     },
     {
@@ -756,7 +1117,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_api_app_schemas_document_documentcreate",
-      "community": 7,
+      "community": 2,
       "norm_label": "documentcreate"
     },
     {
@@ -766,7 +1127,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_api_app_schemas_document_py_basemodel",
-      "community": 7,
+      "community": 2,
       "norm_label": "basemodel"
     },
     {
@@ -776,7 +1137,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_api_app_schemas_document_documentupdate",
-      "community": 7,
+      "community": 2,
       "norm_label": "documentupdate"
     },
     {
@@ -786,7 +1147,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_api_app_schemas_document_documentout",
-      "community": 7,
+      "community": 2,
       "norm_label": "documentout"
     },
     {
@@ -811,6 +1172,36 @@
       "id": "backend_api_tests_init",
       "community": 16,
       "norm_label": "__init__.py"
+    },
+    {
+      "label": "test_rag.py",
+      "file_type": "code",
+      "source_file": "backend-api/tests/test_rag.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_tests_test_rag",
+      "community": 9,
+      "norm_label": "test_rag.py"
+    },
+    {
+      "label": "test_split_text_produces_multiple_chunks()",
+      "file_type": "code",
+      "source_file": "backend-api/tests/test_rag.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_api_tests_test_rag_test_split_text_produces_multiple_chunks",
+      "community": 9,
+      "norm_label": "test_split_text_produces_multiple_chunks()"
+    },
+    {
+      "label": "Self-check do splitter. Skip se langchain-text-splitters nao instalado.",
+      "file_type": "rationale",
+      "source_file": "backend-api/tests/test_rag.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_tests_test_rag_rationale_1",
+      "community": 9,
+      "norm_label": "self-check do splitter. skip se langchain-text-splitters nao instalado."
     },
     {
       "label": "test_security.py",
@@ -853,6 +1244,1256 @@
       "norm_label": "self-check das rotinas de auth. roda sem db/infra: pytest -q."
     },
     {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_package",
+      "community": 7,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "frontend_package_name",
+      "community": 7,
+      "norm_label": "name"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "frontend_package_private",
+      "community": 7,
+      "norm_label": "private"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "frontend_package_version",
+      "community": 7,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_package_type",
+      "community": 7,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "frontend_package_scripts",
+      "community": 7,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "frontend_package_scripts_dev",
+      "community": 7,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "frontend_package_scripts_build",
+      "community": 7,
+      "norm_label": "build"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "frontend_package_scripts_preview",
+      "community": 7,
+      "norm_label": "preview"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_package_scripts_typecheck",
+      "community": 7,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies",
+      "community": 7,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@hocuspocus/provider",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_hocuspocus_provider",
+      "community": 7,
+      "norm_label": "@hocuspocus/provider"
+    },
+    {
+      "label": "@tiptap/extension-collaboration",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_tiptap_extension_collaboration",
+      "community": 7,
+      "norm_label": "@tiptap/extension-collaboration"
+    },
+    {
+      "label": "@tiptap/pm",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_tiptap_pm",
+      "community": 7,
+      "norm_label": "@tiptap/pm"
+    },
+    {
+      "label": "@tiptap/react",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_tiptap_react",
+      "community": 7,
+      "norm_label": "@tiptap/react"
+    },
+    {
+      "label": "@tiptap/starter-kit",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_tiptap_starter_kit",
+      "community": 7,
+      "norm_label": "@tiptap/starter-kit"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_react",
+      "community": 7,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_react_dom",
+      "community": 7,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "yjs",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_yjs",
+      "community": 7,
+      "norm_label": "yjs"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "frontend_package_devdependencies",
+      "community": 7,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "frontend_package_devdependencies_types_react",
+      "community": 7,
+      "norm_label": "@types/react"
+    },
+    {
+      "label": "@types/react-dom",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "frontend_package_devdependencies_types_react_dom",
+      "community": 7,
+      "norm_label": "@types/react-dom"
+    },
+    {
+      "label": "@vitejs/plugin-react",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "frontend_package_devdependencies_vitejs_plugin_react",
+      "community": 7,
+      "norm_label": "@vitejs/plugin-react"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "frontend_package_devdependencies_typescript",
+      "community": 7,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "frontend_package_devdependencies_vite",
+      "community": 7,
+      "norm_label": "vite"
+    },
+    {
+      "label": "AiSidebar.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/AiSidebar.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_aisidebar",
+      "community": 19,
+      "norm_label": "aisidebar.tsx"
+    },
+    {
+      "label": "AiSidebar()",
+      "file_type": "code",
+      "source_file": "frontend/src/AiSidebar.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_aisidebar_aisidebar",
+      "community": 19,
+      "norm_label": "aisidebar()"
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_app",
+      "community": 19,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "frontend_src_app_app",
+      "community": 19,
+      "norm_label": "app()"
+    },
+    {
+      "label": "Editor.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/Editor.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_editor",
+      "community": 19,
+      "norm_label": "editor.tsx"
+    },
+    {
+      "label": "Editor()",
+      "file_type": "code",
+      "source_file": "frontend/src/Editor.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_src_editor_editor",
+      "community": 19,
+      "norm_label": "editor()"
+    },
+    {
+      "label": "Login.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/Login.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_login",
+      "community": 19,
+      "norm_label": "login.tsx"
+    },
+    {
+      "label": "Login()",
+      "file_type": "code",
+      "source_file": "frontend/src/Login.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_login_login",
+      "community": 19,
+      "norm_label": "login()"
+    },
+    {
+      "label": "api.ts",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_api",
+      "community": 19,
+      "norm_label": "api.ts"
+    },
+    {
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "frontend_src_api_login",
+      "community": 19,
+      "norm_label": "login()"
+    },
+    {
+      "label": "register()",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_src_api_register",
+      "community": 19,
+      "norm_label": "register()"
+    },
+    {
+      "label": "createDocument()",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "frontend_src_api_createdocument",
+      "community": 19,
+      "norm_label": "createdocument()"
+    },
+    {
+      "label": "ChatSource",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "frontend_src_api_chatsource",
+      "community": 19,
+      "norm_label": "chatsource"
+    },
+    {
+      "label": "ChatReply",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "frontend_src_api_chatreply",
+      "community": 19,
+      "norm_label": "chatreply"
+    },
+    {
+      "label": "ragChat()",
+      "file_type": "code",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "frontend_src_api_ragchat",
+      "community": 19,
+      "norm_label": "ragchat()"
+    },
+    {
+      "label": "config.ts",
+      "file_type": "code",
+      "source_file": "frontend/src/config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_config",
+      "community": 19,
+      "norm_label": "config.ts"
+    },
+    {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/main.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_main",
+      "community": 19,
+      "norm_label": "main.tsx"
+    },
+    {
+      "label": "vite-env.d.ts",
+      "file_type": "code",
+      "source_file": "frontend/src/vite-env.d.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_vite_env_d",
+      "community": 35,
+      "norm_label": "vite-env.d.ts"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_tsconfig",
+      "community": 20,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions",
+      "community": 20,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_target",
+      "community": 20,
+      "norm_label": "target"
+    },
+    {
+      "label": "useDefineForClassFields",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_usedefineforclassfields",
+      "community": 20,
+      "norm_label": "usedefineforclassfields"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_lib",
+      "community": 20,
+      "norm_label": "lib"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_module",
+      "community": 20,
+      "norm_label": "module"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_skiplibcheck",
+      "community": 20,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_moduleresolution",
+      "community": 20,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "resolveJsonModule",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_resolvejsonmodule",
+      "community": 20,
+      "norm_label": "resolvejsonmodule"
+    },
+    {
+      "label": "isolatedModules",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_isolatedmodules",
+      "community": 20,
+      "norm_label": "isolatedmodules"
+    },
+    {
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_noemit",
+      "community": 20,
+      "norm_label": "noemit"
+    },
+    {
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_jsx",
+      "community": 20,
+      "norm_label": "jsx"
+    },
+    {
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_strict",
+      "community": 20,
+      "norm_label": "strict"
+    },
+    {
+      "label": "noUnusedLocals",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_nounusedlocals",
+      "community": 20,
+      "norm_label": "nounusedlocals"
+    },
+    {
+      "label": "noUnusedParameters",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_compileroptions_nounusedparameters",
+      "community": 20,
+      "norm_label": "nounusedparameters"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "frontend_tsconfig_include",
+      "community": 20,
+      "norm_label": "include"
+    },
+    {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "frontend/vite.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_vite_config",
+      "community": 36,
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_package",
+      "community": 18,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "realtime_server_package_name",
+      "community": 18,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "realtime_server_package_version",
+      "community": 18,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "realtime_server_package_private",
+      "community": 18,
+      "norm_label": "private"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "realtime_server_package_type",
+      "community": 18,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "realtime_server_package_scripts",
+      "community": 18,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "realtime_server_package_scripts_dev",
+      "community": 18,
+      "norm_label": "dev"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "realtime_server_package_scripts_start",
+      "community": 18,
+      "norm_label": "start"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "realtime_server_package_scripts_build",
+      "community": 18,
+      "norm_label": "build"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "realtime_server_package_scripts_typecheck",
+      "community": 18,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "realtime_server_package_dependencies",
+      "community": 18,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@hocuspocus/server",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "realtime_server_package_dependencies_hocuspocus_server",
+      "community": 18,
+      "norm_label": "@hocuspocus/server"
+    },
+    {
+      "label": "@hocuspocus/extension-redis",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "realtime_server_package_dependencies_hocuspocus_extension_redis",
+      "community": 18,
+      "norm_label": "@hocuspocus/extension-redis"
+    },
+    {
+      "label": "@hocuspocus/extension-webhook",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "realtime_server_package_dependencies_hocuspocus_extension_webhook",
+      "community": 18,
+      "norm_label": "@hocuspocus/extension-webhook"
+    },
+    {
+      "label": "@hocuspocus/transformer",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "realtime_server_package_dependencies_hocuspocus_transformer",
+      "community": 18,
+      "norm_label": "@hocuspocus/transformer"
+    },
+    {
+      "label": "yjs",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "realtime_server_package_dependencies_yjs",
+      "community": 18,
+      "norm_label": "yjs"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "realtime_server_package_devdependencies",
+      "community": 18,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "realtime_server_package_devdependencies_types_node",
+      "community": 18,
+      "norm_label": "@types/node"
+    },
+    {
+      "label": "tsx",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "realtime_server_package_devdependencies_tsx",
+      "community": 18,
+      "norm_label": "tsx"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "realtime_server_package_devdependencies_typescript",
+      "community": 18,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "auth.ts",
+      "file_type": "code",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_src_auth",
+      "community": 26,
+      "norm_label": "auth.ts"
+    },
+    {
+      "label": "AuthzResult",
+      "file_type": "code",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "realtime_server_src_auth_authzresult",
+      "community": 26,
+      "norm_label": "authzresult"
+    },
+    {
+      "label": "authorizeConnection()",
+      "file_type": "code",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "realtime_server_src_auth_authorizeconnection",
+      "community": 26,
+      "norm_label": "authorizeconnection()"
+    },
+    {
+      "label": "config.ts",
+      "file_type": "code",
+      "source_file": "realtime-server/src/config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_src_config",
+      "community": 26,
+      "norm_label": "config.ts"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "realtime-server/src/config.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "realtime_server_src_config_config",
+      "community": 26,
+      "norm_label": "config"
+    },
+    {
+      "label": "server.ts",
+      "file_type": "code",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_src_server",
+      "community": 26,
+      "norm_label": "server.ts"
+    },
+    {
+      "label": "server",
+      "file_type": "code",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "realtime_server_src_server_server",
+      "community": 26,
+      "norm_label": "server"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig",
+      "community": 21,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions",
+      "community": 21,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_target",
+      "community": 21,
+      "norm_label": "target"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_module",
+      "community": 21,
+      "norm_label": "module"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_moduleresolution",
+      "community": 21,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_esmoduleinterop",
+      "community": 21,
+      "norm_label": "esmoduleinterop"
+    },
+    {
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_strict",
+      "community": 21,
+      "norm_label": "strict"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_skiplibcheck",
+      "community": 21,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "outDir",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_outdir",
+      "community": 21,
+      "norm_label": "outdir"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_compileroptions_types",
+      "community": 21,
+      "norm_label": "types"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "realtime_server_tsconfig_include",
+      "community": 21,
+      "norm_label": "include"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 27,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Nyx Platform \u2014 Data Management Platform (PoC)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_nyx_platform_data_management_platform_poc",
+      "community": 27,
+      "norm_label": "nyx platform \u2014 data management platform (poc)"
+    },
+    {
+      "label": "Estrutura",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "readme_estrutura",
+      "community": 27,
+      "norm_label": "estrutura"
+    },
+    {
+      "label": "Fase 1 \u2014 subir a infra local",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "readme_fase_1_subir_a_infra_local",
+      "community": 27,
+      "norm_label": "fase 1 \u2014 subir a infra local"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_readme",
+      "community": 22,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "backend-api \u2014 Motor Principal (Fase 2)",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "community": 22,
+      "norm_label": "backend-api \u2014 motor principal (fase 2)"
+    },
+    {
+      "label": "Rodar (dockerizado)",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "backend_api_readme_rodar_dockerizado",
+      "community": 22,
+      "norm_label": "rodar (dockerizado)"
+    },
+    {
+      "label": "Rodar local (sem Docker, contra a infra dockerizada)",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "backend_api_readme_rodar_local_sem_docker_contra_a_infra_dockerizada",
+      "community": 22,
+      "norm_label": "rodar local (sem docker, contra a infra dockerizada)"
+    },
+    {
+      "label": "Estrutura",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "backend_api_readme_estrutura",
+      "community": 22,
+      "norm_label": "estrutura"
+    },
+    {
+      "label": "Endpoints",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "backend_api_readme_endpoints",
+      "community": 22,
+      "norm_label": "endpoints"
+    },
+    {
+      "label": "Autorizacao (ABAC via Cerbos)",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "backend_api_readme_autorizacao_abac_via_cerbos",
+      "community": 22,
+      "norm_label": "autorizacao (abac via cerbos)"
+    },
+    {
+      "label": "Webhook Hocuspocus",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "backend_api_readme_webhook_hocuspocus",
+      "community": 22,
+      "norm_label": "webhook hocuspocus"
+    },
+    {
+      "label": "Testes",
+      "file_type": "document",
+      "source_file": "backend-api/README.md",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "backend_api_readme_testes",
+      "community": 22,
+      "norm_label": "testes"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_readme",
+      "community": 24,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "frontend \u2014 Cliente (Fase 5)",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_readme_frontend_cliente_fase_5",
+      "community": 24,
+      "norm_label": "frontend \u2014 cliente (fase 5)"
+    },
+    {
+      "label": "O que faz",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_readme_o_que_faz",
+      "community": 24,
+      "norm_label": "o que faz"
+    },
+    {
+      "label": "Rodar (dockerizado)",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "frontend_readme_rodar_dockerizado",
+      "community": 24,
+      "norm_label": "rodar (dockerizado)"
+    },
+    {
+      "label": "Rodar local",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "frontend_readme_rodar_local",
+      "community": 24,
+      "norm_label": "rodar local"
+    },
+    {
+      "label": "Env (build/runtime \u2014 lidas pelo browser)",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "frontend_readme_env_build_runtime_lidas_pelo_browser",
+      "community": 24,
+      "norm_label": "env (build/runtime \u2014 lidas pelo browser)"
+    },
+    {
+      "label": "Fluxo E2E",
+      "file_type": "document",
+      "source_file": "frontend/README.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "frontend_readme_fluxo_e2e",
+      "community": 24,
+      "norm_label": "fluxo e2e"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_readme",
+      "community": 25,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "realtime-server \u2014 Via Expressa (Fase 3)",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "community": 25,
+      "norm_label": "realtime-server \u2014 via expressa (fase 3)"
+    },
+    {
+      "label": "O que faz",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "realtime_server_readme_o_que_faz",
+      "community": 25,
+      "norm_label": "o que faz"
+    },
+    {
+      "label": "Rodar (dockerizado)",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "realtime_server_readme_rodar_dockerizado",
+      "community": 25,
+      "norm_label": "rodar (dockerizado)"
+    },
+    {
+      "label": "Rodar local",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "realtime_server_readme_rodar_local",
+      "community": 25,
+      "norm_label": "rodar local"
+    },
+    {
+      "label": "Env",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "realtime_server_readme_env",
+      "community": 25,
+      "norm_label": "env"
+    },
+    {
+      "label": "Fluxo de conexao",
+      "file_type": "document",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "realtime_server_readme_fluxo_de_conexao",
+      "community": 25,
+      "norm_label": "fluxo de conexao"
+    },
+    {
       "label": "Nyx Platform (PoC)",
       "file_type": "document",
       "source_file": "README.md",
@@ -861,9 +2502,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_nyx_platform",
-      "community": 1,
-      "norm_label": "nyx platform (poc)"
+      "community": 39,
+      "norm_label": "nyx platform (poc)",
+      "id": "readme_nyx_platform"
     },
     {
       "label": "Dual-Stack Architecture",
@@ -874,9 +2515,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_dual_stack",
-      "community": 1,
-      "norm_label": "dual-stack architecture"
+      "community": 37,
+      "norm_label": "dual-stack architecture",
+      "id": "readme_dual_stack"
     },
     {
       "label": "Real-Time Lane (CRDT)",
@@ -887,9 +2528,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_realtime_lane",
-      "community": 1,
-      "norm_label": "real-time lane (crdt)"
+      "community": 40,
+      "norm_label": "real-time lane (crdt)",
+      "id": "readme_realtime_lane"
     },
     {
       "label": "Processing/AI Lane",
@@ -900,9 +2541,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_processing_lane",
       "community": 1,
-      "norm_label": "processing/ai lane"
+      "norm_label": "processing/ai lane",
+      "id": "readme_processing_lane"
     },
     {
       "label": "Hard Rule: FastAPI Never Proxies WebSocket",
@@ -913,9 +2554,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_no_ws_proxy_rule",
-      "community": 1,
-      "norm_label": "hard rule: fastapi never proxies websocket"
+      "community": 38,
+      "norm_label": "hard rule: fastapi never proxies websocket",
+      "id": "readme_no_ws_proxy_rule"
     },
     {
       "label": "FastAPI backend-api (REST Gatekeeper)",
@@ -926,9 +2567,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "backend_api_readme_fastapi_gatekeeper",
       "community": 1,
-      "norm_label": "fastapi backend-api (rest gatekeeper)"
+      "norm_label": "fastapi backend-api (rest gatekeeper)",
+      "id": "backend_api_readme_fastapi_gatekeeper"
     },
     {
       "label": "Cerbos httpx Client (/api/check/resources)",
@@ -939,9 +2580,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "backend_api_readme_cerbos_client",
-      "community": 5,
-      "norm_label": "cerbos httpx client (/api/check/resources)"
+      "community": 29,
+      "norm_label": "cerbos httpx client (/api/check/resources)",
+      "id": "backend_api_readme_cerbos_client"
     },
     {
       "label": "JWT + bcrypt Auth",
@@ -952,22 +2593,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "backend_api_readme_jwt_auth",
-      "community": 1,
-      "norm_label": "jwt + bcrypt auth"
-    },
-    {
-      "label": "/api/webhooks/hocuspocus Webhook",
-      "file_type": "code",
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "backend_api_readme_webhook_hocuspocus",
-      "community": 1,
-      "norm_label": "/api/webhooks/hocuspocus webhook"
+      "community": 30,
+      "norm_label": "jwt + bcrypt auth",
+      "id": "backend_api_readme_jwt_auth"
     },
     {
       "label": "Document Resource",
@@ -978,9 +2606,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "backend_api_readme_document_resource",
-      "community": 1,
-      "norm_label": "document resource"
+      "community": 5,
+      "norm_label": "document resource",
+      "id": "backend_api_readme_document_resource"
     },
     {
       "label": "Hocuspocus realtime-server",
@@ -991,9 +2619,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "realtime_server_readme_hocuspocus",
-      "community": 1,
-      "norm_label": "hocuspocus realtime-server"
+      "community": 41,
+      "norm_label": "hocuspocus realtime-server",
+      "id": "realtime_server_readme_hocuspocus"
     },
     {
       "label": "onAuthenticate Hook",
@@ -1004,9 +2632,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "realtime_server_readme_on_authenticate",
-      "community": 1,
-      "norm_label": "onauthenticate hook"
+      "community": 42,
+      "norm_label": "onauthenticate hook",
+      "id": "realtime_server_readme_on_authenticate"
     },
     {
       "label": "onStoreDocument Hook",
@@ -1017,9 +2645,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "realtime_server_readme_on_store_document",
-      "community": 1,
-      "norm_label": "onstoredocument hook"
+      "community": 43,
+      "norm_label": "onstoredocument hook",
+      "id": "realtime_server_readme_on_store_document"
     },
     {
       "label": "Redis Pub/Sub Scale-Out (@hocuspocus/extension-redis)",
@@ -1030,9 +2658,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "realtime_server_readme_redis_scaleout",
-      "community": 1,
-      "norm_label": "redis pub/sub scale-out (@hocuspocus/extension-redis)"
+      "community": 44,
+      "norm_label": "redis pub/sub scale-out (@hocuspocus/extension-redis)",
+      "id": "realtime_server_readme_redis_scaleout"
     },
     {
       "label": "React + Tiptap + Y.js Frontend",
@@ -1043,9 +2671,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "frontend_readme_react_frontend",
-      "community": 1,
-      "norm_label": "react + tiptap + y.js frontend"
+      "community": 32,
+      "norm_label": "react + tiptap + y.js frontend",
+      "id": "frontend_readme_react_frontend"
     },
     {
       "label": "Y.js CRDT",
@@ -1056,9 +2684,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "frontend_readme_yjs",
-      "community": 1,
-      "norm_label": "y.js crdt"
+      "community": 34,
+      "norm_label": "y.js crdt",
+      "id": "frontend_readme_yjs"
     },
     {
       "label": "Tiptap Editor",
@@ -1069,9 +2697,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "frontend_readme_tiptap",
-      "community": 1,
-      "norm_label": "tiptap editor"
+      "community": 33,
+      "norm_label": "tiptap editor",
+      "id": "frontend_readme_tiptap"
     },
     {
       "label": "MySQL (Final Document State)",
@@ -1082,9 +2710,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docker_compose_mysql",
       "community": 1,
-      "norm_label": "mysql (final document state)"
+      "norm_label": "mysql (final document state)",
+      "id": "docker_compose_mysql"
     },
     {
       "label": "Redis (Hocuspocus Pub/Sub)",
@@ -1095,9 +2723,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docker_compose_redis",
-      "community": 1,
-      "norm_label": "redis (hocuspocus pub/sub)"
+      "community": 31,
+      "norm_label": "redis (hocuspocus pub/sub)",
+      "id": "docker_compose_redis"
     },
     {
       "label": "OpenSearch (Vector DB / RAG)",
@@ -1108,9 +2736,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docker_compose_opensearch",
       "community": 1,
-      "norm_label": "opensearch (vector db / rag)"
+      "norm_label": "opensearch (vector db / rag)",
+      "id": "docker_compose_opensearch"
     },
     {
       "label": "Cerbos ABAC Authorization",
@@ -1121,9 +2749,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docker_compose_cerbos",
       "community": 5,
-      "norm_label": "cerbos abac authorization"
+      "norm_label": "cerbos abac authorization",
+      "id": "docker_compose_cerbos"
     },
     {
       "label": "Cerbos Server Config (disk storage, hot-reload)",
@@ -1134,9 +2762,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_config_config_server",
       "community": 5,
-      "norm_label": "cerbos server config (disk storage, hot-reload)"
+      "norm_label": "cerbos server config (disk storage, hot-reload)",
+      "id": "infra_cerbos_config_config_server"
     },
     {
       "label": "Document Resource Policy",
@@ -1147,9 +2775,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_policies_document_policy",
       "community": 5,
-      "norm_label": "document resource policy"
+      "norm_label": "document resource policy",
+      "id": "infra_cerbos_policies_document_policy"
     },
     {
       "label": "engineer_l1 role (read/view)",
@@ -1160,9 +2788,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_policies_document_engineer_l1_role",
       "community": 5,
-      "norm_label": "engineer_l1 role (read/view)"
+      "norm_label": "engineer_l1 role (read/view)",
+      "id": "infra_cerbos_policies_document_engineer_l1_role"
     },
     {
       "label": "engineer_lead role (read+write)",
@@ -1173,9 +2801,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_policies_document_engineer_lead_role",
       "community": 5,
-      "norm_label": "engineer_lead role (read+write)"
+      "norm_label": "engineer_lead role (read+write)",
+      "id": "infra_cerbos_policies_document_engineer_lead_role"
     },
     {
       "label": "admin role (all actions)",
@@ -1186,9 +2814,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_policies_document_admin_role",
       "community": 5,
-      "norm_label": "admin role (all actions)"
+      "norm_label": "admin role (all actions)",
+      "id": "infra_cerbos_policies_document_admin_role"
     },
     {
       "label": "owner derived role (ABAC ownerId condition)",
@@ -1199,9 +2827,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_policies_derived_roles_owner_role",
       "community": 5,
-      "norm_label": "owner derived role (abac ownerid condition)"
+      "norm_label": "owner derived role (abac ownerid condition)",
+      "id": "infra_cerbos_policies_derived_roles_owner_role"
     },
     {
       "label": "common_roles Derived Roles",
@@ -1212,9 +2840,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "infra_cerbos_policies_derived_roles_common_roles",
       "community": 5,
-      "norm_label": "common_roles derived roles"
+      "norm_label": "common_roles derived roles",
+      "id": "infra_cerbos_policies_derived_roles_common_roles"
     }
   ],
   "links": [
@@ -1466,6 +3094,17 @@
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorize",
+      "target": "backend_api_app_auth_security_decode_token"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "backend-api/tests/test_security.py",
       "source_location": "L19",
       "weight": 1.0,
@@ -1491,6 +3130,16 @@
       "weight": 1.0,
       "source": "backend_api_app_cerbos_client",
       "target": "backend_api_app_cerbos_client_cerbosclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/cerbos/client.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "backend_api_app_cerbos_client_cerbosclient",
+      "target": "backend_api_app_cerbos_client_cerbosclient_allowed_resource_ids",
       "confidence_score": 1.0
     },
     {
@@ -1524,6 +3173,16 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/cerbos/client.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "backend_api_app_cerbos_client_rationale_65",
+      "target": "backend_api_app_cerbos_client_cerbosclient_allowed_resource_ids",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-api/app/config.py",
@@ -1541,6 +3200,61 @@
       "source_location": "L5",
       "weight": 1.0,
       "source": "backend_api_app_db",
+      "target": "backend_api_app_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/main.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "backend_api_app_main",
+      "target": "backend_api_app_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/embeddings.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_embeddings",
+      "target": "backend_api_app_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/llm.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_llm",
+      "target": "backend_api_app_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore",
+      "target": "backend_api_app_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal",
       "target": "backend_api_app_config",
       "confidence_score": 1.0
     },
@@ -1601,6 +3315,28 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal",
+      "target": "backend_api_app_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_db",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend-api/app/routers/webhooks.py",
       "source_location": "L9",
       "weight": 1.0,
@@ -1623,7 +3359,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-api/app/main.py",
-      "source_location": "L15",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "backend_api_app_main",
       "target": "backend_api_app_main_health",
@@ -1778,6 +3514,37 @@
       "context": "argument",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorize",
+      "target": "backend_api_app_models_document_document"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_internal_authorizerequest",
+      "target": "backend_api_app_models_document_document",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_internal_authorizeresponse",
+      "target": "backend_api_app_models_document_document",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "backend-api/app/routers/webhooks.py",
       "source_location": "L49",
       "weight": 1.0,
@@ -1793,6 +3560,26 @@
       "source": "backend_api_app_models_permission",
       "target": "backend_api_app_models_permission_permission",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L14",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_internal_authorizerequest",
+      "target": "backend_api_app_models_permission_permission",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L14",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_internal_authorizeresponse",
+      "target": "backend_api_app_models_permission_permission",
+      "confidence_score": 0.5
     },
     {
       "relation": "contains",
@@ -1902,6 +3689,341 @@
       "source": "backend_api_app_routers_documents_update_document",
       "target": "backend_api_app_models_user_user",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorize",
+      "target": "backend_api_app_models_user_user"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L15",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_internal_authorizerequest",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L15",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_internal_authorizeresponse",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_rag_chatrequest",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_rag_chatresponse",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_rag_ingestresponse",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_chat",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_search",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_retrieve_allowed",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_rag_searchhit",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "source": "backend_api_app_routers_rag_searchrequest",
+      "target": "backend_api_app_models_user_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/embeddings.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_embeddings",
+      "target": "backend_api_app_rag_embeddings_get_embeddings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/embeddings.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_embeddings_rationale_8",
+      "target": "backend_api_app_rag_embeddings_get_embeddings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore_get_vectorstore",
+      "target": "backend_api_app_rag_embeddings_get_embeddings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/ingest.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_ingest",
+      "target": "backend_api_app_rag_ingest_pdf_to_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/ingest.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_ingest",
+      "target": "backend_api_app_rag_ingest_split_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_rag_ingest_pdf_to_text"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_rag_ingest_split_text"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/tests/test_rag.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "backend_api_tests_test_rag_test_split_text_produces_multiple_chunks",
+      "target": "backend_api_app_rag_ingest_split_text"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/llm.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_llm",
+      "target": "backend_api_app_rag_llm_get_llm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/llm.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_llm_rationale_8",
+      "target": "backend_api_app_rag_llm_get_llm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_chat",
+      "target": "backend_api_app_rag_llm_get_llm"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore",
+      "target": "backend_api_app_rag_vectorstore_add_chunks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore",
+      "target": "backend_api_app_rag_vectorstore_get_vectorstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore",
+      "target": "backend_api_app_rag_vectorstore_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore_add_chunks",
+      "target": "backend_api_app_rag_vectorstore_get_vectorstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore_get_vectorstore",
+      "target": "opensearchvectorsearch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore_search",
+      "target": "backend_api_app_rag_vectorstore_get_vectorstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_rag_vectorstore_add_chunks"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/rag/vectorstore.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "backend_api_app_rag_vectorstore_rationale_28",
+      "target": "backend_api_app_rag_vectorstore_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_retrieve_allowed",
+      "target": "backend_api_app_rag_vectorstore_search"
     },
     {
       "relation": "contains",
@@ -2182,6 +4304,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_routers_documents_authorize"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-api/app/routers/documents.py",
       "source_location": "L100",
@@ -2213,6 +4346,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_routers_documents_get_or_404"
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -2232,6 +4376,381 @@
       "weight": 1.0,
       "source": "backend_api_app_routers_documents_update_document",
       "target": "backend_api_app_schemas_document_documentupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal",
+      "target": "backend_api_app_routers_internal_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal",
+      "target": "backend_api_app_routers_internal_authorizerequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal",
+      "target": "backend_api_app_routers_internal_authorizeresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal",
+      "target": "backend_api_app_routers_internal_require_internal_key",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorize",
+      "target": "backend_api_app_routers_internal_authorizerequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorizerequest",
+      "target": "backend_api_app_routers_internal_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorizeresponse",
+      "target": "backend_api_app_routers_internal_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorize",
+      "target": "backend_api_app_routers_internal_authorizeresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_authorize",
+      "target": "backend_api_app_routers_internal_py_asyncsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/internal.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_internal_rationale_46",
+      "target": "backend_api_app_routers_internal_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_chatrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_chatresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_ingest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_ingestresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_rag_chat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_rag_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_retrieve_allowed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_searchhit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag",
+      "target": "backend_api_app_routers_rag_searchrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_routers_rag_ingestresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingestresponse",
+      "target": "backend_api_app_routers_rag_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_chatrequest",
+      "target": "backend_api_app_routers_rag_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_chatresponse",
+      "target": "backend_api_app_routers_rag_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_searchhit",
+      "target": "backend_api_app_routers_rag_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_searchrequest",
+      "target": "backend_api_app_routers_rag_py_basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "backend_api_app_routers_rag_py_asyncsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_ingest",
+      "target": "uploadfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_chat",
+      "target": "backend_api_app_routers_rag_py_asyncsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_search",
+      "target": "backend_api_app_routers_rag_py_asyncsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_retrieve_allowed",
+      "target": "backend_api_app_routers_rag_py_asyncsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_retrieve_allowed",
+      "target": "backend_api_app_routers_rag_searchhit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_chat",
+      "target": "backend_api_app_routers_rag_retrieve_allowed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_search",
+      "target": "backend_api_app_routers_rag_retrieve_allowed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_search",
+      "target": "backend_api_app_routers_rag_searchrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_chat",
+      "target": "backend_api_app_routers_rag_chatrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/app/routers/rag.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "backend_api_app_routers_rag_rag_chat",
+      "target": "backend_api_app_routers_rag_chatresponse",
       "confidence_score": 1.0
     },
     {
@@ -2410,6 +4929,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "backend-api/tests/test_rag.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_api_tests_test_rag",
+      "target": "backend_api_tests_test_rag_test_split_text_produces_multiple_chunks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/tests/test_rag.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "backend_api_tests_test_rag_rationale_1",
+      "target": "backend_api_tests_test_rag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend-api/tests/test_security.py",
       "source_location": "L17",
       "weight": 1.0,
@@ -2438,74 +4977,1318 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "implements",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
       "weight": 1.0,
-      "source": "readme_nyx_platform",
-      "target": "readme_dual_stack"
+      "source": "frontend_package",
+      "target": "frontend_package_dependencies",
+      "confidence_score": 1.0
     },
     {
-      "relation": "rationale_for",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
+      "source_file": "frontend/package.json",
+      "source_location": "L22",
       "weight": 1.0,
-      "source": "readme_dual_stack",
-      "target": "readme_no_ws_proxy_rule"
+      "source": "frontend_package",
+      "target": "frontend_package_devdependencies",
+      "confidence_score": 1.0
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
+      "source_file": "frontend/package.json",
+      "source_location": "L2",
       "weight": 1.0,
-      "source": "readme_dual_stack",
-      "target": "readme_processing_lane"
+      "source": "frontend_package",
+      "target": "frontend_package_name",
+      "confidence_score": 1.0
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
+      "source_file": "frontend/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_package",
+      "target": "frontend_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_package",
+      "target": "frontend_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_package",
+      "target": "frontend_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_package",
+      "target": "frontend_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_preview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_hocuspocus_provider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_tiptap_extension_collaboration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_tiptap_pm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_tiptap_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_tiptap_starter_kit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_yjs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_types_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_types_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_vitejs_plugin_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/AiSidebar.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_src_aisidebar",
+      "target": "frontend_src_aisidebar_aisidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/AiSidebar.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_aisidebar",
+      "target": "frontend_src_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/AiSidebar.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_aisidebar",
+      "target": "frontend_src_api_chatreply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/AiSidebar.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_aisidebar",
+      "target": "frontend_src_api_ragchat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_aisidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_aisidebar_aisidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_api_createdocument",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_editor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_editor_editor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_login_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_src_main",
+      "target": "frontend_src_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_src_main",
+      "target": "frontend_src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/Editor.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "frontend_src_editor",
+      "target": "frontend_src_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/Editor.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_src_editor",
+      "target": "frontend_src_editor_editor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/Login.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_login",
+      "target": "frontend_src_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/Login.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_login",
+      "target": "frontend_src_api_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/Login.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_login",
+      "target": "frontend_src_api_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/Login.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_src_login",
+      "target": "frontend_src_login_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_api_chatreply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_api_chatsource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_api_createdocument",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_api_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_api_ragchat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_api_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_api",
+      "target": "frontend_src_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_tsconfig",
+      "target": "frontend_tsconfig_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "frontend_tsconfig",
+      "target": "frontend_tsconfig_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_isolatedmodules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_noemit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_nounusedlocals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_nounusedparameters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_resolvejsonmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_strict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_tsconfig_compileroptions",
+      "target": "frontend_tsconfig_compileroptions_usedefineforclassfields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "realtime_server_package",
+      "target": "realtime_server_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "realtime_server_package_scripts",
+      "target": "realtime_server_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "realtime_server_package_scripts",
+      "target": "realtime_server_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "realtime_server_package_scripts",
+      "target": "realtime_server_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "realtime_server_package_scripts",
+      "target": "realtime_server_package_scripts_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "realtime_server_package_dependencies",
+      "target": "realtime_server_package_dependencies_hocuspocus_extension_redis",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "realtime_server_package_dependencies",
+      "target": "realtime_server_package_dependencies_hocuspocus_extension_webhook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "realtime_server_package_dependencies",
+      "target": "realtime_server_package_dependencies_hocuspocus_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "realtime_server_package_dependencies",
+      "target": "realtime_server_package_dependencies_hocuspocus_transformer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "realtime_server_package_dependencies",
+      "target": "realtime_server_package_dependencies_yjs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "realtime_server_package_devdependencies",
+      "target": "realtime_server_package_devdependencies_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "realtime_server_package_devdependencies",
+      "target": "realtime_server_package_devdependencies_types_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "realtime_server_package_devdependencies",
+      "target": "realtime_server_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "realtime_server_src_auth",
+      "target": "realtime_server_src_auth_authorizeconnection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "realtime_server_src_auth",
+      "target": "realtime_server_src_auth_authzresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "realtime_server_src_auth",
+      "target": "realtime_server_src_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/auth.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "realtime_server_src_auth",
+      "target": "realtime_server_src_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "realtime_server_src_server",
+      "target": "realtime_server_src_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "realtime_server_src_server",
+      "target": "realtime_server_src_auth_authorizeconnection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "realtime_server_src_config",
+      "target": "realtime_server_src_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "realtime_server_src_server",
+      "target": "realtime_server_src_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "realtime_server_src_server",
+      "target": "realtime_server_src_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/src/server.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "realtime_server_src_server",
+      "target": "realtime_server_src_server_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig",
+      "target": "realtime_server_tsconfig_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig",
+      "target": "realtime_server_tsconfig_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_esmoduleinterop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_outdir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_strict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/tsconfig.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "realtime_server_tsconfig_compileroptions",
+      "target": "realtime_server_tsconfig_compileroptions_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": null,
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "readme_dual_stack",
-      "target": "readme_realtime_lane"
+      "source": "readme",
+      "target": "readme_nyx_platform_data_management_platform_poc",
+      "confidence_score": 1.0
     },
     {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "frontend/README.md",
-      "source_location": null,
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L20",
       "weight": 1.0,
-      "source": "frontend_readme_yjs",
-      "target": "readme_realtime_lane"
+      "source": "readme_nyx_platform_data_management_platform_poc",
+      "target": "readme_estrutura",
+      "confidence_score": 1.0
     },
     {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L30",
       "weight": 1.0,
-      "source": "realtime_server_readme_hocuspocus",
-      "target": "readme_realtime_lane"
+      "source": "readme_nyx_platform_data_management_platform_poc",
+      "target": "readme_fase_1_subir_a_infra_local",
+      "confidence_score": 1.0
     },
     {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend-api/README.md",
-      "source_location": null,
+      "source_location": "L1",
       "weight": 1.0,
-      "source": "backend_api_readme_fastapi_gatekeeper",
-      "target": "readme_processing_lane"
+      "source": "backend_api_readme",
+      "target": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_autorizacao_abac_via_cerbos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_endpoints",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_estrutura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_rodar_dockerizado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_rodar_local_sem_docker_contra_a_infra_dockerizada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_testes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-api/README.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "target": "backend_api_readme_webhook_hocuspocus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_readme",
+      "target": "frontend_readme_frontend_cliente_fase_5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/README.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "frontend_readme_frontend_cliente_fase_5",
+      "target": "frontend_readme_env_build_runtime_lidas_pelo_browser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/README.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "frontend_readme_frontend_cliente_fase_5",
+      "target": "frontend_readme_fluxo_e2e",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_readme_frontend_cliente_fase_5",
+      "target": "frontend_readme_o_que_faz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/README.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "frontend_readme_frontend_cliente_fase_5",
+      "target": "frontend_readme_rodar_dockerizado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/README.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "frontend_readme_frontend_cliente_fase_5",
+      "target": "frontend_readme_rodar_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "realtime_server_readme",
+      "target": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "target": "realtime_server_readme_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "target": "realtime_server_readme_fluxo_de_conexao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "target": "realtime_server_readme_o_que_faz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "target": "realtime_server_readme_rodar_dockerizado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "realtime-server/README.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "realtime_server_readme_realtime_server_via_expressa_fase_3",
+      "target": "realtime_server_readme_rodar_local",
+      "confidence_score": 1.0
     },
     {
       "relation": "implements",
@@ -2518,36 +6301,6 @@
       "target": "readme_processing_lane"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_no_ws_proxy_rule",
-      "target": "backend_api_readme_fastapi_gatekeeper"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_fastapi_gatekeeper",
-      "target": "backend_api_readme_cerbos_client"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_fastapi_gatekeeper",
-      "target": "backend_api_readme_jwt_auth"
-    },
-    {
       "relation": "calls",
       "confidence": "INFERRED",
       "confidence_score": 0.75,
@@ -2558,86 +6311,6 @@
       "target": "docker_compose_opensearch"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "frontend_readme_react_frontend",
-      "target": "backend_api_readme_fastapi_gatekeeper"
-    },
-    {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_on_authenticate",
-      "target": "backend_api_readme_fastapi_gatekeeper"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_cerbos_client",
-      "target": "docker_compose_cerbos"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_cerbos_client",
-      "target": "infra_cerbos_policies_document_policy"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_webhook_hocuspocus",
-      "target": "backend_api_readme_document_resource"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_webhook_hocuspocus",
-      "target": "docker_compose_mysql"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_hocuspocus",
-      "target": "backend_api_readme_webhook_hocuspocus"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "backend-api/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "backend_api_readme_document_resource",
-      "target": "docker_compose_mysql"
-    },
-    {
       "relation": "implements",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -2646,96 +6319,6 @@
       "weight": 1.0,
       "source": "infra_cerbos_policies_document_policy",
       "target": "backend_api_readme_document_resource"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "frontend_readme_react_frontend",
-      "target": "realtime_server_readme_hocuspocus"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_hocuspocus",
-      "target": "realtime_server_readme_on_authenticate"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_hocuspocus",
-      "target": "realtime_server_readme_on_store_document"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_hocuspocus",
-      "target": "realtime_server_readme_redis_scaleout"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_on_store_document",
-      "target": "docker_compose_mysql"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "realtime-server/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "realtime_server_readme_redis_scaleout",
-      "target": "docker_compose_redis"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "frontend_readme_react_frontend",
-      "target": "frontend_readme_tiptap"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "frontend_readme_react_frontend",
-      "target": "frontend_readme_yjs"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "frontend/README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "frontend_readme_tiptap",
-      "target": "frontend_readme_yjs"
     },
     {
       "relation": "semantically_similar_to",
@@ -2860,35 +6443,6 @@
   ],
   "hyperedges": [
     {
-      "id": "dual_stack_data_flow",
-      "label": "Dual-Stack End-to-End Flow: Frontend to Realtime to Backend",
-      "nodes": [
-        "frontend_readme_react_frontend",
-        "realtime_server_readme_hocuspocus",
-        "backend_api_readme_fastapi_gatekeeper",
-        "backend_api_readme_webhook_hocuspocus",
-        "docker_compose_mysql"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.85,
-      "source_file": "README.md"
-    },
-    {
-      "id": "cerbos_document_authz",
-      "label": "Cerbos Document ABAC Authorization",
-      "nodes": [
-        "backend_api_readme_cerbos_client",
-        "infra_cerbos_policies_document_policy",
-        "infra_cerbos_policies_derived_roles_owner_role",
-        "docker_compose_cerbos"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.85,
-      "source_file": "backend-api/README.md"
-    },
-    {
       "id": "document_role_hierarchy",
       "label": "Document Role Hierarchy (l1/lead/admin/owner)",
       "nodes": [
@@ -2902,5 +6456,6 @@
       "confidence_score": 0.85,
       "source_file": "infra/cerbos/policies/document.yaml"
     }
-  ]
+  ],
+  "built_at_commit": "be35260d3e29ddb14b54aa1693a6c956c99566ce"
 }

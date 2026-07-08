@@ -35,14 +35,14 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "backend-api/app/cerbos/client.py": {
-    "mtime": 1783542131.716831,
-    "ast_hash": "1772128f9963b9a40a076a0425bbbf6f",
-    "semantic_hash": ""
+    "mtime": 1783539949.3800757,
+    "ast_hash": "2a728b5695cd545085fe6d6babded51a",
+    "semantic_hash": "2a728b5695cd545085fe6d6babded51a"
   },
   "backend-api/app/config.py": {
-    "mtime": 1783542481.88201,
-    "ast_hash": "1afd70a5a00f1b84117d04d97bd4ff74",
-    "semantic_hash": ""
+    "mtime": 1783540134.3335023,
+    "ast_hash": "24e94ecc593a6c248fb7291955cf5edb",
+    "semantic_hash": "24e94ecc593a6c248fb7291955cf5edb"
   },
   "backend-api/app/db.py": {
     "mtime": 1783539907.8194268,
@@ -50,9 +50,9 @@
     "semantic_hash": "a4b408c21cd562a94cfe0b9013e50db7"
   },
   "backend-api/app/main.py": {
-    "mtime": 1783542485.0506744,
-    "ast_hash": "e86e5de2e2f77c4f51839187419e8d6f",
-    "semantic_hash": ""
+    "mtime": 1783539909.6405897,
+    "ast_hash": "3500a5f7433f3b90049574fee3cbedfe",
+    "semantic_hash": "3500a5f7433f3b90049574fee3cbedfe"
   },
   "backend-api/app/models/__init__.py": {
     "mtime": 1783539911.121471,
@@ -115,9 +115,9 @@
     "semantic_hash": "425f5df66e51c2999338335b8dfab0db"
   },
   "backend-api/pyproject.toml": {
-    "mtime": 1783542486.6382444,
-    "ast_hash": "9e7528eb1191cf1c2c49df15b5638d67",
-    "semantic_hash": ""
+    "mtime": 1783539897.0061731,
+    "ast_hash": "96235af6c7f299dddb5d6604cafa2a47",
+    "semantic_hash": "96235af6c7f299dddb5d6604cafa2a47"
   },
   "backend-api/tests/__init__.py": {
     "mtime": 1783539976.451347,
@@ -140,14 +140,14 @@
     "semantic_hash": "c813e4c297ec7abee06ee5f0123ec9b2"
   },
   "docker-compose.yml": {
-    "mtime": 1783542635.4255729,
-    "ast_hash": "f8bec9f0983bfda1daa91831cd212e1e",
-    "semantic_hash": ""
+    "mtime": 1783540054.7344704,
+    "ast_hash": "6f6a32a9d935031756c3386b6d3c553c",
+    "semantic_hash": "6f6a32a9d935031756c3386b6d3c553c"
   },
   "frontend/README.md": {
-    "mtime": 1783542615.2587297,
-    "ast_hash": "b22600b846815c3de2da4f4061e907f6",
-    "semantic_hash": ""
+    "mtime": 1783539241.6071177,
+    "ast_hash": "573f02db347f60c38f51e8d94b38b572",
+    "semantic_hash": "573f02db347f60c38f51e8d94b38b572"
   },
   "infra/cerbos/config/config.yaml": {
     "mtime": 1783539227.76047,
@@ -165,133 +165,8 @@
     "semantic_hash": "3e296973d2adb8af543febe88fd31247"
   },
   "realtime-server/README.md": {
-    "mtime": 1783540922.558356,
-    "ast_hash": "deb2f512602d3308b622d17dcce004f6",
-    "semantic_hash": ""
-  },
-  "backend-api/app/rag/__init__.py": {
-    "mtime": 1783542085.5056586,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  "backend-api/app/rag/embeddings.py": {
-    "mtime": 1783542088.7770991,
-    "ast_hash": "9edb445a629f42b08a7df3b241d2340c",
-    "semantic_hash": ""
-  },
-  "backend-api/app/rag/ingest.py": {
-    "mtime": 1783542096.238275,
-    "ast_hash": "edad9b96612bae0db174e8c6520f72f9",
-    "semantic_hash": ""
-  },
-  "backend-api/app/rag/llm.py": {
-    "mtime": 1783542459.8968182,
-    "ast_hash": "63a860e21963f3659ecbcdea198907ee",
-    "semantic_hash": ""
-  },
-  "backend-api/app/rag/vectorstore.py": {
-    "mtime": 1783542093.87038,
-    "ast_hash": "13cfcc91def3096320e98f3e2b191956",
-    "semantic_hash": ""
-  },
-  "backend-api/app/routers/internal.py": {
-    "mtime": 1783540932.8151534,
-    "ast_hash": "1871050910b143d08f432ecf11ed5d4e",
-    "semantic_hash": ""
-  },
-  "backend-api/app/routers/rag.py": {
-    "mtime": 1783542477.965742,
-    "ast_hash": "179988af6d525a65865663183e6f43bd",
-    "semantic_hash": ""
-  },
-  "backend-api/tests/test_rag.py": {
-    "mtime": 1783542110.7879567,
-    "ast_hash": "c8b89dc7d44965c1bfb4f5dab9bd08d2",
-    "semantic_hash": ""
-  },
-  "frontend/package.json": {
-    "mtime": 1783542555.0889003,
-    "ast_hash": "72b0855030d98b3e526fcf34a6a759f3",
-    "semantic_hash": ""
-  },
-  "frontend/src/AiSidebar.tsx": {
-    "mtime": 1783542589.5987284,
-    "ast_hash": "7ff7c7d3ca243f3b23d34012a47d5875",
-    "semantic_hash": ""
-  },
-  "frontend/src/App.tsx": {
-    "mtime": 1783542595.165192,
-    "ast_hash": "61b9c641403b1e981ad55cd17fa5171f",
-    "semantic_hash": ""
-  },
-  "frontend/src/Editor.tsx": {
-    "mtime": 1783542584.1290748,
-    "ast_hash": "372105feac4e7808fae7e0c85c30b6a9",
-    "semantic_hash": ""
-  },
-  "frontend/src/Login.tsx": {
-    "mtime": 1783542577.5742838,
-    "ast_hash": "03b02706676520b6a4e1d102e5e56f64",
-    "semantic_hash": ""
-  },
-  "frontend/src/api.ts": {
-    "mtime": 1783542572.5735314,
-    "ast_hash": "5ce25943aa87bccf74cedd9a2430c8a8",
-    "semantic_hash": ""
-  },
-  "frontend/src/config.ts": {
-    "mtime": 1783542564.713019,
-    "ast_hash": "1ea3e59e21eff6490573290aa8c78ebb",
-    "semantic_hash": ""
-  },
-  "frontend/src/main.tsx": {
-    "mtime": 1783542566.0465755,
-    "ast_hash": "18e1d2c33f82c0b53e0834f2ba724c51",
-    "semantic_hash": ""
-  },
-  "frontend/src/vite-env.d.ts": {
-    "mtime": 1783542561.5750833,
-    "ast_hash": "0352474ba2918efe13895edbc3780d94",
-    "semantic_hash": ""
-  },
-  "frontend/tsconfig.json": {
-    "mtime": 1783542559.12349,
-    "ast_hash": "2a28f18ad2a0db4bbe3bebde1a35bc46",
-    "semantic_hash": ""
-  },
-  "frontend/vite.config.ts": {
-    "mtime": 1783542556.6789622,
-    "ast_hash": "b02123ced65f9f6b26c61cf03848f055",
-    "semantic_hash": ""
-  },
-  "realtime-server/package.json": {
-    "mtime": 1783540890.9404402,
-    "ast_hash": "9736c2e76f8308ddaf5acdf9aeafcda9",
-    "semantic_hash": ""
-  },
-  "realtime-server/src/auth.ts": {
-    "mtime": 1783540904.0405035,
-    "ast_hash": "54a3688082f6b7da0aafaf1ada3b9dd4",
-    "semantic_hash": ""
-  },
-  "realtime-server/src/config.ts": {
-    "mtime": 1783540899.4404624,
-    "ast_hash": "7052877d09101df2c26f577de1ce662e",
-    "semantic_hash": ""
-  },
-  "realtime-server/src/server.ts": {
-    "mtime": 1783540910.9492598,
-    "ast_hash": "b529adc96acfaf0faa7cd6370b417dcf",
-    "semantic_hash": ""
-  },
-  "realtime-server/tsconfig.json": {
-    "mtime": 1783540892.949442,
-    "ast_hash": "74973159d12a9fa7f65d4369d32fdeee",
-    "semantic_hash": ""
-  },
-  "frontend/index.html": {
-    "mtime": 1783542561.0675433,
-    "ast_hash": "61dc3e75e6bc922abc8d2ac8799ad21e",
-    "semantic_hash": ""
+    "mtime": 1783539239.3779554,
+    "ast_hash": "3cc98e3831a9dcc2e6df1fb0f66b3250",
+    "semantic_hash": "3cc98e3831a9dcc2e6df1fb0f66b3250"
   }
 }
