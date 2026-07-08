@@ -12,23 +12,21 @@ export function Editor({ token, docId }: { token: string; docId: string }) {
 
   // novo Y.Doc + provider por documento aberto
   const ydoc = useMemo(() => new Y.Doc(), [docId]);
-  const provider = useMemo(
-    () =>
-      new HocuspocusProvider({
-        url: WS_URL,
-        name: docId, // documentName == id do Document (convencao do backend)
-        token,
-        document: ydoc,
-        onAuthenticationFailed: () => setStatus("NAO AUTORIZADO"),
-        onStatus: (e: { status: string }) => setStatus(e.status),
-      }),
-    [ydoc, docId, token],
-  );
+  const provider = useMemo(() => {
+    if (!token) return null;
+    return new HocuspocusProvider({
+      url: WS_URL,
+      name: docId,
+      token,
+      document: ydoc,
+      onAuthenticationFailed: () => setStatus("NAO AUTORIZADO"),
+      onStatus: (e: { status: string }) => setStatus(e.status),
+    });
+  }, [ydoc, docId, token]);
 
   const editor = useEditor(
     {
       extensions: [
-        // Collaboration ja provê historico -> desligar o do StarterKit
         StarterKit.configure({ history: false }),
         Collaboration.configure({ document: ydoc }),
       ],
@@ -36,13 +34,16 @@ export function Editor({ token, docId }: { token: string; docId: string }) {
     [ydoc],
   );
 
-  useEffect(
-    () => () => {
-      provider.destroy();
+  useEffect(() => {
+    return () => {
+      provider?.destroy();
       ydoc.destroy();
-    },
-    [provider, ydoc],
-  );
+    };
+  }, [provider, ydoc]);
+
+  if (!token) {
+    return <p className="hint">Token ausente — faca login novamente.</p>;
+  }
 
   return (
     <section className="editor">
