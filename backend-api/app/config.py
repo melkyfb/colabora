@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = ""  # vazio = default do provider (claude -> claude-opus-4-8)
     ANTHROPIC_API_KEY: str | None = None
     OLLAMA_BASE_URL: str = "http://localhost:11434"
+    OPENAI_API_BASE_URL: str = "https://api.openai.com/v1"
 
     # ── CORS (Fase 5) ── origens do frontend, separadas por virgula
     CORS_ORIGINS: str = "http://localhost:5173"

@@ -25,7 +25,7 @@ def get_llm():
     if provider == "openai":
         from langchain_openai import ChatOpenAI
 
-        return ChatOpenAI(model=model or "gpt-4o-mini", api_key=settings.OPENAI_API_KEY)
+        return ChatOpenAI(model=model or "gpt-4o-mini", api_key=settings.OPENAI_API_KEY, base_url=settings.OPENAI_API_BASE_URL)
     if provider == "ollama":
         from langchain_ollama import ChatOllama
 

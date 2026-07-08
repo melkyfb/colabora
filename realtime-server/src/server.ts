@@ -1,12 +1,12 @@
 import { Redis } from "@hocuspocus/extension-redis";
 import { Events, Webhook } from "@hocuspocus/extension-webhook";
-import { Server } from "@hocuspocus/server";
+import { Hocuspocus } from "@hocuspocus/server";
 import { TiptapTransformer } from "@hocuspocus/transformer";
 
 import { authorizeConnection } from "./auth";
 import { config } from "./config";
 
-const server = new Server({
+const server = new Hocuspocus({
   name: "nyx-hocuspocus",
   port: config.port,
 
