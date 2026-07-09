@@ -28,7 +28,7 @@ export function Editor({ token, docId }: { token: string; docId: string }) {
     {
       extensions: [
         StarterKit.configure({ history: false }),
-        Collaboration.configure({ document: ydoc }),
+        Collaboration.configure({ document: ydoc, provider }),
       ],
     },
     [ydoc],

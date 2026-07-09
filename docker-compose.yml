@@ -70,7 +70,7 @@ services:
     volumes:
       - opensearch_data:/usr/share/opensearch/data
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      test: ["CMD-SHELL", "curl -sf http://localhost:${OPENSEARCH_PORT:-9200}/_cluster/health || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 10
@@ -131,6 +131,12 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
     ports:
       - "${BACKEND_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT:-8000}/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     volumes:
       - ./backend-api:/app        # bind-mount p/ hot-reload em dev (--reload)
       - hf_cache:/root/.cache/huggingface   # cache do modelo de embeddings (Fase 4)
@@ -157,6 +163,12 @@ services:
       HOCUSPOCUS_WEBHOOK_SECRET: ${HOCUSPOCUS_WEBHOOK_SECRET}
     ports:
       - "${HOCUSPOCUS_PORT:-1234}:1234"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${HOCUSPOCUS_PORT:-1234}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s 
     volumes:
       - ./realtime-server:/app
       - /app/node_modules        # preserva node_modules do container (bind-mount nao mascara)

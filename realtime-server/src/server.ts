@@ -33,6 +33,9 @@ const server = new Hocuspocus({
     if (!result.allowed) {
       throw new Error("Conexao nao autorizada");
     }
+    console.log(
+      `[nyx-hocuspocus] conexao autorizada: doc=${data.documentName} user=${result.userId} roles=${result.roles?.join(",")}`,
+    );
     // Contexto disponivel nos hooks/extensions seguintes.
     return { userId: result.userId, roles: result.roles };
   },
