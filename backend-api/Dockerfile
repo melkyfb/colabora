@@ -6,9 +6,18 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY . .
+# para garantir que o cache seja invalidado apenas se o pyproject.toml mudar
+# evitando reinstalar dependências desnecessariamente
+COPY pyproject.toml .
 RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install --upgrade pip && pip install .
+    pip install --upgrade pip && \
+    python3 -c "import tomllib, sys; \
+        data=tomllib.load(open('pyproject.toml','rb')); \
+        deps=data['project']['dependencies']; \
+        open('/tmp/requirements.txt','w').write('\\n'.join(deps))" && \
+    pip install -r /tmp/requirements.txt
+
+COPY . .
 
 RUN apt update && apt install -y curl
 

@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "backend-api/app/config.py": {
-    "mtime": 1783543968.4514036,
-    "ast_hash": "14e3e78eb69da03a9d0692ad75fb91bf",
+    "mtime": 1783542481.88201,
+    "ast_hash": "1afd70a5a00f1b84117d04d97bd4ff74",
     "semantic_hash": ""
   },
   "backend-api/app/db.py": {
@@ -140,8 +140,8 @@
     "semantic_hash": "c813e4c297ec7abee06ee5f0123ec9b2"
   },
   "docker-compose.yml": {
-    "mtime": 1783589184.3938887,
-    "ast_hash": "5c0f915b04d2794dcaf4493c7242ca77",
+    "mtime": 1783542635.4255729,
+    "ast_hash": "f8bec9f0983bfda1daa91831cd212e1e",
     "semantic_hash": ""
   },
   "frontend/README.md": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "backend-api/app/rag/embeddings.py": {
-    "mtime": 1783585369.1661398,
-    "ast_hash": "a8da7d313d7b0fc618388782cd716d4b",
+    "mtime": 1783542088.7770991,
+    "ast_hash": "9edb445a629f42b08a7df3b241d2340c",
     "semantic_hash": ""
   },
   "backend-api/app/rag/ingest.py": {
@@ -185,8 +185,8 @@
     "semantic_hash": ""
   },
   "backend-api/app/rag/llm.py": {
-    "mtime": 1783544001.32057,
-    "ast_hash": "2c3b67b3f83cbb3c3a1ff911b1115ff8",
+    "mtime": 1783542459.8968182,
+    "ast_hash": "63a860e21963f3659ecbcdea198907ee",
     "semantic_hash": ""
   },
   "backend-api/app/rag/vectorstore.py": {
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "frontend/package.json": {
-    "mtime": 1783593071.2668195,
-    "ast_hash": "b303c93531f05c878166d79f6b58f9e9",
+    "mtime": 1783542555.0889003,
+    "ast_hash": "72b0855030d98b3e526fcf34a6a759f3",
     "semantic_hash": ""
   },
   "frontend/src/AiSidebar.tsx": {
@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   "frontend/src/Editor.tsx": {
-    "mtime": 1783593290.889711,
-    "ast_hash": "ec378257cbd1fedbc0257c494e984e8e",
+    "mtime": 1783542584.1290748,
+    "ast_hash": "372105feac4e7808fae7e0c85c30b6a9",
     "semantic_hash": ""
   },
   "frontend/src/Login.tsx": {
@@ -240,7 +240,7 @@
     "semantic_hash": ""
   },
   "frontend/src/config.ts": {
-    "mtime": 1783576253.160748,
+    "mtime": 1783542564.713019,
     "ast_hash": "1ea3e59e21eff6490573290aa8c78ebb",
     "semantic_hash": ""
   },
@@ -280,8 +280,8 @@
     "semantic_hash": ""
   },
   "realtime-server/src/server.ts": {
-    "mtime": 1783576958.70897,
-    "ast_hash": "46a274ed04de11f2bd419768e4bbed24",
+    "mtime": 1783540910.9492598,
+    "ast_hash": "b529adc96acfaf0faa7cd6370b417dcf",
     "semantic_hash": ""
   },
   "realtime-server/tsconfig.json": {
@@ -292,26 +292,6 @@
   "frontend/index.html": {
     "mtime": 1783542561.0675433,
     "ast_hash": "61dc3e75e6bc922abc8d2ac8799ad21e",
-    "semantic_hash": ""
-  },
-  "backend-api/entrypoint.sh": {
-    "mtime": 1783545312.576328,
-    "ast_hash": "38954a6d22b31135033da3bb28e2feb7",
-    "semantic_hash": ""
-  },
-  "scripts/bulk_ingest.py": {
-    "mtime": 1783582911.177291,
-    "ast_hash": "447eec5c4119659f0fd2e08842f37b53",
-    "semantic_hash": ""
-  },
-  "IDEA.md": {
-    "mtime": 1783588544.720093,
-    "ast_hash": "6ba3a1db366b1c8f7804e67449ef5350",
-    "semantic_hash": ""
-  },
-  "IMPROVEMENTS.md": {
-    "mtime": 1783577822.6624222,
-    "ast_hash": "d0efd3f4f8b0e2b2ee3caec28704cdcc",
     "semantic_hash": ""
   }
 }

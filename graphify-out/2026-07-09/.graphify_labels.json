@@ -43,8 +43,5 @@
   "41": "Hocuspocus realtime-server",
   "42": "onAuthenticate Hook",
   "43": "onStoreDocument Hook",
-  "44": "Redis Pub/Sub Scale-Out (@hocuspocus/extension-redis)",
-  "45": "Improvements — Nyx Platform",
-  "46": "entrypoint.sh",
-  "47": "IDEA.md"
+  "44": "Redis Pub/Sub Scale-Out (@hocuspocus/extension-redis)"
 }

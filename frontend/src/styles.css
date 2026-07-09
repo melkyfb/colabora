@@ -82,3 +82,25 @@ input, select, textarea {
   border-top: 1px solid #2a3346;
   padding: 6px 0;
 }
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #151b2b;
+  border-bottom: 1px solid #2a3346;
+}
+.toolbar button {
+  min-width: 32px;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 4px 8px;
+}
+.toolbar button.active {
+  background: #3a4256;
+  border-color: #5a6273;
+}
+.toolbar input[type="file"] {
+  display: none;
+}

@@ -207,7 +207,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client",
-      "community": 3,
+      "community": 23,
       "norm_label": "client.py"
     },
     {
@@ -217,7 +217,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient",
-      "community": 3,
+      "community": 23,
       "norm_label": "cerbosclient"
     },
     {
@@ -227,7 +227,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient_init",
-      "community": 3,
+      "community": 23,
       "norm_label": ".__init__()"
     },
     {
@@ -237,7 +237,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient_is_allowed",
-      "community": 3,
+      "community": 23,
       "norm_label": ".is_allowed()"
     },
     {
@@ -247,7 +247,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_cerbosclient_allowed_resource_ids",
-      "community": 3,
+      "community": 23,
       "norm_label": ".allowed_resource_ids()"
     },
     {
@@ -257,7 +257,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_rationale_7",
-      "community": 3,
+      "community": 23,
       "norm_label": "cliente fino sobre a api rest do cerbos (post /api/check/resources).      ponyta"
     },
     {
@@ -267,7 +267,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_api_app_cerbos_client_rationale_65",
-      "community": 3,
+      "community": 23,
       "norm_label": "1 checkresources p/ n recursos. resources: [{'id':..., 'attr':{...}}, ...]."
     },
     {
@@ -1151,34 +1151,6 @@
       "norm_label": "documentout"
     },
     {
-      "label": "entrypoint.sh",
-      "file_type": "code",
-      "source_file": "backend-api/entrypoint.sh",
-      "source_location": "L1",
-      "metadata": {
-        "language": "bash",
-        "kind": "file"
-      },
-      "_origin": "ast",
-      "id": "backend_api_entrypoint",
-      "community": 46,
-      "norm_label": "entrypoint.sh"
-    },
-    {
-      "label": "entrypoint.sh script",
-      "file_type": "code",
-      "source_file": "backend-api/entrypoint.sh",
-      "source_location": "L1",
-      "metadata": {
-        "language": "bash",
-        "kind": "bash_entrypoint"
-      },
-      "_origin": "ast",
-      "id": "backend_api_entrypoint_sh__entry",
-      "community": 46,
-      "norm_label": "entrypoint.sh script"
-    },
-    {
       "label": "nyx-backend-api",
       "file_type": "code",
       "type": "package",
@@ -1402,40 +1374,10 @@
       "norm_label": "@tiptap/extension-collaboration"
     },
     {
-      "label": "@tiptap/extension-image",
-      "file_type": "code",
-      "source_file": "frontend/package.json",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "frontend_package_dependencies_tiptap_extension_image",
-      "community": 7,
-      "norm_label": "@tiptap/extension-image"
-    },
-    {
-      "label": "@tiptap/extension-link",
-      "file_type": "code",
-      "source_file": "frontend/package.json",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "frontend_package_dependencies_tiptap_extension_link",
-      "community": 7,
-      "norm_label": "@tiptap/extension-link"
-    },
-    {
-      "label": "@tiptap/extension-underline",
-      "file_type": "code",
-      "source_file": "frontend/package.json",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "frontend_package_dependencies_tiptap_extension_underline",
-      "community": 7,
-      "norm_label": "@tiptap/extension-underline"
-    },
-    {
       "label": "@tiptap/pm",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L18",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "frontend_package_dependencies_tiptap_pm",
       "community": 7,
@@ -1445,7 +1387,7 @@
       "label": "@tiptap/react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L19",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "frontend_package_dependencies_tiptap_react",
       "community": 7,
@@ -1455,7 +1397,7 @@
       "label": "@tiptap/starter-kit",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L20",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "frontend_package_dependencies_tiptap_starter_kit",
       "community": 7,
@@ -1465,7 +1407,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L21",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react",
       "community": 7,
@@ -1475,7 +1417,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L22",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_dom",
       "community": 7,
@@ -1485,7 +1427,7 @@
       "label": "yjs",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L23",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_package_dependencies_yjs",
       "community": 7,
@@ -1495,7 +1437,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L25",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "frontend_package_devdependencies",
       "community": 7,
@@ -1505,7 +1447,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L26",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_react",
       "community": 7,
@@ -1515,7 +1457,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_react_dom",
       "community": 7,
@@ -1525,7 +1467,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_vitejs_plugin_react",
       "community": 7,
@@ -1535,7 +1477,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L29",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_typescript",
       "community": 7,
@@ -1545,7 +1487,7 @@
       "label": "vite",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L30",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_vite",
       "community": 7,
@@ -1605,21 +1547,11 @@
       "label": "Editor()",
       "file_type": "code",
       "source_file": "frontend/src/Editor.tsx",
-      "source_location": "L12",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_editor_editor",
       "community": 19,
       "norm_label": "editor()"
-    },
-    {
-      "label": "fileToBase64()",
-      "file_type": "code",
-      "source_file": "frontend/src/Editor.tsx",
-      "source_location": "L162",
-      "_origin": "ast",
-      "id": "frontend_src_editor_filetobase64",
-      "community": 19,
-      "norm_label": "filetobase64()"
     },
     {
       "label": "Login.tsx",
@@ -2290,386 +2222,6 @@
       "id": "realtime_server_tsconfig_include",
       "community": 21,
       "norm_label": "include"
-    },
-    {
-      "label": "bulk_ingest.py",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest",
-      "community": 23,
-      "norm_label": "bulk_ingest.py"
-    },
-    {
-      "label": "NyxClient",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient",
-      "community": 23,
-      "norm_label": "nyxclient"
-    },
-    {
-      "label": ".__init__()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient_init",
-      "community": 23,
-      "norm_label": ".__init__()"
-    },
-    {
-      "label": "._url()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L56",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient_url",
-      "community": 23,
-      "norm_label": "._url()"
-    },
-    {
-      "label": "._headers()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient_headers",
-      "community": 23,
-      "norm_label": "._headers()"
-    },
-    {
-      "label": ".login()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L66",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient_login",
-      "community": 23,
-      "norm_label": ".login()"
-    },
-    {
-      "label": ".create_document()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L79",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient_create_document",
-      "community": 23,
-      "norm_label": ".create_document()"
-    },
-    {
-      "label": ".ingest_file()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L94",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_nyxclient_ingest_file",
-      "community": 23,
-      "norm_label": ".ingest_file()"
-    },
-    {
-      "label": "Path",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "path",
-      "community": 23,
-      "norm_label": "path"
-    },
-    {
-      "label": "coletar_arquivos()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L118",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_coletar_arquivos",
-      "community": 23,
-      "norm_label": "coletar_arquivos()"
-    },
-    {
-      "label": "carregar_estado()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L127",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_carregar_estado",
-      "community": 23,
-      "norm_label": "carregar_estado()"
-    },
-    {
-      "label": "salvar_estado()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L134",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_salvar_estado",
-      "community": 23,
-      "norm_label": "salvar_estado()"
-    },
-    {
-      "label": "processar_arquivo()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L138",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_processar_arquivo",
-      "community": 23,
-      "norm_label": "processar_arquivo()"
-    },
-    {
-      "label": "main()",
-      "file_type": "code",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L156",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_main",
-      "community": 23,
-      "norm_label": "main()"
-    },
-    {
-      "label": "Wrapper minimalista pra API da Nyx. Sem dependencia externa fora httpx.",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_47",
-      "community": 23,
-      "norm_label": "wrapper minimalista pra api da nyx. sem dependencia externa fora httpx."
-    },
-    {
-      "label": "Login com email+password. Levanta erro se falhar.",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L67",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_67",
-      "community": 23,
-      "norm_label": "login com email+password. levanta erro se falhar."
-    },
-    {
-      "label": "Cria um Document via REST. Retorna o id.",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_80",
-      "community": 23,
-      "norm_label": "cria um document via rest. retorna o id."
-    },
-    {
-      "label": "Faz upload do arquivo pra um Document existente.",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L95",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_95",
-      "community": 23,
-      "norm_label": "faz upload do arquivo pra um document existente."
-    },
-    {
-      "label": "Retorna arquivos suportados da pasta (recursivo).",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L119",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_119",
-      "community": 23,
-      "norm_label": "retorna arquivos suportados da pasta (recursivo)."
-    },
-    {
-      "label": "Carrega arquivos ja processados (pra --resume).",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L128",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_128",
-      "community": 23,
-      "norm_label": "carrega arquivos ja processados (pra --resume)."
-    },
-    {
-      "label": "Processa UM arquivo: cria doc se necessario + ingest.",
-      "file_type": "rationale",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L139",
-      "_origin": "ast",
-      "id": "scripts_bulk_ingest_rationale_139",
-      "community": 23,
-      "norm_label": "processa um arquivo: cria doc se necessario + ingest."
-    },
-    {
-      "label": "IDEA.md",
-      "file_type": "document",
-      "source_file": "IDEA.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "idea",
-      "community": 47,
-      "norm_label": "idea.md"
-    },
-    {
-      "label": "Projeto Nyx: Plataforma de Gest\u00e3o de Dados (PoC)",
-      "file_type": "document",
-      "source_file": "IDEA.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "idea_projeto_nyx_plataforma_de_gest\u00e3o_de_dados_poc",
-      "community": 47,
-      "norm_label": "projeto nyx: plataforma de gestao de dados (poc)"
-    },
-    {
-      "label": "IMPROVEMENTS.md",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "improvements",
-      "community": 45,
-      "norm_label": "improvements.md"
-    },
-    {
-      "label": "Improvements \u2014 Nyx Platform",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "improvements_improvements_nyx_platform",
-      "community": 45,
-      "norm_label": "improvements \u2014 nyx platform"
-    },
-    {
-      "label": "RAG Pipeline",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "improvements_rag_pipeline",
-      "community": 45,
-      "norm_label": "rag pipeline"
-    },
-    {
-      "label": "Indexa\u00e7\u00e3o fr\u00e1gil e sem controle de estado",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "improvements_indexa\u00e7\u00e3o_fr\u00e1gil_e_sem_controle_de_estado",
-      "community": 45,
-      "norm_label": "indexacao fragil e sem controle de estado"
-    },
-    {
-      "label": "Infra / Docker",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "improvements_infra_docker",
-      "community": 45,
-      "norm_label": "infra / docker"
-    },
-    {
-      "label": "OpenSearch com seguran\u00e7a desligada",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "improvements_opensearch_com_seguran\u00e7a_desligada",
-      "community": 45,
-      "norm_label": "opensearch com seguranca desligada"
-    },
-    {
-      "label": "Credenciais hardcoded nos defaults",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L35",
-      "_origin": "ast",
-      "id": "improvements_credenciais_hardcoded_nos_defaults",
-      "community": 45,
-      "norm_label": "credenciais hardcoded nos defaults"
-    },
-    {
-      "label": "Backend API",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "improvements_backend_api",
-      "community": 45,
-      "norm_label": "backend api"
-    },
-    {
-      "label": "CORS overly permissive",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L43",
-      "_origin": "ast",
-      "id": "improvements_cors_overly_permissive",
-      "community": 45,
-      "norm_label": "cors overly permissive"
-    },
-    {
-      "label": "Sem rate limiting",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "improvements_sem_rate_limiting",
-      "community": 45,
-      "norm_label": "sem rate limiting"
-    },
-    {
-      "label": "Frontend",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "improvements_frontend",
-      "community": 45,
-      "norm_label": "frontend"
-    },
-    {
-      "label": "Sem feedback visual de upload",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "improvements_sem_feedback_visual_de_upload",
-      "community": 45,
-      "norm_label": "sem feedback visual de upload"
-    },
-    {
-      "label": "Sem tratamento de erro no WebSocket",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "improvements_sem_tratamento_de_erro_no_websocket",
-      "community": 45,
-      "norm_label": "sem tratamento de erro no websocket"
-    },
-    {
-      "label": "Testes",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "improvements_testes",
-      "community": 45,
-      "norm_label": "testes"
-    },
-    {
-      "label": "Cobertura baixa no RAG",
-      "file_type": "document",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L67",
-      "_origin": "ast",
-      "id": "improvements_cobertura_baixa_no_rag",
-      "community": 45,
-      "norm_label": "cobertura baixa no rag"
     },
     {
       "label": "README.md",
@@ -5377,16 +4929,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend-api/entrypoint.sh",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "backend_api_entrypoint",
-      "target": "backend_api_entrypoint_sh__entry",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "backend-api/tests/test_rag.py",
       "source_location": "L10",
       "weight": 1.0,
@@ -5448,7 +4990,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L25",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "frontend_package",
       "target": "frontend_package_devdependencies",
@@ -5558,7 +5100,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L21",
+      "source_location": "L18",
       "weight": 1.0,
       "source": "frontend_package_dependencies",
       "target": "frontend_package_dependencies_react",
@@ -5568,7 +5110,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L22",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "frontend_package_dependencies",
       "target": "frontend_package_dependencies_react_dom",
@@ -5591,7 +5133,7 @@
       "source_location": "L15",
       "weight": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tiptap_extension_image",
+      "target": "frontend_package_dependencies_tiptap_pm",
       "confidence_score": 1.0
     },
     {
@@ -5601,7 +5143,7 @@
       "source_location": "L16",
       "weight": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tiptap_extension_link",
+      "target": "frontend_package_dependencies_tiptap_react",
       "confidence_score": 1.0
     },
     {
@@ -5611,27 +5153,7 @@
       "source_location": "L17",
       "weight": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tiptap_extension_underline",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/package.json",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tiptap_pm",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/package.json",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tiptap_react",
+      "target": "frontend_package_dependencies_tiptap_starter_kit",
       "confidence_score": 1.0
     },
     {
@@ -5641,16 +5163,6 @@
       "source_location": "L20",
       "weight": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tiptap_starter_kit",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/package.json",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "frontend_package_dependencies",
       "target": "frontend_package_dependencies_yjs",
       "confidence_score": 1.0
     },
@@ -5658,7 +5170,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L26",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "frontend_package_devdependencies",
       "target": "frontend_package_devdependencies_types_react",
@@ -5668,7 +5180,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "frontend_package_devdependencies",
       "target": "frontend_package_devdependencies_types_react_dom",
@@ -5678,7 +5190,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L29",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "frontend_package_devdependencies",
       "target": "frontend_package_devdependencies_typescript",
@@ -5688,7 +5200,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L30",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "frontend_package_devdependencies",
       "target": "frontend_package_devdependencies_vite",
@@ -5698,7 +5210,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "frontend_package_devdependencies",
       "target": "frontend_package_devdependencies_vitejs_plugin_react",
@@ -5872,7 +5384,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/Editor.tsx",
-      "source_location": "L10",
+      "source_location": "L8",
       "weight": 1.0,
       "source": "frontend_src_editor",
       "target": "frontend_src_config",
@@ -5882,31 +5394,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/Editor.tsx",
-      "source_location": "L12",
+      "source_location": "L10",
       "weight": 1.0,
       "source": "frontend_src_editor",
       "target": "frontend_src_editor_editor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/Editor.tsx",
-      "source_location": "L162",
-      "weight": 1.0,
-      "source": "frontend_src_editor",
-      "target": "frontend_src_editor_filetobase64",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/Editor.tsx",
-      "source_location": "L149",
-      "weight": 1.0,
-      "source": "frontend_src_editor_editor",
-      "target": "frontend_src_editor_filetobase64",
       "confidence_score": 1.0
     },
     {
@@ -6572,522 +6063,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L127",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest",
-      "target": "scripts_bulk_ingest_carregar_estado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L118",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest",
-      "target": "scripts_bulk_ingest_coletar_arquivos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L156",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest",
-      "target": "scripts_bulk_ingest_main",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest",
-      "target": "scripts_bulk_ingest_nyxclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L138",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest",
-      "target": "scripts_bulk_ingest_processar_arquivo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L134",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest",
-      "target": "scripts_bulk_ingest_salvar_estado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L212",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_main",
-      "target": "scripts_bulk_ingest_nyxclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient",
-      "target": "scripts_bulk_ingest_nyxclient_create_document",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient",
-      "target": "scripts_bulk_ingest_nyxclient_headers",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L94",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient",
-      "target": "scripts_bulk_ingest_nyxclient_ingest_file",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient",
-      "target": "scripts_bulk_ingest_nyxclient_init",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L66",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient",
-      "target": "scripts_bulk_ingest_nyxclient_login",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L56",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient",
-      "target": "scripts_bulk_ingest_nyxclient_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L138",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_processar_arquivo",
-      "target": "scripts_bulk_ingest_nyxclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_47",
-      "target": "scripts_bulk_ingest_nyxclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L84",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient_create_document",
-      "target": "scripts_bulk_ingest_nyxclient_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L105",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient_ingest_file",
-      "target": "scripts_bulk_ingest_nyxclient_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient_login",
-      "target": "scripts_bulk_ingest_nyxclient_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L85",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient_create_document",
-      "target": "scripts_bulk_ingest_nyxclient_headers",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L214",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_main",
-      "target": "scripts_bulk_ingest_nyxclient_login",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L67",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_67",
-      "target": "scripts_bulk_ingest_nyxclient_login",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L144",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_processar_arquivo",
-      "target": "scripts_bulk_ingest_nyxclient_create_document",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L80",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_80",
-      "target": "scripts_bulk_ingest_nyxclient_create_document",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L94",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_nyxclient_ingest_file",
-      "target": "path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L152",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_processar_arquivo",
-      "target": "scripts_bulk_ingest_nyxclient_ingest_file",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L95",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_95",
-      "target": "scripts_bulk_ingest_nyxclient_ingest_file",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L118",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_coletar_arquivos",
-      "target": "path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L138",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_processar_arquivo",
-      "target": "path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L179",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_main",
-      "target": "scripts_bulk_ingest_coletar_arquivos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L119",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_119",
-      "target": "scripts_bulk_ingest_coletar_arquivos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L190",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_main",
-      "target": "scripts_bulk_ingest_carregar_estado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L128",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_128",
-      "target": "scripts_bulk_ingest_carregar_estado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L257",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_main",
-      "target": "scripts_bulk_ingest_salvar_estado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L234",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_main",
-      "target": "scripts_bulk_ingest_processar_arquivo",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/bulk_ingest.py",
-      "source_location": "L139",
-      "weight": 1.0,
-      "source": "scripts_bulk_ingest_rationale_139",
-      "target": "scripts_bulk_ingest_processar_arquivo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IDEA.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "idea",
-      "target": "idea_projeto_nyx_plataforma_de_gest\u00e3o_de_dados_poc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "improvements",
-      "target": "improvements_improvements_nyx_platform",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L41",
-      "weight": 1.0,
-      "source": "improvements_improvements_nyx_platform",
-      "target": "improvements_backend_api",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "improvements_improvements_nyx_platform",
-      "target": "improvements_frontend",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "improvements_improvements_nyx_platform",
-      "target": "improvements_infra_docker",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "improvements_improvements_nyx_platform",
-      "target": "improvements_rag_pipeline",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L65",
-      "weight": 1.0,
-      "source": "improvements_improvements_nyx_platform",
-      "target": "improvements_testes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "improvements_rag_pipeline",
-      "target": "improvements_indexa\u00e7\u00e3o_fr\u00e1gil_e_sem_controle_de_estado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L35",
-      "weight": 1.0,
-      "source": "improvements_infra_docker",
-      "target": "improvements_credenciais_hardcoded_nos_defaults",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "improvements_infra_docker",
-      "target": "improvements_opensearch_com_seguran\u00e7a_desligada",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L43",
-      "weight": 1.0,
-      "source": "improvements_backend_api",
-      "target": "improvements_cors_overly_permissive",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "improvements_backend_api",
-      "target": "improvements_sem_rate_limiting",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "improvements_frontend",
-      "target": "improvements_sem_feedback_visual_de_upload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "improvements_frontend",
-      "target": "improvements_sem_tratamento_de_erro_no_websocket",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "IMPROVEMENTS.md",
-      "source_location": "L67",
-      "weight": 1.0,
-      "source": "improvements_testes",
-      "target": "improvements_cobertura_baixa_no_rag",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -7482,5 +6457,5 @@
       "source_file": "infra/cerbos/policies/document.yaml"
     }
   ],
-  "built_at_commit": "a6582d85e22556a698ce08cc5db7ea5725ac718d"
+  "built_at_commit": "be35260d3e29ddb14b54aa1693a6c956c99566ce"
 }
