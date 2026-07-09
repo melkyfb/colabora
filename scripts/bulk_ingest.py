@@ -24,6 +24,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urljoin
+from getpass import getpass
 
 # ── Opcional: tqdm pra barra de progresso ────────────────────────────────────
 try:
@@ -206,7 +207,7 @@ def main():
 
     # ── Login ──
     email = args.email or input("Email admin: ")
-    password = args.password or "nyx_dev_pw"  # dev default
+    password = args.password or getpass("Senha admin: ")
 
     client = NyxClient(args.url, email=email, password=password)
     try:

@@ -10,7 +10,7 @@ def get_embeddings():
     if provider == "openai":
         from langchain_openai import OpenAIEmbeddings
 
-        return OpenAIEmbeddings(model=settings.EMBEDDINGS_MODEL, api_key=settings.OPENAI_API_KEY)
+        return OpenAIEmbeddings(model=settings.EMBEDDINGS_MODEL, api_key=settings.OPENAI_API_KEY, base_url=settings.OPENAI_API_BASE_URL)
     if provider == "fake":
         from langchain_community.embeddings import FakeEmbeddings
 
