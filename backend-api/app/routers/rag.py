@@ -1,11 +1,16 @@
+import asyncio
+from datetime import datetime
+
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.deps import get_current_user
 from app.cerbos.client import cerbos
 from app.db import get_db
+from app.models.document import Document
 from app.models.user import User
 from app.rag.ingest import pdf_to_text, split_text
 from app.rag.llm import get_llm
@@ -43,25 +48,33 @@ async def ingest(
         {"document_id": str(doc.id), "owner_id": str(doc.owner_id), "chunk_index": i}
         for i in range(len(chunks))
     ]
-    add_chunks(chunks, metadatas)
+    # embedding (CPU) + OpenSearch sao sincronos -> threadpool, senao travam o event loop
+    await asyncio.to_thread(add_chunks, chunks, metadatas)
     return IngestResponse(documentId=doc.id, chunks=len(chunks))
 
 
 # ── Recuperacao (K-NN + filtro Cerbos), compartilhada por /search e /chat ─────
 class SearchHit(BaseModel):
     documentId: str
+    title: str | None = None
     chunkIndex: int | None = None
     score: float
     text: str
 
 
+class ChatDocument(BaseModel):
+    id: int
+    title: str
+    updatedAt: datetime
+
+
 async def _retrieve_allowed(
     db: AsyncSession, user: User, query: str, k: int
-) -> list[SearchHit]:
+) -> tuple[list[SearchHit], list[ChatDocument]]:
     raw_k = max(k * 4, 20)  # over-fetch p/ sobrar apos filtro
-    results = search(query, raw_k)
+    results = await asyncio.to_thread(search, query, raw_k)  # embed da query e sincrono
     if not results:
-        return []
+        return [], []
 
     resources: dict[str, dict] = {}
     for doc, _score in results:
@@ -78,13 +91,22 @@ async def _retrieve_allowed(
         resources=list(resources.values()),
     )
 
+    # titulos/datas dos docs permitidos (MySQL) — alimenta hits e a lista "Abrir"
+    id_map: dict[str, Document] = {}
+    int_ids = [int(i) for i in allowed if str(i).isdigit()]
+    if int_ids:
+        rows = await db.execute(select(Document).where(Document.id.in_(int_ids)))
+        id_map = {str(d.id): d for d in rows.scalars().all()}
+
     hits: list[SearchHit] = []
     for doc, score in results:
         did = str(doc.metadata.get("document_id"))
         if did in allowed:
+            meta = id_map.get(did)
             hits.append(
                 SearchHit(
                     documentId=did,
+                    title=meta.title if meta else None,
                     chunkIndex=doc.metadata.get("chunk_index"),
                     score=float(score),
                     text=doc.page_content,
@@ -92,7 +114,20 @@ async def _retrieve_allowed(
             )
         if len(hits) >= k:
             break
-    return hits
+
+    # lista dedupada de documentos (na ordem de relevancia) p/ o botao "Abrir"
+    documents: list[ChatDocument] = []
+    seen: set[str] = set()
+    for h in hits:
+        if h.documentId in seen:
+            continue
+        seen.add(h.documentId)
+        meta = id_map.get(h.documentId)
+        if meta is not None:
+            documents.append(
+                ChatDocument(id=meta.id, title=meta.title, updatedAt=meta.updated_at)
+            )
+    return hits, documents
 
 
 # ── Search (retorna os chunks crus) ──────────────────────────────────────────
@@ -107,7 +142,8 @@ async def rag_search(
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
-    return await _retrieve_allowed(db, user, payload.query, payload.k)
+    hits, _ = await _retrieve_allowed(db, user, payload.query, payload.k)
+    return hits
 
 
 # ── Chat generativo (RAG -> LLM configuravel) ────────────────────────────────
@@ -119,12 +155,15 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     sources: list[SearchHit]
+    documents: list[ChatDocument] = []
 
 
 _SYSTEM = (
     "Voce e o Assistente Nyx, de uma plataforma de gestao de dados aeroespaciais. "
     "Responda em portugues usando SOMENTE o contexto fornecido. Se a resposta nao "
-    "estiver no contexto, diga que nao sabe. Cite as fontes como [doc N]."
+    "estiver no contexto, diga que nao sabe. Cite as fontes como [doc N]. "
+    "Se o usuario pedir para encontrar ou abrir um documento, aponte os titulos "
+    "relevantes do contexto e diga que ele pode abrir pela lista de documentos."
 )
 
 
@@ -134,16 +173,18 @@ async def rag_chat(
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
-    hits = await _retrieve_allowed(db, user, payload.query, payload.k)
+    hits, documents = await _retrieve_allowed(db, user, payload.query, payload.k)
     if not hits:
         return ChatResponse(
             answer="Nao encontrei nada relevante e autorizado pra responder.", sources=[]
         )
 
-    context = "\n\n".join(f"[doc {h.documentId} #{h.chunkIndex}] {h.text}" for h in hits)
+    context = "\n\n".join(
+        f"[doc {h.documentId} '{h.title or 'sem titulo'}' #{h.chunkIndex}] {h.text}" for h in hits
+    )
     human = f"Contexto:\n{context}\n\nPergunta: {payload.query}"
 
     llm = get_llm()
     resp = await llm.ainvoke([SystemMessage(content=_SYSTEM), HumanMessage(content=human)])
     answer = resp.content if isinstance(resp.content, str) else str(resp.content)
-    return ChatResponse(answer=answer, sources=hits)
+    return ChatResponse(answer=answer, sources=hits, documents=documents)

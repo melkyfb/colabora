@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -71,6 +71,18 @@ async def get_document(
     doc = await _get_or_404(db, doc_id)
     await _authorize(db, user, doc, "view")
     return doc
+
+
+@router.get("/{doc_id}/state")
+async def get_document_state(
+    doc_id: int,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    """Estado binario Y.js do doc, pro Hocuspocus hidratar (onLoadDocument)."""
+    doc = await _get_or_404(db, doc_id)
+    await _authorize(db, user, doc, "view")
+    return Response(content=doc.binary_state or b"", media_type="application/octet-stream")
 
 
 @router.put("/{doc_id}", response_model=DocumentOut)

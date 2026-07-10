@@ -20,11 +20,17 @@ export function App() {
     setDocId("");
   }
 
+  function openDoc(id: string) {
+    setDocInput(id);
+    setDocId(id);
+  }
+
   async function newDoc() {
     if (!token) return;
-    const d = await createDocument(token, "Documento sem titulo");
-    setDocInput(String(d.id));
-    setDocId(String(d.id));
+    const name = prompt("Nome do documento:");
+    if (name === null) return;
+    const d = await createDocument(token, name.trim() || "Documento sem titulo");
+    openDoc(String(d.id));
   }
 
   if (!token) return <Login onToken={setTok} />;
@@ -50,7 +56,7 @@ export function App() {
         ) : (
           <p className="hint">Abra um doc existente (por id) ou crie um novo.</p>
         )}
-        <AiSidebar token={token} />
+        <AiSidebar token={token} onOpenDoc={openDoc} />
       </main>
     </div>
   );

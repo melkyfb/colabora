@@ -19,8 +19,6 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 COPY . .
 
-RUN apt update && apt install -y curl
-
 EXPOSE 8000
 
 COPY entrypoint.sh /entrypoint.sh

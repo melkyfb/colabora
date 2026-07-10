@@ -1,0 +1,11 @@
+C:\Users\itsal\colabora\IDEA.md
+C:\Users\itsal\colabora\IMPROVEMENTS.md
+C:\Users\itsal\colabora\README.md
+C:\Users\itsal\colabora\backend-api\README.md
+C:\Users\itsal\colabora\docker-compose.yml
+C:\Users\itsal\colabora\frontend\README.md
+C:\Users\itsal\colabora\frontend\index.html
+C:\Users\itsal\colabora\infra\cerbos\config\config.yaml
+C:\Users\itsal\colabora\infra\cerbos\policies\derived_roles.yaml
+C:\Users\itsal\colabora\infra\cerbos\policies\document.yaml
+C:\Users\itsal\colabora\realtime-server\README.md

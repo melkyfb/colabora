@@ -22,7 +22,14 @@ export async function register(email: string, password: string, role: string): P
   if (!res.ok && res.status !== 409) throw new Error("Registro falhou");
 }
 
-export async function createDocument(token: string, title: string): Promise<{ id: number }> {
+export interface DocumentOut {
+  id: number;
+  title: string;
+  owner_id: number;
+  updated_at: string;
+}
+
+export async function createDocument(token: string, title: string): Promise<DocumentOut> {
   const res = await fetch(`${API_URL}/api/documents`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
@@ -32,15 +39,44 @@ export async function createDocument(token: string, title: string): Promise<{ id
   return res.json();
 }
 
+export async function getDocument(token: string, id: string): Promise<DocumentOut> {
+  const res = await fetch(`${API_URL}/api/documents/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("Buscar documento falhou");
+  return res.json();
+}
+
+export async function updateDocument(
+  token: string,
+  id: string,
+  patch: { title?: string; content?: string },
+): Promise<DocumentOut> {
+  const res = await fetch(`${API_URL}/api/documents/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify(patch),
+  });
+  if (!res.ok) throw new Error("Atualizar documento falhou");
+  return res.json();
+}
+
 export interface ChatSource {
   documentId: string;
+  title: string | null;
   chunkIndex: number | null;
   score: number;
   text: string;
 }
+export interface ChatDocument {
+  id: number;
+  title: string;
+  updatedAt: string;
+}
 export interface ChatReply {
   answer: string;
   sources: ChatSource[];
+  documents: ChatDocument[];
 }
 
 export async function ragChat(token: string, query: string): Promise<ChatReply> {

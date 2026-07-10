@@ -36,7 +36,9 @@ async def hocuspocus_webhook(
     event = data.get("event")
     payload = data.get("payload", {})
 
-    if event not in ("onStoreDocument", "onChange"):
+    print(f"[webhook] event={event} payload={payload}")
+
+    if event not in ("create", "change", "onCreate", "onChange"):
         return {"status": "ignored", "event": event}
 
     # convencao: documentName == id do Document no MySQL.
@@ -58,3 +60,27 @@ async def hocuspocus_webhook(
         await db.commit()
 
     return {"status": "stored", "documentId": doc_id}
+
+
+@router.post("/hocuspocus/state", status_code=status.HTTP_200_OK)
+async def hocuspocus_state(
+    request: Request,
+    x_signature: str | None = Header(default=None, alias="X-Hocuspocus-Signature-256"),
+    x_document_name: str | None = Header(default=None, alias="X-Document-Name"),
+    db: AsyncSession = Depends(get_db),
+):
+    """Recebe o estado binario Y.js (onStoreDocument do Hocuspocus) e grava no MySQL."""
+    raw = await request.body()
+    _verify_signature(raw, x_signature)
+    try:
+        doc_id = int(x_document_name)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        raise HTTPException(status_code=400, detail="X-Document-Name invalido")
+
+    doc = await db.get(Document, doc_id)
+    if doc is None:
+        raise HTTPException(status_code=404, detail="Documento nao encontrado")
+
+    doc.binary_state = raw
+    await db.commit()
+    return {"status": "stored", "documentId": doc_id, "bytes": len(raw)}

@@ -38,6 +38,7 @@ except ImportError:
 # ── Config ────────────────────────────────────────────────────────────────────
 BASE_URL = "http://localhost:8000"
 STATE_FILE = Path.home() / ".nyx_bulk_ingest_state.json"
+HTTP_TIMEOUT = 120.0  # default do httpx e 5s -> timeouts em massa sob carga
 
 EXTENSOES_SUPORTADAS = {".pdf", ".txt", ".md", ".csv", ".json", ".xml", ".yaml", ".yml", ".html"}
 
@@ -76,14 +77,15 @@ class NyxClient:
         self.token = resp.json()["access_token"]
         print(f"[auth] Login OK — token {self.token[:20]}…")
 
-    def create_document(self, title: str) -> int:
+    def create_document(self, title: str, content: str = "") -> int:
         """Cria um Document via REST. Retorna o id."""
         import httpx
 
         resp = httpx.post(
             self._url("/api/documents"),
             headers=self._headers(),
-            json={"title": title},
+            json={"title": title, "content": content},
+            timeout=HTTP_TIMEOUT,
         )
         if resp.status_code == 409:
             print(f"  [warn] doc '{title}' ja existe? pulando criacao")
@@ -91,7 +93,7 @@ class NyxClient:
         resp.raise_for_status()
         return resp.json()["id"]
 
-    def ingest_file(self, doc_id: int, filepath: Path) -> dict:
+    def ingest_file(self, doc_id: int, filepath: Path, file_content: str) -> dict:
         """Faz upload do arquivo pra um Document existente."""
         import httpx
 
@@ -100,12 +102,12 @@ class NyxClient:
             if filepath.suffix.lower() == ".pdf"
             else "text/plain"
         )
-        with open(filepath, "rb") as f:
-            resp = httpx.post(
-    self._url(f"/api/rag/documents/{doc_id}/ingest"),
-                headers={"Authorization": f"Bearer {self.token}"},
-                files={"file": (filepath.name, f, mime)},
-            )
+        resp = httpx.post(
+            self._url(f"/api/rag/documents/{doc_id}/ingest"),
+            headers={"Authorization": f"Bearer {self.token}"},
+            files={"file": (filepath.name, file_content, mime)},
+            timeout=HTTP_TIMEOUT,
+        )
         if resp.status_code == 400:
             # Doc vazio ou sem texto extraivel — nao e erro grave
             detail = resp.json().get("detail", "")
@@ -138,10 +140,11 @@ def salvar_estado(processados: set) -> None:
 def processar_arquivo(client: NyxClient, caminho: Path, criar_doc: bool) -> dict:
     """Processa UM arquivo: cria doc se necessario + ingest."""
     nome_base = caminho.stem  # sem extensao
-
+    with open(caminho, "r", encoding="utf-8") as f:
+        file_content = f.read()
     # 1. Criar ou reusar Document
     if criar_doc:
-        doc_id = client.create_document(nome_base)
+        doc_id = client.create_document(nome_base,file_content)
         if doc_id == 0:
             # Ja existe — tenta usar nome como id (fallback)
             return {"status": "skipped", "file": caminho.name, "detail": "doc ja existe"}
@@ -149,7 +152,7 @@ def processar_arquivo(client: NyxClient, caminho: Path, criar_doc: bool) -> dict
         doc_id = nome_base  # CRIA_DOC=false: assume que doc existe com id = nome
 
     # 2. Upload
-    return client.ingest_file(doc_id, caminho)
+    return client.ingest_file(doc_id, caminho, file_content)
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────

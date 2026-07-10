@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "axios": "^1.7.0",
     "@hocuspocus/server": "^2.15.0",
     "@hocuspocus/extension-redis": "^2.15.0",
     "@hocuspocus/extension-webhook": "^2.15.0",

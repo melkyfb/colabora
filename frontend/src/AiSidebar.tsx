@@ -2,7 +2,13 @@ import { useState } from "react";
 
 import { ragChat, type ChatReply } from "./api";
 
-export function AiSidebar({ token }: { token: string }) {
+export function AiSidebar({
+  token,
+  onOpenDoc,
+}: {
+  token: string;
+  onOpenDoc: (id: string) => void;
+}) {
   const [q, setQ] = useState("");
   const [reply, setReply] = useState<ChatReply | null>(null);
   const [loading, setLoading] = useState(false);
@@ -25,7 +31,7 @@ export function AiSidebar({ token }: { token: string }) {
     <aside className="sidebar">
       <h2>Assistente IA</h2>
       <textarea
-        placeholder="Pergunte sobre os documentos..."
+        placeholder="Pergunte, ou peça pra encontrar um documento..."
         value={q}
         onChange={(e) => setQ(e.target.value)}
       />
@@ -36,12 +42,28 @@ export function AiSidebar({ token }: { token: string }) {
       {reply && (
         <div className="reply">
           <p>{reply.answer}</p>
+
+          {reply.documents.length > 0 && (
+            <div className="docs">
+              <h3>📄 Documentos encontrados</h3>
+              {reply.documents.map((d) => (
+                <div key={d.id} className="doc-row">
+                  <span className="doc-title">{d.title}</span>
+                  <span className="doc-date">
+                    {new Date(d.updatedAt).toLocaleDateString("pt-BR")}
+                  </span>
+                  <button onClick={() => onOpenDoc(String(d.id))}>Abrir</button>
+                </div>
+              ))}
+            </div>
+          )}
+
           {reply.sources.length > 0 && (
             <details>
               <summary>{reply.sources.length} fonte(s)</summary>
               {reply.sources.map((s, i) => (
                 <div key={i} className="src">
-                  [doc {s.documentId}] {s.text.slice(0, 160)}…
+                  [{s.title ?? `doc ${s.documentId}`}] {s.text.slice(0, 160)}…
                 </div>
               ))}
             </details>

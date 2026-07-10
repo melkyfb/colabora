@@ -27,6 +27,23 @@ services:
       start_period: 30s
     networks:
       - nyx_net
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: nyx-phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: "3306"   # porta INTERNA do mysql na rede do compose (nao e mapping)
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${PHPMYADMIN_PORT:-8080}:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - nyx_net
 
   # ── Redis: pub/sub do @hocuspocus/extension-redis (escala N instancias Node) ──
   redis:
@@ -70,7 +87,8 @@ services:
     volumes:
       - opensearch_data:/usr/share/opensearch/data
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:${OPENSEARCH_PORT:-9200}/_cluster/health || exit 1"]
+      # porta interna fixa (9200) — ${OPENSEARCH_PORT} e a porta do HOST, nao vale aqui dentro
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 10
@@ -127,16 +145,19 @@ services:
       LLM_PROVIDER: ${LLM_PROVIDER:-claude}
       LLM_MODEL: ${LLM_MODEL:-}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_API_BASE_URL: ${OPENAI_API_BASE_URL:-https://api.openai.com/v1}
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
     ports:
       - "${BACKEND_PORT:-8000}:8000"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:${BACKEND_PORT:-8000}/health"]
+      # python nativo (stdlib) — sem curl na imagem; porta interna fixa 8000
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
       interval: 10s
       timeout: 5s
-      retries: 5
-      start_period: 30s
+      retries: 10
+      start_period: 40s   # migrations rodam no entrypoint antes do uvicorn
     volumes:
       - ./backend-api:/app        # bind-mount p/ hot-reload em dev (--reload)
       - hf_cache:/root/.cache/huggingface   # cache do modelo de embeddings (Fase 4)
@@ -152,7 +173,7 @@ services:
       redis:
         condition: service_healthy
       backend-api:
-        condition: service_started
+        condition: service_healthy
     environment:
       HOCUSPOCUS_PORT: "1234"
       REDIS_HOST: redis
@@ -164,11 +185,12 @@ services:
     ports:
       - "${HOCUSPOCUS_PORT:-1234}:1234"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:${HOCUSPOCUS_PORT:-1234}"]
+      # node nativo (fetch global do Node 20) — sem curl na imagem; porta interna fixa 1234
+      test: ["CMD", "node", "-e", "fetch('http://localhost:1234').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 30s 
+      start_period: 20s
     volumes:
       - ./realtime-server:/app
       - /app/node_modules        # preserva node_modules do container (bind-mount nao mascara)
@@ -183,9 +205,9 @@ services:
     restart: unless-stopped
     depends_on:
       backend-api:
-        condition: service_started
+        condition: service_healthy
       realtime-server:
-        condition: service_started
+        condition: service_healthy
     environment:
       # URLs lidas pelo browser (host) -> portas expostas, nao nomes de servico
       VITE_API_URL: http://localhost:${BACKEND_PORT:-8000}
@@ -193,6 +215,12 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     ports:
       - "${FRONTEND_PORT:-5173}:5173"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:5173').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
     volumes:
       - ./frontend:/app
       - /app/node_modules

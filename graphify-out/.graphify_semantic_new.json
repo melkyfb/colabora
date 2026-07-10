@@ -1,0 +1,140 @@
+{
+  "nodes": [
+    {
+      "id": "idea_md",
+      "label": "Idea Md",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/IDEA.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "improvements_md",
+      "label": "Improvements Md",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/IMPROVEMENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_md",
+      "label": "Readme Md",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_md",
+      "label": "Readme Md",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/backend-api/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "docker_compose_yml",
+      "label": "Docker Compose Yml",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/docker-compose.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_md",
+      "label": "Readme Md",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/frontend/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html",
+      "label": "Index Html",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/frontend/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "config_yaml",
+      "label": "Config Yaml",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/infra/cerbos/config/config.yaml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "derived_roles_yaml",
+      "label": "Derived_Roles Yaml",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/infra/cerbos/policies/derived_roles.yaml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "document_yaml",
+      "label": "Document Yaml",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/infra/cerbos/policies/document.yaml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_md",
+      "label": "Readme Md",
+      "file_type": "document",
+      "source_file": "C:/Users/itsal/colabora/realtime-server/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "idea_md",
+      "target": "readme_md",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:/Users/itsal/colabora/IDEA.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

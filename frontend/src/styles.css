@@ -104,3 +104,72 @@ input, select, textarea {
 .toolbar input[type="file"] {
   display: none;
 }
+.toolbar .sep {
+  width: 1px;
+  background: #2a3346;
+  margin: 0 4px;
+}
+
+/* Titulo do documento (F4) */
+.status .title {
+  cursor: pointer;
+  color: #e6e9ef;
+  font-weight: 600;
+  margin-right: 12px;
+}
+.status .title:hover { text-decoration: underline dotted; }
+.status .title-input {
+  font: inherit;
+  font-weight: 600;
+  padding: 2px 6px;
+  margin-right: 12px;
+}
+.status .meta { color: #8b93a7; }
+
+/* Botao secundario */
+button.ghost { background: transparent; }
+
+/* Modal de cadastro (F3) */
+.register-modal {
+  background: #151b2b;
+  color: #e6e9ef;
+  border: 1px solid #3a4256;
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 320px;
+}
+.register-modal::backdrop { background: rgba(0, 0, 0, 0.6); }
+.register-modal h2 { margin-top: 0; }
+.register-modal input,
+.register-modal select {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.register-modal .row { display: flex; gap: 8px; }
+.register-modal .row button { flex: 1; }
+
+/* Documentos encontrados pelo ChatIA (F5) */
+.reply .docs h3 { margin: 10px 0 6px; font-size: 13px; }
+.reply .doc-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px solid #2a3346;
+}
+.reply .doc-title { flex: 1; font-size: 13px; }
+.reply .doc-date { font-size: 11px; color: #8b93a7; }
+
+/* Imprimir / Salvar como PDF (F2) */
+@media print {
+  body { background: #fff; color: #000; }
+  .app header,
+  .toolbar,
+  .sidebar,
+  .status,
+  .hint { display: none !important; }
+  .app, .app main, .editor { display: block; height: auto; }
+  .prose { padding: 0; overflow: visible; }
+  .prose .ProseMirror { color: #000; }
+}

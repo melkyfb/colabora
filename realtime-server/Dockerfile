@@ -5,8 +5,6 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 
-RUN apt update && apt install -y curl
-
 COPY . .
 
 EXPOSE 1234

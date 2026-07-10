@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, String, Text
+from sqlalchemy import ForeignKey, String, Text, LargeBinary
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base, TimestampMixin
@@ -12,5 +12,5 @@ class Document(Base, TimestampMixin):
     owner_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), index=True
     )
-    # estado final do doc, gravado pelo webhook do Hocuspocus (onStoreDocument).
+    binary_state: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)
     content: Mapped[str | None] = mapped_column(Text, nullable=True)

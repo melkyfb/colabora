@@ -1,0 +1,560 @@
+{
+  "communities": {
+    "0": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_hocuspocus_provider",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_dependencies_tiptap_extension_collaboration",
+      "frontend_package_dependencies_tiptap_extension_image",
+      "frontend_package_dependencies_tiptap_extension_link",
+      "frontend_package_dependencies_tiptap_extension_underline",
+      "frontend_package_dependencies_tiptap_pm",
+      "frontend_package_dependencies_tiptap_react",
+      "frontend_package_dependencies_tiptap_starter_kit",
+      "frontend_package_dependencies_yjs",
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_types_react",
+      "frontend_package_devdependencies_types_react_dom",
+      "frontend_package_devdependencies_typescript",
+      "frontend_package_devdependencies_vite",
+      "frontend_package_devdependencies_vitejs_plugin_react",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_preview",
+      "frontend_package_scripts_typecheck",
+      "frontend_package_type",
+      "frontend_package_version"
+    ],
+    "1": [
+      "backend_api_app_models_base",
+      "backend_api_app_models_base_base",
+      "backend_api_app_models_base_timestampmixin",
+      "backend_api_app_models_document",
+      "backend_api_app_models_document_document",
+      "backend_api_app_models_permission",
+      "backend_api_app_models_permission_permission",
+      "backend_api_app_models_user",
+      "backend_api_app_models_user_user",
+      "backend_api_app_routers_documents",
+      "backend_api_app_routers_documents_authorize",
+      "backend_api_app_routers_documents_create_document",
+      "backend_api_app_routers_documents_delete_document",
+      "backend_api_app_routers_documents_get_document",
+      "backend_api_app_routers_documents_get_or_404",
+      "backend_api_app_routers_documents_py_asyncsession",
+      "backend_api_app_routers_documents_roles_for",
+      "backend_api_app_routers_documents_update_document",
+      "backend_api_app_schemas_document",
+      "backend_api_app_schemas_document_documentcreate",
+      "backend_api_app_schemas_document_documentout",
+      "backend_api_app_schemas_document_documentupdate",
+      "backend_api_app_schemas_document_py_basemodel",
+      "declarativebase"
+    ],
+    "2": [
+      "backend_api_app_auth_deps",
+      "backend_api_app_auth_deps_get_current_user",
+      "backend_api_app_auth_deps_py_asyncsession",
+      "backend_api_app_auth_security",
+      "backend_api_app_auth_security_create_access_token",
+      "backend_api_app_auth_security_decode_token",
+      "backend_api_app_auth_security_hash_password",
+      "backend_api_app_auth_security_verify_password",
+      "backend_api_app_routers_auth",
+      "backend_api_app_routers_auth_login",
+      "backend_api_app_routers_auth_me",
+      "backend_api_app_routers_auth_py_asyncsession",
+      "backend_api_app_routers_auth_register",
+      "backend_api_app_schemas_auth",
+      "backend_api_app_schemas_auth_py_basemodel",
+      "backend_api_app_schemas_auth_token",
+      "backend_api_app_schemas_auth_usercreate",
+      "backend_api_app_schemas_auth_userout",
+      "backend_api_tests_test_security",
+      "backend_api_tests_test_security_rationale_1",
+      "backend_api_tests_test_security_test_jwt_roundtrip",
+      "backend_api_tests_test_security_test_password_roundtrip",
+      "oauth2passwordrequestform"
+    ],
+    "3": [
+      "backend_api_alembic_env",
+      "backend_api_alembic_env_do_run_migrations",
+      "backend_api_alembic_env_run_migrations_offline",
+      "backend_api_alembic_env_run_migrations_online",
+      "backend_api_app_config",
+      "backend_api_app_config_settings",
+      "backend_api_app_main",
+      "backend_api_app_main_health",
+      "backend_api_app_rag_embeddings",
+      "backend_api_app_rag_embeddings_get_embeddings",
+      "backend_api_app_rag_embeddings_rationale_8",
+      "backend_api_app_rag_llm",
+      "backend_api_app_rag_llm_get_llm",
+      "backend_api_app_rag_llm_rationale_8",
+      "backend_api_app_rag_vectorstore",
+      "backend_api_app_rag_vectorstore_add_chunks",
+      "backend_api_app_rag_vectorstore_get_vectorstore",
+      "backend_api_app_rag_vectorstore_rationale_28",
+      "backend_api_app_rag_vectorstore_search",
+      "basesettings",
+      "opensearchvectorsearch"
+    ],
+    "4": [
+      "path",
+      "scripts_bulk_ingest",
+      "scripts_bulk_ingest_carregar_estado",
+      "scripts_bulk_ingest_coletar_arquivos",
+      "scripts_bulk_ingest_main",
+      "scripts_bulk_ingest_nyxclient",
+      "scripts_bulk_ingest_nyxclient_create_document",
+      "scripts_bulk_ingest_nyxclient_headers",
+      "scripts_bulk_ingest_nyxclient_ingest_file",
+      "scripts_bulk_ingest_nyxclient_init",
+      "scripts_bulk_ingest_nyxclient_login",
+      "scripts_bulk_ingest_nyxclient_url",
+      "scripts_bulk_ingest_processar_arquivo",
+      "scripts_bulk_ingest_rationale_119",
+      "scripts_bulk_ingest_rationale_128",
+      "scripts_bulk_ingest_rationale_139",
+      "scripts_bulk_ingest_rationale_47",
+      "scripts_bulk_ingest_rationale_67",
+      "scripts_bulk_ingest_rationale_80",
+      "scripts_bulk_ingest_rationale_95",
+      "scripts_bulk_ingest_salvar_estado"
+    ],
+    "5": [
+      "backend_api_app_rag_ingest",
+      "backend_api_app_rag_ingest_pdf_to_text",
+      "backend_api_app_rag_ingest_split_text",
+      "backend_api_app_routers_rag",
+      "backend_api_app_routers_rag_chatrequest",
+      "backend_api_app_routers_rag_chatresponse",
+      "backend_api_app_routers_rag_ingest",
+      "backend_api_app_routers_rag_ingestresponse",
+      "backend_api_app_routers_rag_py_asyncsession",
+      "backend_api_app_routers_rag_py_basemodel",
+      "backend_api_app_routers_rag_rag_chat",
+      "backend_api_app_routers_rag_rag_search",
+      "backend_api_app_routers_rag_retrieve_allowed",
+      "backend_api_app_routers_rag_searchhit",
+      "backend_api_app_routers_rag_searchrequest",
+      "backend_api_tests_test_rag",
+      "backend_api_tests_test_rag_rationale_1",
+      "backend_api_tests_test_rag_test_split_text_produces_multiple_chunks",
+      "uploadfile",
+      "user"
+    ],
+    "6": [
+      "realtime_server_package",
+      "realtime_server_package_dependencies",
+      "realtime_server_package_dependencies_hocuspocus_extension_redis",
+      "realtime_server_package_dependencies_hocuspocus_extension_webhook",
+      "realtime_server_package_dependencies_hocuspocus_server",
+      "realtime_server_package_dependencies_hocuspocus_transformer",
+      "realtime_server_package_dependencies_yjs",
+      "realtime_server_package_devdependencies",
+      "realtime_server_package_devdependencies_tsx",
+      "realtime_server_package_devdependencies_types_node",
+      "realtime_server_package_devdependencies_typescript",
+      "realtime_server_package_name",
+      "realtime_server_package_private",
+      "realtime_server_package_scripts",
+      "realtime_server_package_scripts_build",
+      "realtime_server_package_scripts_dev",
+      "realtime_server_package_scripts_start",
+      "realtime_server_package_scripts_typecheck",
+      "realtime_server_package_type",
+      "realtime_server_package_version"
+    ],
+    "7": [
+      "frontend_src_aisidebar",
+      "frontend_src_aisidebar_aisidebar",
+      "frontend_src_api",
+      "frontend_src_api_chatreply",
+      "frontend_src_api_chatsource",
+      "frontend_src_api_createdocument",
+      "frontend_src_api_login",
+      "frontend_src_api_ragchat",
+      "frontend_src_api_register",
+      "frontend_src_app",
+      "frontend_src_app_app",
+      "frontend_src_config",
+      "frontend_src_editor",
+      "frontend_src_editor_editor",
+      "frontend_src_editor_filetobase64",
+      "frontend_src_login",
+      "frontend_src_login_login",
+      "frontend_src_main"
+    ],
+    "8": [
+      "backend_api_app_db",
+      "backend_api_app_db_get_db",
+      "backend_api_app_db_py_asyncsession",
+      "backend_api_app_routers_internal",
+      "backend_api_app_routers_internal_authorize",
+      "backend_api_app_routers_internal_authorizerequest",
+      "backend_api_app_routers_internal_authorizeresponse",
+      "backend_api_app_routers_internal_py_asyncsession",
+      "backend_api_app_routers_internal_py_basemodel",
+      "backend_api_app_routers_internal_rationale_46",
+      "backend_api_app_routers_internal_require_internal_key",
+      "backend_api_app_routers_webhooks",
+      "backend_api_app_routers_webhooks_hocuspocus_webhook",
+      "backend_api_app_routers_webhooks_py_asyncsession",
+      "backend_api_app_routers_webhooks_verify_signature",
+      "request"
+    ],
+    "9": [
+      "frontend_tsconfig",
+      "frontend_tsconfig_compileroptions",
+      "frontend_tsconfig_compileroptions_isolatedmodules",
+      "frontend_tsconfig_compileroptions_jsx",
+      "frontend_tsconfig_compileroptions_lib",
+      "frontend_tsconfig_compileroptions_module",
+      "frontend_tsconfig_compileroptions_moduleresolution",
+      "frontend_tsconfig_compileroptions_noemit",
+      "frontend_tsconfig_compileroptions_nounusedlocals",
+      "frontend_tsconfig_compileroptions_nounusedparameters",
+      "frontend_tsconfig_compileroptions_resolvejsonmodule",
+      "frontend_tsconfig_compileroptions_skiplibcheck",
+      "frontend_tsconfig_compileroptions_strict",
+      "frontend_tsconfig_compileroptions_target",
+      "frontend_tsconfig_compileroptions_usedefineforclassfields",
+      "frontend_tsconfig_include"
+    ],
+    "10": [
+      "realtime_server_tsconfig",
+      "realtime_server_tsconfig_compileroptions",
+      "realtime_server_tsconfig_compileroptions_esmoduleinterop",
+      "realtime_server_tsconfig_compileroptions_module",
+      "realtime_server_tsconfig_compileroptions_moduleresolution",
+      "realtime_server_tsconfig_compileroptions_outdir",
+      "realtime_server_tsconfig_compileroptions_skiplibcheck",
+      "realtime_server_tsconfig_compileroptions_strict",
+      "realtime_server_tsconfig_compileroptions_target",
+      "realtime_server_tsconfig_compileroptions_types",
+      "realtime_server_tsconfig_include"
+    ],
+    "11": [
+      "backend_api_readme",
+      "backend_api_readme_autorizacao_abac_via_cerbos",
+      "backend_api_readme_backend_api_motor_principal_fase_2",
+      "backend_api_readme_endpoints",
+      "backend_api_readme_estrutura",
+      "backend_api_readme_rodar_dockerizado",
+      "backend_api_readme_rodar_local_sem_docker_contra_a_infra_dockerizada",
+      "backend_api_readme_testes",
+      "backend_api_readme_webhook_hocuspocus"
+    ],
+    "12": [
+      "backend_api_app_cerbos_client",
+      "backend_api_app_cerbos_client_cerbosclient",
+      "backend_api_app_cerbos_client_cerbosclient_allowed_resource_ids",
+      "backend_api_app_cerbos_client_cerbosclient_init",
+      "backend_api_app_cerbos_client_cerbosclient_is_allowed",
+      "backend_api_app_cerbos_client_rationale_65",
+      "backend_api_app_cerbos_client_rationale_7"
+    ],
+    "13": [
+      "backend_api_readme_document_resource",
+      "infra_cerbos_policies_derived_roles_common_roles",
+      "infra_cerbos_policies_derived_roles_owner_role",
+      "infra_cerbos_policies_document_admin_role",
+      "infra_cerbos_policies_document_engineer_l1_role",
+      "infra_cerbos_policies_document_engineer_lead_role",
+      "infra_cerbos_policies_document_policy"
+    ],
+    "14": [
+      "realtime_server_src_auth",
+      "realtime_server_src_auth_authorizeconnection",
+      "realtime_server_src_auth_authzresult",
+      "realtime_server_src_config",
+      "realtime_server_src_config_config",
+      "realtime_server_src_server",
+      "realtime_server_src_server_server"
+    ],
+    "15": [
+      "readme",
+      "readme_estrutura",
+      "readme_fase_1_subir_a_infra_local",
+      "readme_nyx_platform_data_management_platform_poc"
+    ],
+    "16": [
+      "backend_api_alembic_versions_0001_initial",
+      "backend_api_alembic_versions_0001_initial_downgrade",
+      "backend_api_alembic_versions_0001_initial_upgrade"
+    ],
+    "17": [
+      "backend_api_entrypoint",
+      "backend_api_entrypoint_sh__entry"
+    ],
+    "18": [
+      "frontend_readme_md",
+      "idea_md"
+    ],
+    "19": [
+      "backend_api_app_auth_init"
+    ],
+    "20": [
+      "backend_api_app_cerbos_init"
+    ],
+    "21": [
+      "backend_api_app_init"
+    ],
+    "22": [
+      "backend_api_app_models_init"
+    ],
+    "23": [
+      "backend_api_app_rag_init"
+    ],
+    "24": [
+      "backend_api_app_routers_init"
+    ],
+    "25": [
+      "backend_api_app_schemas_init"
+    ],
+    "26": [
+      "backend_api_readme_cerbos_client"
+    ],
+    "27": [
+      "backend_api_readme_fastapi_gatekeeper"
+    ],
+    "28": [
+      "backend_api_readme_jwt_auth"
+    ],
+    "29": [
+      "backend_api_tests_init"
+    ],
+    "30": [
+      "docker_compose_yml"
+    ],
+    "31": [
+      "frontend_index_html"
+    ],
+    "32": [
+      "frontend_src_vite_env_d"
+    ],
+    "33": [
+      "frontend_vite_config"
+    ],
+    "34": [
+      "improvements_md"
+    ],
+    "35": [
+      "infra_cerbos_config_config_server"
+    ],
+    "36": [
+      "pkg_nyx_backend_api"
+    ],
+    "37": [
+      "readme_dual_stack"
+    ],
+    "38": [
+      "readme_no_ws_proxy_rule"
+    ],
+    "39": [
+      "readme_nyx_platform"
+    ],
+    "40": [
+      "readme_processing_lane"
+    ],
+    "41": [
+      "readme_realtime_lane"
+    ]
+  },
+  "cohesion": {
+    "0": 0.07142857142857142,
+    "1": 0.18478260869565216,
+    "2": 0.1225296442687747,
+    "3": 0.11428571428571428,
+    "4": 0.16666666666666666,
+    "5": 0.19473684210526315,
+    "6": 0.1,
+    "7": 0.19607843137254902,
+    "8": 0.15833333333333333,
+    "9": 0.125,
+    "10": 0.18181818181818182,
+    "11": 0.2222222222222222,
+    "12": 0.2857142857142857,
+    "13": 0.47619047619047616,
+    "14": 0.47619047619047616,
+    "15": 0.5,
+    "16": 0.6666666666666666,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0
+  },
+  "gods": [
+    {
+      "id": "frontend_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 14
+    },
+    {
+      "id": "backend_api_app_models_user_user",
+      "label": "User",
+      "degree": 13
+    },
+    {
+      "id": "scripts_bulk_ingest_nyxclient",
+      "label": "NyxClient",
+      "degree": 10
+    },
+    {
+      "id": "realtime_server_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 9
+    },
+    {
+      "id": "backend_api_app_models_document_document",
+      "label": "Document",
+      "degree": 8
+    },
+    {
+      "id": "backend_api_app_routers_documents_authorize",
+      "label": "_authorize()",
+      "degree": 8
+    },
+    {
+      "id": "backend_api_readme_backend_api_motor_principal_fase_2",
+      "label": "backend-api — Motor Principal (Fase 2)",
+      "degree": 8
+    },
+    {
+      "id": "backend_api_app_routers_rag_ingest",
+      "label": "ingest()",
+      "degree": 8
+    },
+    {
+      "id": "backend_api_app_routers_auth_login",
+      "label": "login()",
+      "degree": 7
+    },
+    {
+      "id": "backend_api_app_routers_rag_retrieve_allowed",
+      "label": "_retrieve_allowed()",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Document Resource Policy",
+      "target": "Document Resource",
+      "source_files": [
+        "infra/cerbos/policies/document.yaml",
+        "backend-api/README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "implements",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `Document Resource` unexpectedly reaches hub `Document Resource Policy`"
+    },
+    {
+      "source": "Idea Md",
+      "target": "Readme Md",
+      "source_files": [
+        "IDEA.md",
+        "frontend/README.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "hocuspocus_webhook()",
+      "target": "Document",
+      "source_files": [
+        "backend-api/app/routers/webhooks.py",
+        "backend-api/app/models/document.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "login()",
+      "target": "User",
+      "source_files": [
+        "backend-api/app/routers/auth.py",
+        "backend-api/app/models/user.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "me()",
+      "target": "User",
+      "source_files": [
+        "backend-api/app/routers/auth.py",
+        "backend-api/app/models/user.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `me()` unexpectedly reaches hub `User`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `User` connect `User` to `login`?",
+      "why": "High betweenness centrality (0.022) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `ingest()` connect `rag.py` to `config.py`?",
+      "why": "High betweenness centrality (0.021) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `login()` connect `login` to `User`?",
+      "why": "High betweenness centrality (0.016) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 3 inferred relationships involving `User` (e.g. with `Base` and `TimestampMixin`) actually correct?",
+      "why": "`User` has 3 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Self-check das rotinas de auth. Roda sem DB/infra: pytest -q.`, `Estrutura`, `Fase 1 — subir a infra local` to the rest of the system?",
+      "why": "107 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `dependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `login` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1225296442687747 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
