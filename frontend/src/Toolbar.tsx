@@ -1,6 +1,8 @@
 import type { Editor } from "@tiptap/react";
 import { useState } from "react";
 
+import { TablePicker } from "./toolbar/TablePicker";
+
 // ponytail: toolbar propria (8-12 botoes) em vez do scaffold Tiptap UI Components.
 // Se o editor crescer (menus, dropdowns, temas), migrar pro oficial:
 // https://tiptap.dev/docs/ui-components/components/overview
@@ -73,6 +75,10 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
 
         <span className="sep" />
 
+        <TablePicker
+          onInsert={(rows, cols) => editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()}
+        />
+        {btn("🖼️", "Inserir imagem", () => setShowFileInput(true))}
         {btn(
           "🔗",
           "Link",
@@ -84,7 +90,17 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
           },
           editor.isActive("link"),
         )}
-        {btn("🖼️", "Inserir imagem", () => setShowFileInput(true))}
+
+        {editor.isActive("table") && (
+          <>
+            <span className="sep" />
+            {btn("+Lin", "Adicionar linha", () => editor.chain().focus().addRowAfter().run())}
+            {btn("-Lin", "Remover linha", () => editor.chain().focus().deleteRow().run())}
+            {btn("+Col", "Adicionar coluna", () => editor.chain().focus().addColumnAfter().run())}
+            {btn("-Col", "Remover coluna", () => editor.chain().focus().deleteColumn().run())}
+            {btn("🗑Tab", "Apagar tabela", () => editor.chain().focus().deleteTable().run())}
+          </>
+        )}
 
         <span className="sep" />
 
