@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     JWT_SECRET: str = "dev-only-secret-change-me-min-32-bytes-long"
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     CERBOS_HTTP_URL: str = "http://localhost:3592"
     HOCUSPOCUS_WEBHOOK_SECRET: str = "dev-webhook-secret-change-me"
     # chave compartilhada Hocuspocus <-> FastAPI p/ o endpoint interno de authz.

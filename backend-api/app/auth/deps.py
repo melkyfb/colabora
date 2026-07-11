@@ -21,6 +21,8 @@ async def get_current_user(
     )
     try:
         payload = decode_token(token)
+        if payload.get("type") != "access":
+            raise cred_exc
         uid = int(payload["sub"])
     except (jwt.PyJWTError, KeyError, TypeError, ValueError):
         raise cred_exc

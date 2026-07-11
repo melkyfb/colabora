@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import * as Y from "yjs";
 
 import { getDocument, updateDocument } from "./api";
+import { handleAuthFailure } from "./auth";
 import { WS_URL } from "./config";
 import { Toolbar } from "./Toolbar";
 
@@ -40,7 +41,10 @@ export function Editor({ token, docId }: { token: string; docId: string }) {
       name: docId, // documentName == id do Document (convencao do backend)
       token,
       document: ydoc,
-      onAuthenticationFailed: () => setStatus("NAO AUTORIZADO"),
+      onAuthenticationFailed: () => {
+        setStatus("NAO AUTORIZADO");
+        handleAuthFailure();
+      },
       onStatus: (e: { status: string }) => setStatus(e.status),
     });
     setConn({ ydoc, provider });

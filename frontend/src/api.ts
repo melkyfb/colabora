@@ -1,6 +1,12 @@
+import { authedFetch } from "./auth";
 import { API_URL } from "./config";
 
-export async function login(email: string, password: string): Promise<string> {
+export interface LoginResult {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export async function login(email: string, password: string): Promise<LoginResult> {
   // OAuth2 password form: campo "username" = email
   const body = new URLSearchParams({ username: email, password });
   const res = await fetch(`${API_URL}/api/auth/login`, {
@@ -10,7 +16,7 @@ export async function login(email: string, password: string): Promise<string> {
   });
   if (!res.ok) throw new Error("Login falhou (credenciais invalidas?)");
   const data = await res.json();
-  return data.access_token as string;
+  return { accessToken: data.access_token as string, refreshToken: data.refresh_token as string };
 }
 
 export async function register(email: string, password: string, role: string): Promise<void> {
@@ -30,9 +36,9 @@ export interface DocumentOut {
 }
 
 export async function createDocument(token: string, title: string): Promise<DocumentOut> {
-  const res = await fetch(`${API_URL}/api/documents`, {
+  const res = await authedFetch("/api/documents", token, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title }),
   });
   if (!res.ok) throw new Error("Criar documento falhou");
@@ -40,9 +46,7 @@ export async function createDocument(token: string, title: string): Promise<Docu
 }
 
 export async function getDocument(token: string, id: string): Promise<DocumentOut> {
-  const res = await fetch(`${API_URL}/api/documents/${id}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const res = await authedFetch(`/api/documents/${id}`, token);
   if (!res.ok) throw new Error("Buscar documento falhou");
   return res.json();
 }
@@ -52,9 +56,9 @@ export async function updateDocument(
   id: string,
   patch: { title?: string; content?: string },
 ): Promise<DocumentOut> {
-  const res = await fetch(`${API_URL}/api/documents/${id}`, {
+  const res = await authedFetch(`/api/documents/${id}`, token, {
     method: "PUT",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(patch),
   });
   if (!res.ok) throw new Error("Atualizar documento falhou");
@@ -80,9 +84,9 @@ export interface ChatReply {
 }
 
 export async function ragChat(token: string, query: string): Promise<ChatReply> {
-  const res = await fetch(`${API_URL}/api/rag/chat`, {
+  const res = await authedFetch("/api/rag/chat", token, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query, k: 5 }),
   });
   if (!res.ok) throw new Error("Chat falhou");

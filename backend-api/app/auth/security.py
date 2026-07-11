@@ -15,14 +15,23 @@ def verify_password(plain: str, hashed: str) -> bool:
     return bcrypt.checkpw(plain.encode(), hashed.encode())
 
 
-def create_access_token(sub: str) -> str:
+def _create_token(sub: str, expires_delta: timedelta, token_type: str) -> str:
     now = datetime.now(timezone.utc)
     payload = {
         "sub": sub,
         "iat": now,
-        "exp": now + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES),
+        "exp": now + expires_delta,
+        "type": token_type,
     }
     return jwt.encode(payload, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
+
+
+def create_access_token(sub: str) -> str:
+    return _create_token(sub, timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES), "access")
+
+
+def create_refresh_token(sub: str) -> str:
+    return _create_token(sub, timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS), "refresh")
 
 
 def decode_token(token: str) -> dict:

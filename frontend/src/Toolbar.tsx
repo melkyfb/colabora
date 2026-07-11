@@ -1,5 +1,5 @@
 import type { Editor } from "@tiptap/react";
-import { useState } from "react";
+import { useRef } from "react";
 
 import { TablePicker } from "./toolbar/TablePicker";
 import { ColorSwatchPicker } from "./toolbar/ColorSwatchPicker";
@@ -11,7 +11,7 @@ const HIGHLIGHT_COLORS = ["#facc15", "#4ade80", "#38bdf8", "#f472b6", "#fb923c",
 // Se o editor crescer (menus, dropdowns, temas), migrar pro oficial:
 // https://tiptap.dev/docs/ui-components/components/overview
 export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
-  const [showFileInput, setShowFileInput] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const btn = (
     label: string,
@@ -99,7 +99,7 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
         <TablePicker
           onInsert={(rows, cols) => editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()}
         />
-        {btn("🖼️", "Inserir imagem", () => setShowFileInput(true))}
+        {btn("🖼️", "Inserir imagem", () => fileInputRef.current?.click())}
         {btn(
           "🔗",
           "Link",
@@ -137,20 +137,19 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
         })}
         {btn("🖨️", "Imprimir / Salvar como PDF", () => window.print())}
 
-        {showFileInput && (
-          <input
-            type="file"
-            accept="image/*"
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (!file) return;
-              const base64 = await fileToBase64(file);
-              editor.chain().focus().setImage({ src: base64, alt: file.name }).run();
-              setShowFileInput(false);
-            }}
-            style={{ position: "absolute", left: "-9999px" }}
-          />
-        )}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            const base64 = await fileToBase64(file);
+            editor.chain().focus().setImage({ src: base64, alt: file.name }).run();
+            e.target.value = "";
+          }}
+          style={{ display: "none" }}
+        />
       </div>
     </div>
   );

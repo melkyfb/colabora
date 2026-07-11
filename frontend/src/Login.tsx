@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 
 import { login, register } from "./api";
 
-export function Login({ onToken }: { onToken: (token: string) => void }) {
+export function Login({ onToken }: { onToken: (accessToken: string, refreshToken: string) => void }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
@@ -18,7 +18,8 @@ export function Login({ onToken }: { onToken: (token: string) => void }) {
   async function doLogin() {
     setErr("");
     try {
-      onToken(await login(email, password));
+      const { accessToken, refreshToken } = await login(email, password);
+      onToken(accessToken, refreshToken);
     } catch (e) {
       setErr(String(e));
     }
@@ -32,7 +33,8 @@ export function Login({ onToken }: { onToken: (token: string) => void }) {
     }
     try {
       await register(regEmail, regPassword, regRole);
-      onToken(await login(regEmail, regPassword));
+      const { accessToken, refreshToken } = await login(regEmail, regPassword);
+      onToken(accessToken, refreshToken);
       dialogRef.current?.close();
     } catch (e) {
       setRegErr(String(e));
