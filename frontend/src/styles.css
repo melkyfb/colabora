@@ -185,3 +185,23 @@ button.ghost { background: transparent; }
   .prose { padding: 0; overflow: visible; }
   .prose .ProseMirror { color: #000; }
 }
+
+/* Blockquote / code block / hr (Toolbar upgrade) */
+.prose blockquote {
+  border-left: 3px solid #3a4256;
+  margin: 0;
+  padding-left: 14px;
+  color: #b7bdc9;
+}
+.prose pre {
+  background: #0b0f18;
+  border: 1px solid #2a3346;
+  border-radius: 6px;
+  padding: 12px;
+  overflow-x: auto;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid #2a3346;
+  margin: 16px 0;
+}
