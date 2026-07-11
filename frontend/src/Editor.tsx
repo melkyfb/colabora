@@ -12,6 +12,7 @@ import TableRow from "@tiptap/extension-table-row";
 import Underline from "@tiptap/extension-underline";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
+import CharacterCount from "@tiptap/extension-character-count";
 import TextStyle from "@tiptap/extension-text-style";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -125,6 +126,7 @@ function EditorArea({ ydoc, docId }: { ydoc: Y.Doc; docId: string }) {
         TextStyle,
         Color,
         Highlight.configure({ multicolor: true }),
+        CharacterCount,
       ],
     },
     [ydoc],
@@ -134,6 +136,9 @@ function EditorArea({ ydoc, docId }: { ydoc: Y.Doc; docId: string }) {
   return (
     <>
       <Toolbar editor={editor} docId={docId} />
+      <div className="wordcount">
+        {editor.storage.characterCount.words()} palavras · {editor.storage.characterCount.characters()} caracteres
+      </div>
       <EditorContent editor={editor} className="prose" />
     </>
   );
