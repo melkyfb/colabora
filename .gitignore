@@ -23,3 +23,6 @@ dist/
 
 # Authentication tokens
 .npmrc
+
+# Superpowers scratch (brainstorm mockups, sdd progress/briefs)
+.superpowers/
