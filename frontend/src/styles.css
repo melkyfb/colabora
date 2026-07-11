@@ -205,3 +205,24 @@ button.ghost { background: transparent; }
   border-top: 1px solid #2a3346;
   margin: 16px 0;
 }
+
+/* Task list (Toolbar upgrade) */
+.prose ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 4px;
+}
+.prose ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.prose ul[data-type="taskList"] li > label {
+  margin-top: 3px;
+}
+.prose ul[data-type="taskList"] li > div {
+  flex: 1;
+}
+.prose ul[data-type="taskList"] li[data-checked="true"] > div {
+  text-decoration: line-through;
+  color: #8b93a7;
+}
