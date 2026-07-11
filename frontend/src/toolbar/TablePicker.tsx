@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MAX_ROWS = 6;
 const MAX_COLS = 8;
@@ -6,9 +6,21 @@ const MAX_COLS = 8;
 export function TablePicker({ onInsert }: { onInsert: (rows: number, cols: number) => void }) {
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState<{ r: number; c: number }>({ r: 0, c: 0 });
+  const rootRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [open]);
 
   return (
-    <span className="table-picker">
+    <span className="table-picker" ref={rootRef}>
       <button title="Inserir tabela" onClick={() => setOpen((v) => !v)}>
         ⊞ Tabela
       </button>

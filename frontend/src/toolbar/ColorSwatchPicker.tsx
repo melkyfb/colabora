@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ColorSwatchPicker({
   label,
@@ -16,9 +16,21 @@ export function ColorSwatchPicker({
   onClear: () => void;
 }) {
   const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [open]);
 
   return (
-    <span className="color-picker">
+    <span className="color-picker" ref={rootRef}>
       <button
         title={title}
         onClick={() => setOpen((v) => !v)}
