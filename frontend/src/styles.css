@@ -86,10 +86,17 @@ input, select, textarea {
 /* Toolbar */
 .toolbar {
   display: flex;
+  flex-direction: column;
   gap: 6px;
   padding: 8px 16px;
   background: #151b2b;
   border-bottom: 1px solid #2a3346;
+}
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 .toolbar button {
   min-width: 32px;
@@ -106,8 +113,13 @@ input, select, textarea {
 }
 .toolbar .sep {
   width: 1px;
+  align-self: stretch;
   background: #2a3346;
   margin: 0 4px;
+}
+.toolbar .heading-select {
+  padding: 4px 8px;
+  font-size: 0.85rem;
 }
 
 /* Titulo do documento (F4) */
