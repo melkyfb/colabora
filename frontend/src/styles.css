@@ -269,3 +269,35 @@ button.ghost { background: transparent; }
   font-weight: 600;
   text-align: left;
 }
+
+/* Color/highlight swatch picker (Toolbar upgrade) */
+.color-picker { position: relative; }
+.color-picker-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  background: #0f1420;
+  border: 1px solid #3a4256;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 4px;
+  width: 140px;
+}
+.color-picker-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.color-picker-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #3a4256;
+  cursor: pointer;
+}
+.color-picker-clear {
+  width: 100%;
+  font-size: 12px;
+}

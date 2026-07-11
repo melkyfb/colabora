@@ -10,6 +10,9 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Underline from "@tiptap/extension-underline";
+import Color from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
+import TextStyle from "@tiptap/extension-text-style";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { useEffect, useState } from "react";
@@ -119,6 +122,9 @@ function EditorArea({ ydoc, docId }: { ydoc: Y.Doc; docId: string }) {
         TableRow,
         TableHeader,
         TableCell,
+        TextStyle,
+        Color,
+        Highlight.configure({ multicolor: true }),
       ],
     },
     [ydoc],

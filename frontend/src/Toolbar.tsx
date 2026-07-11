@@ -2,6 +2,10 @@ import type { Editor } from "@tiptap/react";
 import { useState } from "react";
 
 import { TablePicker } from "./toolbar/TablePicker";
+import { ColorSwatchPicker } from "./toolbar/ColorSwatchPicker";
+
+const TEXT_COLORS = ["#e6e9ef", "#e24b4a", "#facc15", "#4ade80", "#38bdf8", "#a78bfa", "#f472b6", "#8b93a7"];
+const HIGHLIGHT_COLORS = ["#facc15", "#4ade80", "#38bdf8", "#f472b6", "#fb923c", "#a78bfa", "#e24b4a", "#e6e9ef"];
 
 // ponytail: toolbar propria (8-12 botoes) em vez do scaffold Tiptap UI Components.
 // Se o editor crescer (menus, dropdowns, temas), migrar pro oficial:
@@ -48,6 +52,23 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
         {btn("I", "Itálico", () => editor.chain().focus().toggleItalic().run(), editor.isActive("italic"))}
         {btn("U", "Sublinhado", () => editor.chain().focus().toggleUnderline().run(), editor.isActive("underline"))}
         {btn("S", "Tachado", () => editor.chain().focus().toggleStrike().run(), editor.isActive("strike"))}
+
+        <ColorSwatchPicker
+          label="A"
+          title="Cor do texto"
+          colors={TEXT_COLORS}
+          activeColor={TEXT_COLORS.find((c) => editor.isActive("textStyle", { color: c })) ?? null}
+          onPick={(c) => editor.chain().focus().setColor(c).run()}
+          onClear={() => editor.chain().focus().unsetColor().run()}
+        />
+        <ColorSwatchPicker
+          label="A"
+          title="Marca-texto"
+          colors={HIGHLIGHT_COLORS}
+          activeColor={HIGHLIGHT_COLORS.find((c) => editor.isActive("highlight", { color: c })) ?? null}
+          onPick={(c) => editor.chain().focus().setHighlight({ color: c }).run()}
+          onClear={() => editor.chain().focus().unsetHighlight().run()}
+        />
 
         <span className="sep" />
 
