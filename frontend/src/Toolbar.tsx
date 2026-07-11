@@ -63,8 +63,6 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
 
         {btn("•", "Lista com marcadores", () => editor.chain().focus().toggleBulletList().run(), editor.isActive("bulletList"))}
         {btn("1.", "Lista numerada", () => editor.chain().focus().toggleOrderedList().run(), editor.isActive("orderedList"))}
-
-        <span className="sep" />
         {btn("☑", "Lista de tarefas", () => editor.chain().focus().toggleTaskList().run(), editor.isActive("taskList"))}
 
         <span className="sep" />
