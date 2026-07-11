@@ -1,4 +1,4 @@
-﻿import type { Editor } from "@tiptap/react";
+import type { Editor } from "@tiptap/react";
 import { useState } from "react";
 
 // ponytail: toolbar propria (8-12 botoes) em vez do scaffold Tiptap UI Components.
@@ -66,9 +66,9 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
 
         <span className="sep" />
 
-        {btn(String.fromCharCode(8220, 8221), "Citação", () => editor.chain().focus().toggleBlockquote().run(), editor.isActive("blockquote"))}
-        {btn(String.fromCharCode(60, 47, 62), "Bloco de codigo", () => editor.chain().focus().toggleCodeBlock().run(), editor.isActive("codeBlock"))}
-        {btn(String.fromCharCode(8212), "Linha horizontal", () => editor.chain().focus().setHorizontalRule().run())}
+        {btn("”", "Citação", () => editor.chain().focus().toggleBlockquote().run(), editor.isActive("blockquote"))}
+        {btn("</>", "Bloco de codigo", () => editor.chain().focus().toggleCodeBlock().run(), editor.isActive("codeBlock"))}
+        {btn("―", "Linha horizontal", () => editor.chain().focus().setHorizontalRule().run())}
 
         <span className="sep" />
 
