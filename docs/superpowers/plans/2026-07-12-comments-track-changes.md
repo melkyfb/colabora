@@ -1646,9 +1646,13 @@ export function SuggestionsPanel({ editor }: { editor: TiptapEditor | null }) {
 
   function act(c: Change, accept: boolean) {
     if (!editor) return;
-    const chain = editor.chain().focus().setTextSelection({ from: c.from, to: c.to });
-    if (accept) chain.acceptChange().run();
-    else chain.rejectChange().run();
+    // NUNCA encadear comandos do track-change apos focus()/setTextSelection no
+    // mesmo chain: changeTrack() le editor.state.selection no momento da chamada
+    // (nao o tr do chain) -> selecao errada. Comandos separados despacham em
+    // sequencia e funcionam (validado no spike da Task 1).
+    editor.commands.setTextSelection({ from: c.from, to: c.to });
+    if (accept) editor.commands.acceptChange();
+    else editor.commands.rejectChange();
   }
 
   return (
@@ -1656,10 +1660,9 @@ export function SuggestionsPanel({ editor }: { editor: TiptapEditor | null }) {
       <h2>Sugestões</h2>
       {changes.length > 0 && (
         <div className="suggestion-all">
-          <button onClick={() => editor.chain().focus().acceptAllChanges().run()}>
-            Aceitar todas
-          </button>
-          <button className="ghost" onClick={() => editor.chain().focus().rejectAllChanges().run()}>
+          {/* comandos diretos, sem chain (ver nota em act()) */}
+          <button onClick={() => editor.commands.acceptAllChanges()}>Aceitar todas</button>
+          <button className="ghost" onClick={() => editor.commands.rejectAllChanges()}>
             Rejeitar todas
           </button>
         </div>
