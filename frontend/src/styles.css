@@ -310,3 +310,55 @@ button.ghost { background: transparent; }
   border-bottom: 1px solid #2a3346;
   text-align: right;
 }
+
+/* Sidebar em abas (comentarios & track changes) */
+.sidebar-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.sidebar-tabs button {
+  flex: 1;
+  font-size: 12px;
+}
+.sidebar-tabs button.active {
+  background: #2a3346;
+}
+
+/* Mark de comentario no editor */
+.prose span[data-comment-id] {
+  background: rgba(250, 204, 21, 0.15);
+  border-bottom: 1px dashed #facc15;
+  cursor: pointer;
+}
+
+/* Threads de comentario */
+.comment-thread {
+  border: 1px solid #2a3346;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.comment-thread.active {
+  border-color: #facc15;
+}
+.comment-thread.resolved {
+  opacity: 0.55;
+}
+.comment-item {
+  margin-bottom: 6px;
+}
+.comment-author {
+  font-size: 11px;
+  color: #8b93a7;
+}
+.comment-body {
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+.comment-reply {
+  margin-left: 12px;
+  border-left: 2px solid #2a3346;
+  padding-left: 8px;
+}

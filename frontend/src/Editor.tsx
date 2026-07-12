@@ -14,6 +14,7 @@ import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import CharacterCount from "@tiptap/extension-character-count";
 import { TrackChangeExtension } from "./extensions/track-change";
+import { CommentExtension } from "@sereneinserenade/tiptap-comment-extension";
 import TextStyle from "@tiptap/extension-text-style";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -21,11 +22,29 @@ import { useEffect, useState } from "react";
 import * as Y from "yjs";
 
 import { getDocument, updateDocument } from "./api";
+import type { MeOut } from "./api";
 import { handleAuthFailure } from "./auth";
 import { WS_URL } from "./config";
 import { Toolbar } from "./Toolbar";
 
-export function Editor({ token, docId }: { token: string; docId: string }) {
+export function Editor({
+  token,
+  docId,
+  me,
+  onEditorReady,
+  onCanEdit,
+  onCommentActivated,
+  onNewComment,
+}: {
+  token: string;
+  docId: string;
+  me: MeOut;
+  onEditorReady: (editor: import("@tiptap/react").Editor | null) => void;
+  onCanEdit: (canEdit: boolean) => void;
+  onCommentActivated: (markId: string | null) => void;
+  onNewComment: (markId: string) => void;
+}) {
+  void me;
   const [status, setStatus] = useState("conectando...");
   const [title, setTitle] = useState("");
   const [editingTitle, setEditingTitle] = useState(false);
@@ -60,7 +79,11 @@ export function Editor({ token, docId }: { token: string; docId: string }) {
   useEffect(() => {
     let alive = true;
     getDocument(token, docId)
-      .then((d) => alive && setTitle(d.title))
+      .then((d) => {
+        if (!alive) return;
+        setTitle(d.title);
+        onCanEdit(d.can_edit);
+      })
       .catch(() => alive && setTitle(""));
     return () => {
       alive = false;
@@ -105,13 +128,34 @@ export function Editor({ token, docId }: { token: string; docId: string }) {
           doc {docId} · WS: {status}
         </span>
       </div>
-      <EditorArea key={docId} ydoc={conn.ydoc} docId={docId} />
+      <EditorArea
+        key={docId}
+        ydoc={conn.ydoc}
+        docId={docId}
+        onEditorReady={onEditorReady}
+        onCommentActivated={onCommentActivated}
+        onNewComment={onNewComment}
+      />
     </section>
   );
 }
 
 // useEditor vive num filho: so monta quando o ydoc/provider ja existem
-function EditorArea({ ydoc, docId }: { ydoc: Y.Doc; docId: string }) {
+function EditorArea({
+  ydoc,
+  docId,
+  onEditorReady,
+  onCommentActivated,
+  onNewComment,
+}: {
+  ydoc: Y.Doc;
+  docId: string;
+  onEditorReady: (editor: import("@tiptap/react").Editor | null) => void;
+  onCommentActivated: (markId: string | null) => void;
+  onNewComment: (markId: string) => void;
+}) {
+  void onNewComment;
+
   const editor = useEditor(
     {
       extensions: [
@@ -133,10 +177,19 @@ function EditorArea({ ydoc, docId }: { ydoc: Y.Doc; docId: string }) {
         Highlight.configure({ multicolor: true }),
         CharacterCount,
         TrackChangeExtension.configure({ enabled: false }),
+        CommentExtension.configure({
+          HTMLAttributes: { class: "comment-mark" },
+          onCommentActivated: (commentId: string) => onCommentActivated(commentId || null),
+        }),
       ],
     },
     [ydoc],
   );
+
+  useEffect(() => {
+    onEditorReady(editor);
+    return () => onEditorReady(null);
+  }, [editor]);
 
   if (!editor) return <p className="hint">Carregando editor...</p>;
   return (

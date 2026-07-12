@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import type { Editor as TiptapEditor } from "@tiptap/react";
 
-import { AiSidebar } from "./AiSidebar";
-import { createDocument } from "./api";
+import { createDocument, fetchMe, type MeOut } from "./api";
 import { clearTokens, getAccessToken, refreshAccessToken, registerAuthHandlers, setTokens, tokenExpiryMs } from "./auth";
 import { Editor } from "./Editor";
 import { Login } from "./Login";
+import { Sidebar, type SidebarTab } from "./Sidebar";
 
 // margem antes do "exp" pra disparar o refresh silencioso (evita a janela
 // onde o access token ja morreu mas o timer ainda nao disparou).
@@ -14,6 +15,20 @@ export function App() {
   const [token, setToken] = useState<string | null>(() => getAccessToken());
   const [docId, setDocId] = useState("");
   const [docInput, setDocInput] = useState("1");
+  const [me, setMe] = useState<MeOut | null>(null);
+  const [editorInst, setEditorInst] = useState<TiptapEditor | null>(null);
+  const [canEdit, setCanEdit] = useState(false);
+  const [tab, setTab] = useState<SidebarTab>("ia");
+  const [activeMarkId, setActiveMarkId] = useState<string | null>(null);
+  const [draftMarkId, setDraftMarkId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!token) {
+      setMe(null);
+      return;
+    }
+    fetchMe(token).then(setMe).catch(() => {});
+  }, [token]);
 
   function setTok(access: string, refresh: string) {
     setTokens(access, refresh);
@@ -23,6 +38,11 @@ export function App() {
     clearTokens();
     setToken(null);
     setDocId("");
+    setMe(null);
+    setTab("ia");
+    setActiveMarkId(null);
+    setDraftMarkId(null);
+    setCanEdit(false);
   }
 
   // handlers globais: authedFetch (api.ts) e a conexao WS (Editor.tsx) chamam
@@ -52,6 +72,9 @@ export function App() {
   function openDoc(id: string) {
     setDocInput(id);
     setDocId(id);
+    setActiveMarkId(null);
+    setDraftMarkId(null);
+    setCanEdit(false);
   }
 
   async function newDoc() {
@@ -63,6 +86,7 @@ export function App() {
   }
 
   if (!token) return <Login onToken={setTok} />;
+  if (!me) return <p className="hint">Carregando usuario...</p>;
 
   return (
     <div className="app">
@@ -81,11 +105,38 @@ export function App() {
       </header>
       <main>
         {docId ? (
-          <Editor token={token} docId={docId} />
+          <Editor
+            token={token}
+            docId={docId}
+            me={me}
+            onEditorReady={setEditorInst}
+            onCanEdit={setCanEdit}
+            onCommentActivated={(markId) => {
+              setActiveMarkId(markId);
+              if (markId) setTab("comments");
+            }}
+            onNewComment={(markId) => {
+              setDraftMarkId(markId);
+              setActiveMarkId(markId);
+              setTab("comments");
+            }}
+          />
         ) : (
           <p className="hint">Abra um doc existente (por id) ou crie um novo.</p>
         )}
-        <AiSidebar token={token} onOpenDoc={openDoc} />
+        <Sidebar
+          token={token}
+          docId={docId}
+          editor={editorInst}
+          me={me}
+          canEdit={canEdit}
+          tab={tab}
+          onTab={setTab}
+          activeMarkId={activeMarkId}
+          draftMarkId={draftMarkId}
+          onDraftDone={() => setDraftMarkId(null)}
+          onOpenDoc={openDoc}
+        />
       </main>
     </div>
   );

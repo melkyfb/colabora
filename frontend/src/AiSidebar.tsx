@@ -28,7 +28,7 @@ export function AiSidebar({
   }
 
   return (
-    <aside className="sidebar">
+    <div className="panel">
       <h2>Assistente IA</h2>
       <textarea
         placeholder="Pergunte, ou peça pra encontrar um documento..."
@@ -70,6 +70,6 @@ export function AiSidebar({
           )}
         </div>
       )}
-    </aside>
+    </div>
   );
 }

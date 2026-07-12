@@ -33,6 +33,7 @@ export interface DocumentOut {
   title: string;
   owner_id: number;
   updated_at: string;
+  can_edit: boolean;
 }
 
 export async function createDocument(token: string, title: string): Promise<DocumentOut> {
@@ -91,4 +92,69 @@ export async function ragChat(token: string, query: string): Promise<ChatReply> 
   });
   if (!res.ok) throw new Error("Chat falhou");
   return res.json();
+}
+
+export interface MeOut {
+  id: number;
+  email: string;
+  full_name: string | null;
+  role: string;
+}
+
+export async function fetchMe(token: string): Promise<MeOut> {
+  const res = await authedFetch("/api/auth/me", token);
+  if (!res.ok) throw new Error("Buscar usuario falhou");
+  return res.json();
+}
+
+export interface CommentOut {
+  id: number;
+  document_id: number;
+  mark_id: string;
+  author_id: number;
+  author_name: string;
+  parent_id: number | null;
+  body: string;
+  resolved: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export async function listComments(token: string, docId: string): Promise<CommentOut[]> {
+  const res = await authedFetch(`/api/documents/${docId}/comments`, token);
+  if (!res.ok) throw new Error("Listar comentarios falhou");
+  return res.json();
+}
+
+export async function createComment(
+  token: string,
+  docId: string,
+  payload: { mark_id: string; body: string; parent_id?: number },
+): Promise<CommentOut> {
+  const res = await authedFetch(`/api/documents/${docId}/comments`, token, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Criar comentario falhou");
+  return res.json();
+}
+
+export async function updateComment(
+  token: string,
+  commentId: number,
+  patch: { body?: string; resolved?: boolean },
+): Promise<CommentOut> {
+  const res = await authedFetch(`/api/comments/${commentId}`, token, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(patch),
+  });
+  if (!res.ok) throw new Error("Atualizar comentario falhou");
+  return res.json();
+}
+
+export async function deleteComment(token: string, commentId: number): Promise<void> {
+  const res = await authedFetch(`/api/comments/${commentId}`, token, { method: "DELETE" });
+  if (!res.ok) throw new Error("Apagar comentario falhou");
 }
