@@ -13,6 +13,7 @@ import Underline from "@tiptap/extension-underline";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import CharacterCount from "@tiptap/extension-character-count";
+import { TrackChangeExtension } from "./extensions/track-change";
 import TextStyle from "@tiptap/extension-text-style";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -131,6 +132,7 @@ function EditorArea({ ydoc, docId }: { ydoc: Y.Doc; docId: string }) {
         Color,
         Highlight.configure({ multicolor: true }),
         CharacterCount,
+        TrackChangeExtension.configure({ enabled: false }),
       ],
     },
     [ydoc],
