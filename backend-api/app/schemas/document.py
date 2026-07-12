@@ -22,3 +22,5 @@ class DocumentOut(BaseModel):
     content: str | None
     created_at: datetime
     updated_at: datetime
+    # computado por endpoint (nao vem do model); False so ate o router setar
+    can_edit: bool = False
