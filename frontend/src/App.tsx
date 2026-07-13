@@ -21,13 +21,17 @@ export function App() {
   const [tab, setTab] = useState<SidebarTab>("ia");
   const [activeMarkId, setActiveMarkId] = useState<string | null>(null);
   const [draftMarkId, setDraftMarkId] = useState<string | null>(null);
+  const [meErr, setMeErr] = useState(false);
 
   useEffect(() => {
     if (!token) {
       setMe(null);
       return;
     }
-    fetchMe(token).then(setMe).catch(() => {});
+    setMeErr(false);
+    // 401 ja derruba a sessao via authedFetch/handleAuthFailure; aqui so
+    // sinalizamos falhas nao-auth (500/rede) pra nao travar em "Carregando".
+    fetchMe(token).then(setMe).catch(() => setMeErr(true));
   }, [token]);
 
   function setTok(access: string, refresh: string) {
@@ -86,7 +90,16 @@ export function App() {
   }
 
   if (!token) return <Login onToken={setTok} />;
-  if (!me) return <p className="hint">Carregando usuario...</p>;
+  if (!me) {
+    return meErr ? (
+      <p className="hint">
+        Falha ao carregar usuario.{" "}
+        <button onClick={() => window.location.reload()}>Tentar de novo</button>
+      </p>
+    ) : (
+      <p className="hint">Carregando usuario...</p>
+    );
+  }
 
   return (
     <div className="app">
