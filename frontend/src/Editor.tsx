@@ -44,7 +44,6 @@ export function Editor({
   onCommentActivated: (markId: string | null) => void;
   onNewComment: (markId: string) => void;
 }) {
-  void me;
   const [status, setStatus] = useState("conectando...");
   const [title, setTitle] = useState("");
   const [editingTitle, setEditingTitle] = useState(false);
@@ -134,6 +133,7 @@ export function Editor({
         key={docId}
         ydoc={conn.ydoc}
         docId={docId}
+        me={me}
         onEditorReady={onEditorReady}
         onCommentActivated={onCommentActivated}
         onNewComment={onNewComment}
@@ -147,6 +147,7 @@ export function Editor({
 function EditorArea({
   ydoc,
   docId,
+  me,
   onEditorReady,
   onCommentActivated,
   onNewComment,
@@ -154,6 +155,7 @@ function EditorArea({
 }: {
   ydoc: Y.Doc;
   docId: string;
+  me: MeOut;
   onEditorReady: (editor: import("@tiptap/react").Editor | null) => void;
   onCommentActivated: (markId: string | null) => void;
   onNewComment: (markId: string) => void;
@@ -179,7 +181,11 @@ function EditorArea({
         Color,
         Highlight.configure({ multicolor: true }),
         CharacterCount,
-        TrackChangeExtension.configure({ enabled: false }),
+        TrackChangeExtension.configure({
+          enabled: false, // ligado via setTrackChangeStatus no useEffect abaixo
+          dataOpUserId: String(me.id),
+          dataOpUserNickname: me.full_name ?? me.email,
+        }),
         CommentExtension.configure({
           HTMLAttributes: { class: "comment-mark" },
           onCommentActivated: (commentId: string) => onCommentActivated(commentId || null),
@@ -189,6 +195,14 @@ function EditorArea({
     [ydoc],
   );
 
+  const [suggesting, setSuggesting] = useState(false);
+
+  // ABAC: viewer (sem edit) fica SEMPRE em modo sugestao; editor decide pelo toggle
+  useEffect(() => {
+    if (!editor) return;
+    editor.commands.setTrackChangeStatus(!canEdit || suggesting);
+  }, [editor, canEdit, suggesting]);
+
   useEffect(() => {
     onEditorReady(editor);
     return () => onEditorReady(null);
@@ -197,7 +211,14 @@ function EditorArea({
   if (!editor) return <p className="hint">Carregando editor...</p>;
   return (
     <>
-      <Toolbar editor={editor} docId={docId} canEdit={canEdit} onNewComment={onNewComment} />
+      <Toolbar
+        editor={editor}
+        docId={docId}
+        canEdit={canEdit}
+        onNewComment={onNewComment}
+        suggesting={!canEdit || suggesting}
+        onToggleSuggesting={() => setSuggesting((v) => !v)}
+      />
       <div className="wordcount">
         {editor.storage.characterCount.words()} palavras · {editor.storage.characterCount.characters()} caracteres
       </div>

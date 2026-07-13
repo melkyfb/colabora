@@ -15,11 +15,15 @@ export function Toolbar({
   docId,
   canEdit,
   onNewComment,
+  suggesting,
+  onToggleSuggesting,
 }: {
   editor: Editor;
   docId: string;
   canEdit: boolean;
   onNewComment: (markId: string) => void;
+  suggesting: boolean;
+  onToggleSuggesting: () => void;
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -84,6 +88,18 @@ export function Toolbar({
 
         {btn("↶", "Desfazer", () => editor.chain().focus().undo().run(), false, !editor.can().undo())}
         {btn("↷", "Refazer", () => editor.chain().focus().redo().run(), false, !editor.can().redo())}
+
+        <span className="sep" />
+
+        {btn(
+          "✎ Sugestão",
+          canEdit
+            ? "Modo sugestão: suas edições viram sugestões para aceitar/rejeitar"
+            : "Modo sugestão sempre ativo: você não tem permissão de edição direta",
+          () => canEdit && onToggleSuggesting(),
+          suggesting,
+          !canEdit,
+        )}
       </div>
 
       <div className="toolbar-row">

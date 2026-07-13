@@ -2,6 +2,7 @@ import type { Editor as TiptapEditor } from "@tiptap/react";
 
 import { AiSidebar } from "./AiSidebar";
 import { CommentsPanel } from "./CommentsPanel";
+import { SuggestionsPanel } from "./SuggestionsPanel";
 import type { MeOut } from "./api";
 
 export type SidebarTab = "ia" | "comments" | "suggestions";
@@ -45,7 +46,16 @@ export function Sidebar({
         >
           Comentários
         </button>
-        {/* aba Sugestões entra na Task 7 (só canEdit) */}
+        {canEdit && (
+          <button
+            className={tab === "suggestions" ? "active" : ""}
+            onClick={() => onTab("suggestions")}
+            disabled={!docId}
+            title="Sugestões pendentes (track changes)"
+          >
+            Sugestões
+          </button>
+        )}
       </div>
       {tab === "ia" && <AiSidebar token={token} onOpenDoc={onOpenDoc} />}
       {tab === "comments" && docId && (
@@ -60,6 +70,7 @@ export function Sidebar({
           onDraftDone={onDraftDone}
         />
       )}
+      {tab === "suggestions" && docId && canEdit && <SuggestionsPanel editor={editor} />}
     </aside>
   );
 }

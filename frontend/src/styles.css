@@ -378,3 +378,33 @@ button.ghost { background: transparent; }
 .comment-actions button {
   font-size: 11px;
 }
+
+/* Track changes: insercao verde sublinhada, delecao vermelha tachada (convencao Word/GDocs) */
+.prose insert {
+  color: #4ade80;
+  text-decoration: underline;
+}
+.prose delete {
+  color: #e24b4a;
+  text-decoration: line-through;
+}
+
+/* Painel de sugestoes */
+.suggestion-all {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.suggestion-item {
+  border: 1px solid #2a3346;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+.suggestion-type {
+  font-size: 11px;
+  color: #8b93a7;
+}
+.suggestion-text {
+  font-size: 13px;
+}
