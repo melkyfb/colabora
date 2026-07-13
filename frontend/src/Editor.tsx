@@ -48,6 +48,7 @@ export function Editor({
   const [status, setStatus] = useState("conectando...");
   const [title, setTitle] = useState("");
   const [editingTitle, setEditingTitle] = useState(false);
+  const [canEdit, setCanEdit] = useState(false);
   // provider criado em useEffect (nao useMemo): StrictMode monta/desmonta 2x em dev,
   // e useMemo deixava um provider zumbi conectando + o ativo destruido -> backoff de
   // reconexao segurava o "connecting" por ~10s. Aqui cada mount cria e destroi o seu.
@@ -83,6 +84,7 @@ export function Editor({
         if (!alive) return;
         setTitle(d.title);
         onCanEdit(d.can_edit);
+        setCanEdit(d.can_edit);
       })
       .catch(() => alive && setTitle(""));
     return () => {
@@ -135,6 +137,7 @@ export function Editor({
         onEditorReady={onEditorReady}
         onCommentActivated={onCommentActivated}
         onNewComment={onNewComment}
+        canEdit={canEdit}
       />
     </section>
   );
@@ -147,15 +150,15 @@ function EditorArea({
   onEditorReady,
   onCommentActivated,
   onNewComment,
+  canEdit,
 }: {
   ydoc: Y.Doc;
   docId: string;
   onEditorReady: (editor: import("@tiptap/react").Editor | null) => void;
   onCommentActivated: (markId: string | null) => void;
   onNewComment: (markId: string) => void;
+  canEdit: boolean;
 }) {
-  void onNewComment;
-
   const editor = useEditor(
     {
       extensions: [
@@ -194,7 +197,7 @@ function EditorArea({
   if (!editor) return <p className="hint">Carregando editor...</p>;
   return (
     <>
-      <Toolbar editor={editor} docId={docId} />
+      <Toolbar editor={editor} docId={docId} canEdit={canEdit} onNewComment={onNewComment} />
       <div className="wordcount">
         {editor.storage.characterCount.words()} palavras · {editor.storage.characterCount.characters()} caracteres
       </div>

@@ -362,3 +362,19 @@ button.ghost { background: transparent; }
   border-left: 2px solid #2a3346;
   padding-left: 8px;
 }
+
+/* Composer de comentario */
+.comment-composer textarea {
+  width: 100%;
+  min-height: 56px;
+  resize: vertical;
+  margin-bottom: 6px;
+}
+.comment-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.comment-actions button {
+  font-size: 11px;
+}

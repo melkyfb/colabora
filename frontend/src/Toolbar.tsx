@@ -10,7 +10,17 @@ const HIGHLIGHT_COLORS = ["#facc15", "#4ade80", "#38bdf8", "#f472b6", "#fb923c",
 // ponytail: toolbar propria (8-12 botoes) em vez do scaffold Tiptap UI Components.
 // Se o editor crescer (menus, dropdowns, temas), migrar pro oficial:
 // https://tiptap.dev/docs/ui-components/components/overview
-export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
+export function Toolbar({
+  editor,
+  docId,
+  canEdit,
+  onNewComment,
+}: {
+  editor: Editor;
+  docId: string;
+  canEdit: boolean;
+  onNewComment: (markId: string) => void;
+}) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const btn = (
@@ -110,6 +120,18 @@ export function Toolbar({ editor, docId }: { editor: Editor; docId: string }) {
             else editor.chain().focus().setLink({ href: url }).run();
           },
           editor.isActive("link"),
+        )}
+        {btn(
+          "💬",
+          canEdit ? "Comentar (selecione um texto)" : "Comentar (requer permissão de edição)",
+          () => {
+            if (editor.state.selection.empty) return;
+            const markId = crypto.randomUUID();
+            editor.chain().focus().setComment(markId).run();
+            onNewComment(markId);
+          },
+          false,
+          !canEdit,
         )}
 
         {editor.isActive("table") && (
