@@ -8,7 +8,7 @@ import {Extension, Mark, getMarkRange, getMarksBetween, isMarkActive, mergeAttri
 import type { CommandProps, Editor, MarkRange} from '@tiptap/core'
 import type { Transaction } from '@tiptap/pm/state'
 
-const LOG_ENABLED = true
+const LOG_ENABLED = false
 
 export const MARK_DELETION = 'deletion'
 export const MARK_INSERTION = 'insertion'
