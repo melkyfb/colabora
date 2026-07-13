@@ -216,14 +216,14 @@ const changeTrack = (opType: TRACK_COMMAND_TYPE, param: CommandProps) => {
     // set a custom meta to tail Our TrackChangeExtension to ignore this change
     // TODO: is there any official field to do this?
     currentTr.setMeta('trackManualChanged', true)
-    // patch local (spike): o tr e aplicado manualmente logo abaixo (updateState);
-    // sem este meta o CommandManager do Tiptap re-despacha o MESMO tr contra o
-    // estado ja atualizado -> "RangeError: Applying a mismatched transaction".
+    // patch local: o CommandManager do Tiptap re-despacharia o MESMO tr contra
+    // o estado ja atualizado -> "RangeError: Applying a mismatched transaction".
     currentTr.setMeta('preventDispatch', true)
-    // apply to current editor state and get a new state
-    const newState = param.editor.state.apply(currentTr)
-    // update the new state to editor to render new content
-    param.editor.view.updateState(newState)
+    // patch local: o original fazia state.apply + view.updateState (fora do
+    // pipeline normal), o que NAO emite o evento "transaction" do Tiptap ->
+    // UI reativa (painel de sugestoes, contador de palavras) ficava stale.
+    // view.dispatch passa pelo dispatchTransaction normal (eventos + y-sync).
+    param.editor.view.dispatch(currentTr)
   }
   return false
 }

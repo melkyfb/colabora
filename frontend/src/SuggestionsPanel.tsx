@@ -54,9 +54,6 @@ export function SuggestionsPanel({ editor }: { editor: TiptapEditor | null }) {
     editor.commands.setTextSelection({ from: c.from, to: c.to });
     if (accept) editor.commands.acceptChange();
     else editor.commands.rejectChange();
-    // changeTrack aplica via view.updateState (fora do dispatch normal) -> o
-    // evento "transaction" do Tiptap nao dispara; re-render explicito.
-    force();
   }
 
   return (
@@ -64,23 +61,9 @@ export function SuggestionsPanel({ editor }: { editor: TiptapEditor | null }) {
       <h2>Sugestões</h2>
       {changes.length > 0 && (
         <div className="suggestion-all">
-          {/* comandos diretos, sem chain (ver nota em act()); force() explicito
-              porque updateState do vendored nao emite "transaction" */}
-          <button
-            onClick={() => {
-              editor.commands.acceptAllChanges();
-              force();
-            }}
-          >
-            Aceitar todas
-          </button>
-          <button
-            className="ghost"
-            onClick={() => {
-              editor.commands.rejectAllChanges();
-              force();
-            }}
-          >
+          {/* comandos diretos, sem chain (ver nota em act()) */}
+          <button onClick={() => editor.commands.acceptAllChanges()}>Aceitar todas</button>
+          <button className="ghost" onClick={() => editor.commands.rejectAllChanges()}>
             Rejeitar todas
           </button>
         </div>
