@@ -96,9 +96,11 @@ File input → `convertDocument(docId atual)` →
 `editor.chain().focus().insertContent(html).run()` na posição do cursor.
 Sem estado no App.
 
-Ambos os botões desabilitados sem `can_edit` (o endpoint exige edit de
-qualquer forma — defesa em profundidade, mesmo padrão dos comentários).
-Erros mostram o `detail` retornado pelo backend, sem `alert()`.
+Gating: o botão da **toolbar** é desabilitado sem `can_edit` (o endpoint
+exige edit no doc alvo de qualquer forma — defesa em profundidade). O botão
+do **header** fica disponível pra qualquer usuário autenticado: o doc novo é
+criado por ele mesmo, e o criador é owner (derived role do Cerbos) — o check
+de edit passa. Erros mostram o `detail` retornado pelo backend, sem `alert()`.
 
 ## Erros
 
@@ -131,4 +133,5 @@ para DOCX/PDF (o "Salvar HTML" e o print já existem) · conversão em lote.
 - E2E manual no browser: importar DOCX pelo header → doc novo abre com
   formatação visível no editor; importar via toolbar no meio de doc existente
   → conteúdo entra no cursor; perguntar ao Assistente IA sobre o conteúdo
-  importado → RAG encontra; viewer (engineer_l1) não vê os botões de import.
+  importado → RAG encontra; viewer (engineer_l1) vê o botão da toolbar
+  desabilitado num doc alheio (o do header continua disponível — doc próprio).
