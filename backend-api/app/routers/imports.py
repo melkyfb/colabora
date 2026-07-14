@@ -38,8 +38,13 @@ async def convert_document(
     if len(raw) > MAX_SIZE:
         raise HTTPException(status_code=413, detail="Arquivo maior que 20MB")
 
-    # conversao e CPU-bound -> threadpool, mesmo padrao do ingest do RAG
-    html = await asyncio.to_thread(convert, raw)
+    # conversao e CPU-bound -> threadpool, mesmo padrao do ingest do RAG.
+    # bytes corrompidos com extensao valida fazem pymupdf/mammoth levantarem —
+    # contrato do spec e 4xx limpo, nao 500.
+    try:
+        html = await asyncio.to_thread(convert, raw)
+    except Exception:
+        raise HTTPException(status_code=400, detail="Arquivo corrompido ou ilegivel")
     text = html_to_text(html)
     if not text:
         raise HTTPException(status_code=400, detail="Documento sem texto extraivel")
