@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Editor as TiptapEditor } from "@tiptap/react";
 
-import { createDocument, fetchMe, type MeOut } from "./api";
+import { convertDocument, createDocument, deleteDocument, fetchMe, type MeOut } from "./api";
 import { clearTokens, getAccessToken, refreshAccessToken, registerAuthHandlers, setTokens, tokenExpiryMs } from "./auth";
 import { Editor } from "./Editor";
 import { Login } from "./Login";
@@ -22,6 +22,9 @@ export function App() {
   const [activeMarkId, setActiveMarkId] = useState<string | null>(null);
   const [draftMarkId, setDraftMarkId] = useState<string | null>(null);
   const [meErr, setMeErr] = useState(false);
+  const [pendingImport, setPendingImport] = useState<{ docId: string; html: string } | null>(null);
+  const [importErr, setImportErr] = useState("");
+  const importInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!token) {
@@ -89,6 +92,22 @@ export function App() {
     openDoc(String(d.id));
   }
 
+  async function importDoc(file: File) {
+    if (!token) return;
+    setImportErr("");
+    const title = file.name.replace(/\.[^.]+$/, "") || "Documento importado";
+    const d = await createDocument(token, title);
+    try {
+      const { html } = await convertDocument(token, String(d.id), file);
+      setPendingImport({ docId: String(d.id), html });
+      openDoc(String(d.id));
+    } catch (e) {
+      // sem docs orfaos: conversao falhou -> apaga o doc recem-criado
+      await deleteDocument(token, String(d.id)).catch(() => {});
+      setImportErr(e instanceof Error ? e.message : String(e));
+    }
+  }
+
   if (!token) return <Login onToken={setTok} />;
   if (!me) {
     return meErr ? (
@@ -114,8 +133,23 @@ export function App() {
         />
         <button onClick={() => setDocId(docInput)}>Abrir doc</button>
         <button onClick={newDoc}>Novo doc</button>
+        <button onClick={() => importInputRef.current?.click()} title="Importar PDF ou DOCX como documento novo">
+          Importar doc
+        </button>
+        <input
+          ref={importInputRef}
+          type="file"
+          accept=".pdf,.docx"
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) importDoc(f);
+            e.target.value = "";
+          }}
+        />
         <button onClick={logout}>Sair</button>
       </header>
+      {importErr && <p className="err">Falha ao importar: {importErr}</p>}
       <main>
         {docId ? (
           <Editor
@@ -133,6 +167,8 @@ export function App() {
               setActiveMarkId(markId);
               setTab("comments");
             }}
+            importHtml={pendingImport?.docId === docId ? pendingImport.html : null}
+            onImportApplied={() => setPendingImport(null)}
           />
         ) : (
           <p className="hint">Abra um doc existente (por id) ou crie um novo.</p>

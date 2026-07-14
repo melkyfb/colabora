@@ -158,3 +158,32 @@ export async function deleteComment(token: string, commentId: number): Promise<v
   const res = await authedFetch(`/api/comments/${commentId}`, token, { method: "DELETE" });
   if (!res.ok) throw new Error("Apagar comentario falhou");
 }
+
+export async function convertDocument(
+  token: string,
+  docId: string,
+  file: File,
+): Promise<{ html: string }> {
+  const form = new FormData();
+  form.append("file", file);
+  // sem Content-Type manual: o browser define o boundary do multipart
+  const res = await authedFetch(`/api/documents/${docId}/convert`, token, {
+    method: "POST",
+    body: form,
+  });
+  if (!res.ok) {
+    let detail = "Conversao falhou";
+    try {
+      detail = (await res.json()).detail ?? detail;
+    } catch {
+      // corpo nao-JSON: mantem a mensagem generica
+    }
+    throw new Error(detail);
+  }
+  return res.json();
+}
+
+export async function deleteDocument(token: string, id: string): Promise<void> {
+  const res = await authedFetch(`/api/documents/${id}`, token, { method: "DELETE" });
+  if (!res.ok) throw new Error("Apagar documento falhou");
+}

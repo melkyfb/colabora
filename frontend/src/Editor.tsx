@@ -35,6 +35,8 @@ export function Editor({
   onCanEdit,
   onCommentActivated,
   onNewComment,
+  importHtml,
+  onImportApplied,
 }: {
   token: string;
   docId: string;
@@ -43,11 +45,14 @@ export function Editor({
   onCanEdit: (canEdit: boolean) => void;
   onCommentActivated: (markId: string | null) => void;
   onNewComment: (markId: string) => void;
+  importHtml: string | null;
+  onImportApplied: () => void;
 }) {
   const [status, setStatus] = useState("conectando...");
   const [title, setTitle] = useState("");
   const [editingTitle, setEditingTitle] = useState(false);
   const [canEdit, setCanEdit] = useState(false);
+  const [synced, setSynced] = useState(false);
   // provider criado em useEffect (nao useMemo): StrictMode monta/desmonta 2x em dev,
   // e useMemo deixava um provider zumbi conectando + o ativo destruido -> backoff de
   // reconexao segurava o "connecting" por ~10s. Aqui cada mount cria e destroi o seu.
@@ -55,6 +60,7 @@ export function Editor({
 
   useEffect(() => {
     if (!token) return;
+    setSynced(false);
     const ydoc = new Y.Doc();
     const provider = new HocuspocusProvider({
       url: WS_URL,
@@ -66,6 +72,7 @@ export function Editor({
         handleAuthFailure();
       },
       onStatus: (e: { status: string }) => setStatus(e.status),
+      onSynced: () => setSynced(true),
     });
     setConn({ ydoc, provider });
     return () => {
@@ -138,6 +145,8 @@ export function Editor({
         onCommentActivated={onCommentActivated}
         onNewComment={onNewComment}
         canEdit={canEdit}
+        importHtml={synced ? importHtml : null}
+        onImportApplied={onImportApplied}
       />
     </section>
   );
@@ -152,6 +161,8 @@ function EditorArea({
   onCommentActivated,
   onNewComment,
   canEdit,
+  importHtml,
+  onImportApplied,
 }: {
   ydoc: Y.Doc;
   docId: string;
@@ -160,6 +171,8 @@ function EditorArea({
   onCommentActivated: (markId: string | null) => void;
   onNewComment: (markId: string) => void;
   canEdit: boolean;
+  importHtml: string | null;
+  onImportApplied: () => void;
 }) {
   const editor = useEditor(
     {
@@ -207,6 +220,14 @@ function EditorArea({
     onEditorReady(editor);
     return () => onEditorReady(null);
   }, [editor]);
+
+  // injecao do import (fluxo header): so depois do synced do provider, pra
+  // substituir o conteudo semeado pelo onLoadDocument em vez de colidir com ele
+  useEffect(() => {
+    if (!editor || !importHtml) return;
+    editor.commands.setContent(importHtml);
+    onImportApplied();
+  }, [editor, importHtml]);
 
   if (!editor) return <p className="hint">Carregando editor...</p>;
   return (
