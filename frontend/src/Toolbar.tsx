@@ -17,6 +17,7 @@ export function Toolbar({
   onNewComment,
   suggesting,
   onToggleSuggesting,
+  onImportFile,
 }: {
   editor: Editor;
   docId: string;
@@ -24,8 +25,10 @@ export function Toolbar({
   onNewComment: (markId: string) => void;
   suggesting: boolean;
   onToggleSuggesting: () => void;
+  onImportFile: (file: File) => void;
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const importInputRef = useRef<HTMLInputElement>(null);
 
   const btn = (
     label: string,
@@ -149,6 +152,13 @@ export function Toolbar({
           false,
           !canEdit,
         )}
+        {btn(
+          "📥",
+          canEdit ? "Importar PDF/DOCX no documento" : "Importar (requer permissão de edição)",
+          () => importInputRef.current?.click(),
+          false,
+          !canEdit,
+        )}
 
         {editor.isActive("table") && (
           <>
@@ -187,6 +197,17 @@ export function Toolbar({
             e.target.value = "";
           }}
           style={{ display: "none" }}
+        />
+        <input
+          ref={importInputRef}
+          type="file"
+          accept=".pdf,.docx"
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) onImportFile(f);
+            e.target.value = "";
+          }}
         />
       </div>
     </div>

@@ -21,7 +21,7 @@ import StarterKit from "@tiptap/starter-kit";
 import { useEffect, useState } from "react";
 import * as Y from "yjs";
 
-import { getDocument, updateDocument } from "./api";
+import { convertDocument, getDocument, updateDocument } from "./api";
 import type { MeOut } from "./api";
 import { handleAuthFailure } from "./auth";
 import { WS_URL } from "./config";
@@ -147,6 +147,7 @@ export function Editor({
         canEdit={canEdit}
         importHtml={synced ? importHtml : null}
         onImportApplied={onImportApplied}
+        token={token}
       />
     </section>
   );
@@ -163,6 +164,7 @@ function EditorArea({
   canEdit,
   importHtml,
   onImportApplied,
+  token,
 }: {
   ydoc: Y.Doc;
   docId: string;
@@ -173,6 +175,7 @@ function EditorArea({
   canEdit: boolean;
   importHtml: string | null;
   onImportApplied: () => void;
+  token: string;
 }) {
   const editor = useEditor(
     {
@@ -229,6 +232,19 @@ function EditorArea({
     onImportApplied();
   }, [editor, importHtml]);
 
+  const [toolbarImportErr, setToolbarImportErr] = useState("");
+
+  async function importIntoDoc(file: File) {
+    if (!editor) return;
+    setToolbarImportErr("");
+    try {
+      const { html } = await convertDocument(token, docId, file);
+      editor.chain().focus().insertContent(html).run();
+    } catch (e) {
+      setToolbarImportErr(e instanceof Error ? e.message : String(e));
+    }
+  }
+
   if (!editor) return <p className="hint">Carregando editor...</p>;
   return (
     <>
@@ -239,7 +255,9 @@ function EditorArea({
         onNewComment={onNewComment}
         suggesting={!canEdit || suggesting}
         onToggleSuggesting={() => setSuggesting((v) => !v)}
+        onImportFile={importIntoDoc}
       />
+      {toolbarImportErr && <p className="err">Falha ao importar: {toolbarImportErr}</p>}
       <div className="wordcount">
         {editor.storage.characterCount.words()} palavras · {editor.storage.characterCount.characters()} caracteres
       </div>
