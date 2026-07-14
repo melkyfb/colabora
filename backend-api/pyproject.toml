@@ -28,6 +28,8 @@ dependencies = [
     "sentence-transformers>=2.7",
     "opensearch-py>=2.4",
     "pypdf>=4.0",
+    "mammoth>=1.6",              # DOCX -> HTML semantico (conversao de documentos)
+    "pymupdf>=1.24",             # PDF -> HTML com heuristicas (conversao de documentos)
     # ── LLM chat (Fase 5) ── provider selecionado por env
     "langchain-anthropic>=0.2",
     "langchain-openai>=0.2",
