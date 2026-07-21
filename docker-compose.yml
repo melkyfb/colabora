@@ -163,6 +163,7 @@ services:
       - hf_cache:/root/.cache/huggingface   # cache do modelo de embeddings (Fase 4)
     networks:
       - nyx_net
+      - proxy-net
 
   # ── realtime-server: Hocuspocus (Fase 3). Via Expressa WS/CRDT. WS vai DIRETO aqui ──
   realtime-server:
@@ -197,6 +198,7 @@ services:
     command: ["npm", "run", "dev"]
     networks:
       - nyx_net
+      - proxy-net
 
   # ── frontend: React + Vite + Tiptap + Y.js (Fase 5). Browser conecta WS DIRETO ao Node ──
   frontend:
@@ -226,6 +228,7 @@ services:
       - /app/node_modules
     networks:
       - nyx_net
+      - proxy-net
 
 volumes:
   mysql_data:
@@ -236,3 +239,5 @@ volumes:
 networks:
   nyx_net:
     driver: bridge
+  proxy-net:
+    external: true
