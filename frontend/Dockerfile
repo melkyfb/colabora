@@ -2,8 +2,9 @@ FROM node:20-slim
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm ci --legacy-peer-deps
+COPY package*.json ./
+COPY .npmrc ./
+RUN npm ci
 
 COPY . .
 
