@@ -29,13 +29,13 @@
         dest: "{{ project_dir }}/.env"
         mode: '0600'
         content: |
-          MYSQL_ROOT_PASSWORD={{ mysql_root_password }}
-          MYSQL_DATABASE=nyx_db
-          MYSQL_USER=nyx_user
-          MYSQL_PASSWORD={{ mysql_password }}
-          JWT_SECRET={{ jwt_secret }}
-          HOCUSPOCUS_WEBHOOK_SECRET={{ hocuspocus_secret }}
-          INTERNAL_API_KEY={{ internal_api_key }}
+          MYSQL_ROOT_PASSWORD={{ lookup('env', 'MYSQL_ROOT_PASSWORD') }}
+          MYSQL_DATABASE={{ lookup('env', 'MYSQL_DATABASE') | default('nyx_db') }}
+          MYSQL_USER={{ lookup('env', 'MYSQL_USER') | default('nyx_user') }}
+          MYSQL_PASSWORD={{ lookup('env', 'MYSQL_PASSWORD') }}
+          JWT_SECRET={{ lookup('env', 'JWT_SECRET') }}
+          HOCUSPOCUS_WEBHOOK_SECRET={{ lookup('env', 'HOCUSPOCUS_WEBHOOK_SECRET') }}
+          INTERNAL_API_KEY={{ lookup('env', 'INTERNAL_API_KEY') }}
 
     - name: 5. Subir os contêineres via Docker Compose
       community.docker.docker_compose_v2:
