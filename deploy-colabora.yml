@@ -1,0 +1,44 @@
+---
+- name: Deploy da Plataforma Colabora
+  hosts: hpserver
+  become: true
+  vars:
+    project_dir: /opt/stacks/colabora
+
+  tasks:
+    - name: 1. Garantir que a pasta da stack existe
+      ansible.builtin.file:
+        path: "{{ project_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: 2. Atualizar o código do repositório
+      ansible.builtin.git:
+        repo: "https://github.com/melkyfb/colabora.git"
+        dest: "{{ project_dir }}"
+        version: main
+        force: yes
+
+    - name: 3. Garantir que a rede externa proxy-net existe no Docker
+      community.docker.docker_network:
+        name: proxy-net
+        state: present
+
+    - name: 4. Criar/Atualizar o arquivo .env
+      ansible.builtin.copy:
+        dest: "{{ project_dir }}/.env"
+        mode: '0600'
+        content: |
+          MYSQL_ROOT_PASSWORD={{ mysql_root_password }}
+          MYSQL_DATABASE=nyx_db
+          MYSQL_USER=nyx_user
+          MYSQL_PASSWORD={{ mysql_password }}
+          JWT_SECRET={{ jwt_secret }}
+          HOCUSPOCUS_WEBHOOK_SECRET={{ hocuspocus_secret }}
+          INTERNAL_API_KEY={{ internal_api_key }}
+
+    - name: 5. Subir os contêineres via Docker Compose
+      community.docker.docker_compose_v2:
+        project_src: "{{ project_dir }}"
+        state: present
+        build: always
