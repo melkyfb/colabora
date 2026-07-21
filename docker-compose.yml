@@ -212,8 +212,8 @@ services:
         condition: service_healthy
     environment:
       # URLs lidas pelo browser (host) -> portas expostas, nao nomes de servico
-      VITE_API_URL: http://localhost:${BACKEND_PORT:-8000}
-      VITE_WS_URL: ws://localhost:${HOCUSPOCUS_PORT:-1234}
+      VITE_API_URL: ${VITE_API_URL:-https://colabora-api.melky.tech}
+      VITE_WS_URL: ${VITE_WS_URL:-wss://colabora-ws.melky.tech}
       CHOKIDAR_USEPOLLING: "true"
     ports:
       - "${FRONTEND_PORT:-5173}:5173"
